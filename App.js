@@ -4,7 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>!Hola Coder, esta es mi app. Planeo hacer una app de booking pero con lugares ficticios_</Text>
+      <Text>Pieza disponible en mi casa en Tatooine</Text>
+      <Text>Habitación de lujo en Minas Tirith</Text>
+      <Text>Apartanento en Revachol</Text>
+      <Text></Text>
       <StatusBar style="auto" />
     </View>
   );
