@@ -43,12 +43,21 @@ const styles = StyleSheet.create({
        aspectRatio: 1,
        overflow: 'hidden'
     },
+    likeImage:{
+        width: 40,
+        height: 40,
+        resizeMode: 'cover',
+        alignSelf:'flex-end',
+        margin:10,
+        marginHorizontal:12,
+    },
     removeLikeBtn: {
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#46C7BA50',
-        borderRadius:10,
-        padding:2,
+        width: 40,
+        height: 40,
+        resizeMode: 'cover',
+        alignSelf:'flex-end',
+        margin:10,
+        marginHorizontal:12,
     }
 })
 
