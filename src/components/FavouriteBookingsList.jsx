@@ -1,67 +1,75 @@
-import { FlatList, StyleSheet, Text, View } from "react-native"
+import { FlatList, Image, StyleSheet, Text, View } from "react-native"
 
-let favouriteBookings = [
-    {key:'Valaki', ubication:'Valaki', address:'Casa cerca de la iglesia', host:'Blinsky'}, 
-    {key:'Minas Tirith', ubication:'Minas Tirith', address:'Segundo Nivel de la ciudadela', host:'Guardia de Gondor'}, 
-    {key:'Narshe', ubication:'Narshe', address:'En las minas abandondas', host: 'Moogle'}, 
-    {key:'Medina Village', ubication:'Medina Village', address:'Casa del anciano', host:'Descendiente de Vinnie'},
-    {key:'Valakiasd', ubication:'Valaki', address:'Casa cerca de la iglesia', host:'Blinsky'}, 
-    {key:'Minas Tiritasdh', ubication:'Minas Tirith', address:'Segundo Nivel de la ciudadela', host:'Guardia de Gondor'}, 
-    {key:'Narsasvhe', ubication:'Narshe', address:'En las minas abandondas', host: 'Moogle'}, 
-    {key:'Medizxcvgna Village', ubication:'Medina Village', address:'Casa del anciano', host:'Descendiente de Vinnie'},
-    {key:'Vanfsnlaki', ubication:'Valaki', address:'Casa cerca de la iglesia', host:'Blinsky'}, 
-    {key:'Mighsnas Tirith', ubication:'Minas Tirith', address:'Segundo Nivel de la ciudadela', host:'Guardia de Gondor'}, 
-    {key:'Nats5rshe', ubication:'Narshe', address:'En las minas abandondas', host: 'Moogle'}, 
-    {key:'Mehshdina Village', ubication:'Medina Village', address:'Casa del anciano', host:'Descendiente de Vinnie'},
-    {key:'Vagfnlaki', ubication:'Valaki', address:'Casa cerca de la iglesia', host:'Blinsky'}, 
-    {key:'Mind4ghhnas Tirith', ubication:'Minas Tirith', address:'Segundo Nivel de la ciudadela', host:'Guardia de Gondor'}, 
-    {key:'Nar53she', ubication:'Narshe', address:'En las minas abandondas', host: 'Moogle'}, 
-    {key:'Medj5ina Village', ubication:'Medina Village', address:'Casa del anciano', host:'Descendiente de Vinnie'}
-]
-
-const Item = ({ubication, address, key}) => (
-    <View style={styles.itemContainer}>
-        <View>
-            <Text>{ubication}</Text> 
-        </View>
-        <View>
-            <Text>{address}</Text>
-        </View>
-    </View>
-)
-
+import Card from "./Card/index";
+import favouriteBookings from "../db/favouriteBookings";
+import { useEffect, useState } from "react";
+import ModalDelete from "./ModalDelete/ModalDelete";
 
 function FavouriteBookingsList() {
+    const [data, setData] = useState([])  
+    const [isModalVisible, setIsModalVisible] = useState(false)
+    const [itemSelected, setItemSelected] = useState([])
 
+    useEffect(() => {
+        setData(favouriteBookings)
+    },[])
 
-    return(
-        <View >
-            <Text style={styles.favoriteBookingsTitle}>My Favorite Bookings</Text>
-            <FlatList 
-                data={favouriteBookings}
-                renderItem={({item, index}) => <Item ubication={item.ubication} address={item.address}/>}
-                keyExtractor={item => item.key}
-                horizontal={false}
-                numColumns={2}
-                ListFooterComponent={<View></View>}
-                />
-        </View>
-    )
+    const onHandleModalDelete = (id) => {
+        let item = data.find(element => element.key == id)
+        setIsModalVisible(true)
+        setItemSelected(item)
+    }
+
+    const onHandleDelete = (item) => {
+        let newItemList = data.filter(element => element.key != item.key)
+        setData(newItemList)
+        setIsModalVisible(false)
+    }
+    
+    return (
+      <>
+        {data == "" ? (
+          <Text>There is no favourite bookings, find one that you like!</Text>
+        ) : (
+          <FlatList
+            data={data}
+            renderItem={({ item, index }) => (
+              <Card
+                id={item.key}
+                ubication={item.ubication}
+                firstdescription={item.firstdescription}
+                cardImages={item.cardImages}
+                onHandleModalDelete={onHandleModalDelete}
+              />
+            )}
+            keyExtractor={(item) => item.key}
+            ListFooterComponent={<View></View>}
+            ListHeaderComponent={
+              <Text style={styles.favoriteBookingsTitle}>
+                My Favorite Bookings
+              </Text>
+            }
+            initialNumToRender={8}
+          />
+        )}
+        {isModalVisible && (
+          <ModalDelete
+            onHandleDelete={onHandleDelete}
+            itemSelected={itemSelected}
+          />
+        )}
+      </>
+    );
 }
 
 export default FavouriteBookingsList
 
 const styles = StyleSheet.create({
     favoriteBookingsTitle:{
-        fontSize:24,
-        paddingTop:4,
+        fontSize:17,
+        paddingTop:10,
+        textAlign:'center'
     },
-    itemContainer: {
-        flex:1,
-        height: 170,
-        padding:12,
-        backgroundColor:'#58CCB1',
-        margin:12,
-        borderRadius:10
-    }
+
+
 })
