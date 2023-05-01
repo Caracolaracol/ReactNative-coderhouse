@@ -25,6 +25,10 @@ function FavouriteBookingsList() {
         setData(newItemList)
         setIsModalVisible(false)
     }
+
+    const onHandleCancel = () => {
+        setIsModalVisible(false)
+    }
     
     return (
       <>
@@ -56,6 +60,7 @@ function FavouriteBookingsList() {
           <ModalDelete
             onHandleDelete={onHandleDelete}
             itemSelected={itemSelected}
+            onHandleCancel={onHandleCancel}
           />
         )}
       </>
