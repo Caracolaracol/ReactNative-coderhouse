@@ -43,7 +43,9 @@ export default function Card({ otherStyles, ubication, firstdescription, cardIma
           </View>
         </View>
         <View style={styles.itemBodyRemove}>
-          <TouchableOpacity onPress={() => onHandleModalDelete(id)} style={styles.removeLikeBtn}><Text>Quitar de favoritos</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => onHandleModalDelete(id)} style={styles.removeLikeBtn}>
+            <Text>Quitar de favoritos</Text>
+            </TouchableOpacity>
         </View>
       </View>
     </View>

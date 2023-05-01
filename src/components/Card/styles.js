@@ -44,8 +44,11 @@ const styles = StyleSheet.create({
        overflow: 'hidden'
     },
     removeLikeBtn: {
-        backgroundColor:'rgba(180,25,25,0.8)',
-        padding:2
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'#46C7BA50',
+        borderRadius:10,
+        padding:2,
     }
 })
 
