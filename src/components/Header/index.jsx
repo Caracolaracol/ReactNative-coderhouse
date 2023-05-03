@@ -9,10 +9,10 @@ export default function Header() {
         <Text style={{ fontSize: 24 }}>Fantasy Booking</Text>
       </View>
       <View>
-        <Image
+       {/*  <Image
           style={styles.logoImage}
           source={require("../../assets/logo1.jpg")}
-        />
+        /> */}
       </View>
     </>
   );

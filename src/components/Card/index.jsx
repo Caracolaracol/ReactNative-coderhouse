@@ -5,7 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import styles from './styles'
 import likeLogo from "../../assets/likebtn.png"
-import Svg, {G, Path,} from 'react-native-svg'
 
 export default function Card({ otherStyles, ubication, firstdescription, cardImages, onHandleModalDelete, id }) {
 
@@ -54,7 +53,6 @@ export default function Card({ otherStyles, ubication, firstdescription, cardIma
             <Text>noche</Text>
           </View>
         </View>
-
       </View>
     </View>
   );

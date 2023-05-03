@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
         alignSelf:'flex-end',
         margin:10,
         marginHorizontal:12,
+        opacity:0.9
     },
     removeLikeBtn: {
         width: 40,

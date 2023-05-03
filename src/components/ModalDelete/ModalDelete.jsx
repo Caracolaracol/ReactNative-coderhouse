@@ -1,41 +1,59 @@
-import { View, Text, StyleSheet, Button, Modal} from 'react-native'
+import { View, Text, StyleSheet, Button, Modal, Pressable} from 'react-native'
 import React from 'react'
 
 export default function ModalDelete({onHandleDelete, itemSelected, onHandleCancel}) {
-
   return (
-
-      <Modal animationType='fade' transparent={true}>
-        <View style={styles.modalView}>
-          <Text>Are you sure you want to Delete this Booking from your favourites?</Text>
-          <Text></Text>
-          <View style={{flexDirection:'row', gap:20}}>
-
-            <Button 
-            title="Remove"
-            color={'red'}
-            onPress={() => onHandleDelete(itemSelected)}
-            />
-            <Button 
-            title="Cancel"
-            color={'red'}
-            onPress={() => onHandleCancel()}
-            />
+    <View style={styles.modalContainer}>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        onRequestClose={() => onHandleCancel()}
+      >
+        <Pressable
+          style={styles.modalOuter}
+          onPress={(event) => {event.target == event.currentTarget &&onHandleCancel()}}
+        >
+          <View style={styles.modalInner}>
+            <Text>
+              Are you sure you want to Delete this Booking from your favourites?
+            </Text>
+            <Text></Text>
+            <View style={{ flexDirection: "row", gap: 20 }}>
+              <Button
+                title="Remove"
+                color={"red"}
+                onPress={() => onHandleDelete(itemSelected)}
+              />
+              <Button
+                title="Cancel"
+                color={"red"}
+                onPress={() => onHandleCancel()}
+              />
+            </View>
           </View>
-        </View>
+        </Pressable>
       </Modal>
-  )
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-modalView: {
+  modalContainer: {
     flex:1,
-    flexDirection:'column',
-    justifyContent:"center",
-    alignItems:"center",
+  },
+  modalOuter: {
+      backgroundColor: "rgba(1, 1, 1, 0.2)",
+      flex: 1,
+  },
+  modalInner: {
+    flex:1,
     backgroundColor:'white',
-    margin:20,
-    padding:40,
+    padding:18,
+    borderRadius:12,
+    margin:50,
+    marginVertical:'80%',
+    justifyContent:'center',
+    alignItems:'center',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -44,6 +62,5 @@ modalView: {
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-
-}
+  }
 })
