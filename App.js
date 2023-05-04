@@ -7,36 +7,28 @@ import Header from './src/components/Header/index'
 import NavBar from './src/components/NavBar';
 import { useFonts } from 'expo-font';
 import { useCallback } from 'react';
-import * as SplashScreen from 'expo-splash-screen';
-
-SplashScreen.preventAutoHideAsync();
+import Favourites from './src/pages/Favourites';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     "Atkinson-Hyperlegible-Regular-102": require("./src/assets/fonts/Atkinson-Hyperlegible-Regular-102.ttf"),
   })
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
 
   if (!fontsLoaded) {
     return null
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
+    <View style={styles.container} >
       <View style={styles.headerContainer}> 
        <Header />
       </View>
       <View style={styles.FlatListContainer}>
-        <FavouriteBookingsList />
+        <Favourites />
       </View>
       <View style={styles.navBarContainer}>
         <NavBar/>
       </View>
-
     </View>
   );
 }

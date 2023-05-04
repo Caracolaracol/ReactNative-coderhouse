@@ -20,7 +20,6 @@ const SearchBooking = ({data, onHandleSearch}) => {
                 value={value}
                 placeholder='Buscar booking'
                 onSubmitEditing={onSubmitText}/>
-                
         </View>
     )
 }
