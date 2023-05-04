@@ -1,14 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View,} from 'react-native';
+
+import colors from './src/constants/colors'
+
 import FavouriteBookingsList from './src/components/FavouriteBookingsList';
 import Header from './src/components/Header/index'
 import NavBar from './src/components/NavBar';
+import { useFonts } from 'expo-font';
+import { useCallback } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
 
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Atkinson-Hyperlegible-Regular-102": require("./src/assets/fonts/Atkinson-Hyperlegible-Regular-102.ttf"),
+  })
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null
+  }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
       <View style={styles.headerContainer}> 
        <Header />
       </View>
@@ -26,12 +44,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d7d8ed",
+    backgroundColor: colors.white,
   },
   headerContainer: {
     flex: 1.8,
     flexDirection:'row',
-    backgroundColor:"#39a48c",
+    backgroundColor: colors.turquoise,
     width: '100%',
     justifyContent: 'space-between',
     alignItems:'flex-end',
@@ -51,7 +69,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     width:'100%',
     height:'100%',
-    backgroundColor:'#39a48c',
+    backgroundColor:colors.turquoise,
     justifyContent:'space-evenly',
     alignItems:'flex-end',
     shadowColor: "black",
