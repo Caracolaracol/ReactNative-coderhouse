@@ -1,5 +1,6 @@
 export default {
     // Main Colors
-    turquoise: "#39a48c",
-    white:"#d7d8ed"
+    blue: "#493757",
+    yellow:"#ffc994",
+    white:"#faf3f8"
 }

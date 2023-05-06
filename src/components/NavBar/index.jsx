@@ -5,20 +5,20 @@ const NavBar = () => {
   return (
     <>
       <View style={styles.btnContainer}>
-      <Text>Explora</Text>
+      <Text  style={{fontFamily: 'charlotte', fontSize:16}}>Explora</Text>
 
       </View>
       <View style={styles.btnContainer}>
 
-      <Text>Favoritos</Text>
+      <Text style={{fontFamily: 'charlotte', fontSize:16}}>Favoritos</Text>
       </View>
       <View style={styles.btnContainer}>
-      <Text>Notificaciones</Text>
+      <Text style={{fontFamily: 'charlotte', fontSize:16}}>Notificaciones</Text>
 
       </View>
       <View style={styles.btnContainer}>
 
-      <Text>Perfil</Text>
+      <Text style={{fontFamily: 'charlotte', fontSize:16}}>Perfil</Text>
       </View>
     </>
   )

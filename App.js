@@ -1,56 +1,61 @@
-import { StyleSheet, View,} from 'react-native';
-
+import { StyleSheet, View, Text, ImageBackground} from 'react-native';
 import colors from './src/constants/colors'
-
-import FavouriteBookingsList from './src/components/FavouriteBookingsList';
 import Header from './src/components/Header/index'
 import NavBar from './src/components/NavBar';
 import { useFonts } from 'expo-font';
-import { useCallback } from 'react';
+
 import Favourites from './src/pages/Favourites';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    "Atkinson-Hyperlegible-Regular-102": require("./src/assets/fonts/Atkinson-Hyperlegible-Regular-102.ttf"),
-  })
+ const [fontsLoaded] = useFonts({ 
+    "Inter-Bold": require("./src/assets/fonts/Inter-Bold.otf"),
+    "veltic": require('./src/assets/fonts/veltic.ttf'),
+    "MORGANA": require('./src/assets/fonts/MORGANA.ttf'),
+    "charlotte": require('./src/assets/fonts/charlotte.ttf')
+  }) 
 
+  
   if (!fontsLoaded) {
-    return null
-  }
+    return <Text>Cargando</Text>
+  } 
 
   return (
-    <View style={styles.container} >
-      <View style={styles.headerContainer}> 
-       <Header />
+      <View style={styles.container}>
+          <StatusBar />
+          <View style={styles.headerContainer}>
+
+              <Header />
+
+          </View>
+          <View style={styles.FlatListContainer}>
+            <Favourites />
+          </View>
+          <View style={styles.navBarContainer}>
+            <NavBar/>
+          </View>
       </View>
-      <View style={styles.FlatListContainer}>
-        <Favourites />
-      </View>
-      <View style={styles.navBarContainer}>
-        <NavBar/>
-      </View>
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white,
+    flex:1,
+    backgroundColor:colors.white,
+
   },
   headerContainer: {
-    flex: 1.8,
+    flex: 1.1,
     flexDirection:'row',
-    backgroundColor: colors.turquoise,
+    paddingTop:22,
+    backgroundColor: colors.yellow,
     width: '100%',
     justifyContent: 'space-between',
-    alignItems:'flex-end',
-    paddingBottom:10,
-    paddingHorizontal:20,
+    overflow:'hidden',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 20,
+      height: 0,
     },
     shadowOpacity: 0.95,
     shadowRadius: 10,
@@ -59,9 +64,7 @@ const styles = StyleSheet.create({
   navBarContainer: {
     flex:1.2,
     flexDirection:'row',
-    width:'100%',
-    height:'100%',
-    backgroundColor:colors.turquoise,
+    backgroundColor:colors.yellow,
     justifyContent:'space-evenly',
     alignItems:'flex-end',
     shadowColor: "black",
@@ -70,9 +73,9 @@ const styles = StyleSheet.create({
       height: 0,
     },
     shadowOpacity: 1,
-    shadowRadius: 100,
-    elevation: 99,
-    zIndex:99
+    shadowRadius: 10,
+    elevation: 5,
+    zIndex:4
   },
 /*   navBarContainer: {
     flex:1,

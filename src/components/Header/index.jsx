@@ -3,7 +3,9 @@ import styles from "./styles";
 import React, { useCallback } from "react";
 import { useFonts } from "expo-font";
 
+
 export default function Header() {
+
 
 
 
@@ -11,10 +13,10 @@ export default function Header() {
   return (
     <>
       <View style={styles.titleContainer}>
-        <Text style={{ fontSize: 24, fontFamily:"Atkinson-Hyperlegible-Regular-102" }}>Fantasy Booking</Text>
+        <Text style={{ fontSize: 48, color:'#493757', fontFamily:'MORGANA' }}>torchnd</Text>
       </View>
       <View>
-       {/*  <Image
+       {/*  <Imager
           style={styles.logoImage}
           source={require("../../assets/logo1.jpg")}
         /> */}
