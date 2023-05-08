@@ -1,40 +1,58 @@
-import { StyleSheet, View, Text, ImageBackground} from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, View, Text, ImageBackground } from 'react-native';
+import { useFonts } from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
+
 import colors from './src/constants/colors'
 import Header from './src/components/Header/index'
 import NavBar from './src/components/NavBar';
-import { useFonts } from 'expo-font';
-
 import Favourites from './src/pages/Favourites';
-import { StatusBar } from 'expo-status-bar';
+import Explore from './src/pages/Explore';
+import Notifications from './src/pages/Notfications';
+import Profile from './src/pages/Profile';
+
 
 export default function App() {
- const [fontsLoaded] = useFonts({ 
+  const [section, setSection] = useState('explore')
+  const [fontsLoaded] = useFonts({ 
     "Inter-Bold": require("./src/assets/fonts/Inter-Bold.otf"),
     "veltic": require('./src/assets/fonts/veltic.ttf'),
-    "MORGANA": require('./src/assets/fonts/MORGANA.ttf'),
-    "charlotte": require('./src/assets/fonts/charlotte.ttf')
-  }) 
+   "MORGANA": require('./src/assets/fonts/MORGANA.ttf'),
+ })
 
-  
+
   if (!fontsLoaded) {
     return <Text>Cargando</Text>
-  } 
+  }
+  const onHandleExplore = () => {
+    section != 'explore' ? setSection('explore') : ''
+  }
+  const onHandleFavs = () => {
+    section != 'favs' ? setSection('favs') : ''
+  }
+  const onHandleNotifications = () => {
+    section != 'notifications' ? setSection('notifications') : ''
+  }
+  const onHandleProfile = () => {
+    section != 'profile' ? setSection('profile') : ''
+  }
 
   return (
-      <View style={styles.container}>
-          <StatusBar />
-          <View style={styles.headerContainer}>
-
-              <Header />
-
-          </View>
-          <View style={styles.FlatListContainer}>
-            <Favourites />
-          </View>
-          <View style={styles.navBarContainer}>
-            <NavBar/>
-          </View>
+    <View style={styles.container}>
+      <StatusBar />
+      <ImageBackground source={require('./src/assets/bg2.png')} style={styles.headerContainer}>
+        <Header />
+      </ImageBackground>
+      <View style={styles.FlatListContainer}>
+        { section == 'explore' && <Explore /> }
+        { section == 'favs' && <Favourites /> }
+        { section == 'notifications' && <Notifications /> }
+        { section == 'profile' && <Profile /> }
       </View>
+      <ImageBackground source={require('./src/assets/bg2.png')} style={styles.navBarContainer}>
+        <NavBar onHandleExplore={onHandleExplore} onHandleFavs={onHandleFavs} onHandleNotifications={onHandleNotifications} onHandleProfile={onHandleProfile}/>
+      </ImageBackground>
+    </View>
   );
 }
 
@@ -45,13 +63,15 @@ const styles = StyleSheet.create({
 
   },
   headerContainer: {
-    flex: 1.1,
+    flex: 1.5,
     flexDirection:'row',
-    paddingTop:22,
     backgroundColor: colors.yellow,
     width: '100%',
-    justifyContent: 'space-between',
+    height:'100%',
     overflow:'hidden',
+    borderBottomColor:'#caa59e',
+    borderBottomWidth:0.3,
+    borderStyle:'dashed',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -64,6 +84,11 @@ const styles = StyleSheet.create({
   navBarContainer: {
     flex:1.2,
     flexDirection:'row',
+    width: '100%',
+    height:'100%',
+    borderTopColor:'#caa59e',
+    borderTopWidth:0.3,
+    borderStyle:'dashed',
     backgroundColor:colors.yellow,
     justifyContent:'space-evenly',
     alignItems:'flex-end',
@@ -77,17 +102,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     zIndex:4
   },
-/*   navBarContainer: {
-    flex:1,
-    flexDirection:'row',
-    gap:4,
-    justifyContent:'space-evenly',
-    position:'absolute',
-    top:118,
-    left:20,
-    zIndex:-1,
-    backgroundColor:'transparent',
-  }, */
   FlatListContainer: {
     flex:14,
     zIndex:-10

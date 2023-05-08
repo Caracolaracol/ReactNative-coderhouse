@@ -1,24 +1,35 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 
-const NavBar = () => {
+const NavBar = ({onHandleExplore, onHandleFavs, onHandleNotifications, onHandleProfile}) => {
+
+
   return (
     <>
       <View style={styles.btnContainer}>
-      <Text  style={{fontFamily: 'charlotte', fontSize:16}}>Explora</Text>
+        <Pressable onPress={onHandleExplore}>
+          <Text  style={{fontFamily: 'MORGANA', fontSize:24, color:'#493757'}}>explore</Text>
+        </Pressable>
 
       </View>
       <View style={styles.btnContainer}>
+      <Pressable onPress={onHandleFavs}>
 
-      <Text style={{fontFamily: 'charlotte', fontSize:16}}>Favoritos</Text>
+        <Text style={{fontFamily: 'MORGANA', fontSize:24, color:'#493757'}}>favourites</Text>
+      </Pressable>
       </View>
       <View style={styles.btnContainer}>
-      <Text style={{fontFamily: 'charlotte', fontSize:16}}>Notificaciones</Text>
+      <Pressable onPress={onHandleNotifications}>
+
+        <Text style={{fontFamily: 'MORGANA', fontSize:24, color:'#493757'}}>notifications</Text>
+      </Pressable>
 
       </View>
       <View style={styles.btnContainer}>
+      <Pressable onPress={onHandleProfile}>
 
-      <Text style={{fontFamily: 'charlotte', fontSize:16}}>Perfil</Text>
+        <Text style={{fontFamily: 'MORGANA', fontSize:24, color:'#493757'}}>profile</Text>
+      </Pressable>
       </View>
     </>
   )

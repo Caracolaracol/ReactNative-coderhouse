@@ -1,13 +1,91 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import FavouriteBookingsList from '../components/FavouriteBookingsList'
+import { View, Text, StyleSheet } from 'react-native'
+import React, { useEffect, useState } from 'react'
+
+import favouriteBookings from "../db/favouriteBookings";
 
 const Favourites = () => {
+  const [data, setData] = useState([])  
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [itemSelected, setItemSelected] = useState([])
+  
+  useEffect(() => {
+      setData(favouriteBookings)
+  },[])
+  
+  const onHandleModalDelete = (id) => {
+      let item = data.find(element => element.key == id)
+      setIsModalVisible(true)
+      setItemSelected(item)
+  }
+
+  const onHandleDelete = (item) => {
+      let newItemList = data.filter(element => element.key != item.key)
+      setData(newItemList)
+      setIsModalVisible(false)
+  }
+
+  const onHandleCancel = () => {
+      setIsModalVisible(false)
+  }
+
+  const onHandleSearch = (itemFound) => {
+    console.log(itemFound)
+    setData([itemFound])
+  }
+  
   return (
-    <View>
-      <FavouriteBookingsList />
-    </View>
-  )
-}
+    <>
+      {data == "" ? (
+        <Text>There is no favourite bookings, find one that you like!</Text>
+      ) : (
+        
+          <FlatList
+            data={data}
+            renderItem={({ item, index }) => (
+              <Card
+                id={item.key}
+                ubication={item.ubication}
+                firstdescription={item.firstdescription}
+                cardImages={item.cardImages}
+                onHandleModalDelete={onHandleModalDelete}
+              />
+            )}
+            keyExtractor={(item) => item.key}
+            ListFooterComponent={<View></View>}
+            ListHeaderComponent={
+              <View>
+                <Text style={styles.favoriteBookingsTitle}>
+                  My Favorite Bookings
+                </Text>
+                <KeyboardAvoidingView  style={{flex:1}}>
+
+                <SearchBooking data={data} onHandleSearch={onHandleSearch}/>
+                </KeyboardAvoidingView>
+              </View>
+            }
+            initialNumToRender={8}
+          />
+        
+      )}
+      {isModalVisible && (
+        <ModalDelete
+          onHandleDelete={onHandleDelete}
+          itemSelected={itemSelected}
+          onHandleCancel={onHandleCancel}
+        />
+      )}
+    </>
+  );
+      }
 
 export default Favourites
+
+const styles = StyleSheet.create({
+  favoriteBookingsTitle:{
+      fontSize:17,
+      paddingTop:10,
+      textAlign:'center'
+  },
+
+
+})

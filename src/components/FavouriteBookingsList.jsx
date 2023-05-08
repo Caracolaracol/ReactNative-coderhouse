@@ -1,10 +1,12 @@
+/* import { useEffect, useState } from "react";
 import { FlatList, Image, KeyboardAvoidingView, StyleSheet, Text, View } from "react-native"
 
-import Card from "./Card/index";
 import favouriteBookings from "../db/favouriteBookings";
-import { useEffect, useState } from "react";
+
+import Card from "./Card/index";
 import ModalDelete from "./ModalDelete/ModalDelete";
 import SearchBooking from "./SearchBooking";
+
 
 function FavouriteBookingsList() {
     const [data, setData] = useState([])  
@@ -91,4 +93,4 @@ const styles = StyleSheet.create({
     },
 
 
-})
+}) */
