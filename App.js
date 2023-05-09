@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, ImageBackground } from 'react-native';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 
-import colors from './src/constants/colors'
+import colors from './src/theme/colors'
 import Header from './src/components/Header/index'
 import NavBar from './src/components/NavBar';
 import Favourites from './src/pages/Favourites';

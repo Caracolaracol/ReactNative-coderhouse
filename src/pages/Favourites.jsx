@@ -1,7 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, FlatList, KeyboardAvoidingView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import favouriteBookings from "../db/favouriteBookings";
+import SearchBooking from '../components/SearchBooking';
+import Card from '../components/Card';
+const width = Dimensions.get("window").width
+const heigth = Dimensions.get('window').height
 
 const Favourites = () => {
   const [data, setData] = useState([])  
@@ -10,6 +14,7 @@ const Favourites = () => {
   
   useEffect(() => {
       setData(favouriteBookings)
+      console.log(width)
   },[])
   
   const onHandleModalDelete = (id) => {
