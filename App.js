@@ -16,8 +16,9 @@ export default function App() {
   const [section, setSection] = useState('explore')
   const [fontsLoaded] = useFonts({ 
     "Inter-Bold": require("./src/assets/fonts/Inter-Bold.otf"),
-    "veltic": require('./src/assets/fonts/veltic.ttf'),
-   "MORGANA": require('./src/assets/fonts/MORGANA.ttf'),
+    "MORGANA": require('./src/assets/fonts/MORGANA.ttf'),
+    "lost-ages": require('./src/assets/fonts/lost-ages.ttf'),
+    "WickedGrit": require('./src/assets/fonts/WickedGrit.ttf'),
  })
 
 
@@ -40,9 +41,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <ImageBackground source={require('./src/assets/bg2.png')} style={styles.headerContainer}>
-        <Header />
-      </ImageBackground>
+      <Header />
       <View style={styles.FlatListContainer}>
         { section == 'explore' && <Explore /> }
         { section == 'favs' && <Favourites /> }
@@ -62,25 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor:colors.white,
 
   },
-  headerContainer: {
-    flex: 1.5,
-    flexDirection:'row',
-    backgroundColor: colors.yellow,
-    width: '100%',
-    height:'100%',
-    overflow:'hidden',
-    borderBottomColor:'#caa59e',
-    borderBottomWidth:0.3,
-    borderStyle:'dashed',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    shadowOpacity: 0.95,
-    shadowRadius: 10,
-    elevation: 5,
-  },
+  
   navBarContainer: {
     flex:1.2,
     flexDirection:'row',
@@ -102,6 +83,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     zIndex:4
   },
+  
   FlatListContainer: {
     flex:14,
     zIndex:-10

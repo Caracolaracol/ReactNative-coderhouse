@@ -41,16 +41,16 @@ export default function Card({ otherStyles, ubication, firstdescription, cardIma
       <View style={styles.itemBody}>
         <View style={styles.itemBodyInfo}>
           <View style={styles.ubicationContainer}>
-            <Text style={{ fontSize: 23 }}>{ubication}</Text>
+            <Text style={{ fontSize: 29, fontFamily:'lost-ages' }}>{ubication}</Text>
           </View>
           <View style={styles.firstdescriptionContainer}>
-            <Text style={{ fontSize: 17, opacity: 0.5 }}>
+            <Text style={{ fontSize: 17, fontFamily:'lost-ages', opacity: 0.7 }}>
               {firstdescription}
             </Text>
           </View>
           <View style={styles.priceContainer}>
-            <Text style={{ fontWeight: 900 }}>$20.000 </Text>
-            <Text>noche</Text>
+            <Text style={{fontSize:14, fontFamily:'WickedGrit' }}>$20.000 </Text>
+            <Text style={{fontSize:18, fontFamily:'lost-ages'}}>per night</Text>
           </View>
         </View>
       </View>

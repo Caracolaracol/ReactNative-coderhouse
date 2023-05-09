@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
-        maxWidth:'100%'
+        maxWidth:'100%',
+        paddingLeft:2
     },
     itemBodyInfo: {
         flex:2
@@ -34,7 +35,9 @@ const styles = StyleSheet.create({
     },
     priceContainer:{
         flex:1,
-        flexDirection:"row"
+        flexDirection:"row",
+        alignContent:'center',
+        alignItems:'center'
     },
     imageList:{
        width:'100%',
