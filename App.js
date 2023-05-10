@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View, Text, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, ImageBackground, SafeAreaView } from 'react-native';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 
@@ -42,15 +42,15 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar />
       <Header />
-      <View style={styles.FlatListContainer}>
-        { section == 'explore' && <Explore /> }
-        { section == 'favs' && <Favourites /> }
-        { section == 'notifications' && <Notifications /> }
-        { section == 'profile' && <Profile /> }
-      </View>
-      <ImageBackground source={require('./src/assets/bg2.png')} style={styles.navBarContainer}>
-        <NavBar onHandleExplore={onHandleExplore} onHandleFavs={onHandleFavs} onHandleNotifications={onHandleNotifications} onHandleProfile={onHandleProfile}/>
-      </ImageBackground>
+        <View style={styles.FlatListContainer}>
+          { section == 'explore' && <Explore /> }
+          { section == 'favs' && <Favourites /> }
+          { section == 'notifications' && <Notifications /> }
+          { section == 'profile' && <Profile /> }
+        </View>
+        <ImageBackground source={require('./src/assets/bg2.png')} style={styles.navBarContainer}>
+          <NavBar onHandleExplore={onHandleExplore} onHandleFavs={onHandleFavs} onHandleNotifications={onHandleNotifications} onHandleProfile={onHandleProfile}/>
+        </ImageBackground>
     </View>
   );
 }
@@ -63,10 +63,9 @@ const styles = StyleSheet.create({
   },
   
   navBarContainer: {
-    flex:1.2,
+    flex:1.3,
     flexDirection:'row',
     width: '100%',
-    height:'100%',
     borderTopColor:'#caa59e',
     borderTopWidth:0.3,
     borderStyle:'dashed',
