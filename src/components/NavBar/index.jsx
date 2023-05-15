@@ -1,14 +1,15 @@
-import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React from 'react'
-import { Path, Svg } from 'react-native-svg'
+import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react-native'
 
-const NavBar = ({onHandleExplore, onHandleFavs, onHandleNotifications, onHandleProfile}) => {
+import colors from '../../theme/colors'
+
+const NavBar = ({navigation}) => {
 
 
   return (
-    <>
+    <ImageBackground source={require('../../assets/bg2.png')} style={styles.navBarContainer}>
       <View style={styles.btnContainer}>
-        <Pressable onPress={onHandleExplore} style={styles.pressable}>
+        <Pressable onPress={() => navigation.navigate('Explore')} style={styles.pressable}>
           <View style={styles.iconContainer}>
             <Image source={require('../../assets/icons/explore.png')} style={{width:30, height:30}}/>
           </View>
@@ -20,7 +21,7 @@ const NavBar = ({onHandleExplore, onHandleFavs, onHandleNotifications, onHandleP
 
       </View>
       <View style={styles.btnContainer}>
-        <Pressable onPress={onHandleFavs} style={styles.pressable}>
+        <Pressable onPress={() => navigation.navigate('Favourites')} style={styles.pressable}>
           <View style={styles.iconContainer}>
           <Image source={require('../../assets/icons/favourites.png')} style={{width:30, height:30}}/>
           </View>
@@ -31,7 +32,7 @@ const NavBar = ({onHandleExplore, onHandleFavs, onHandleNotifications, onHandleP
         </Pressable>
       </View>
       <View style={styles.btnContainer}>
-        <Pressable onPress={onHandleNotifications} style={styles.pressable}>
+        <Pressable onPress={() => navigation.navigate('Notifications')} style={styles.pressable}>
           <View style={styles.iconContainer}>
             <Image source={require('../../assets/icons/notifications.png')} style={{width:30, height:30}}/>
           </View>
@@ -43,7 +44,7 @@ const NavBar = ({onHandleExplore, onHandleFavs, onHandleNotifications, onHandleP
 
       </View>
       <View style={styles.btnContainer}>
-        <Pressable onPress={onHandleProfile} style={styles.pressable}>
+        <Pressable onPress={() => {navigation.navigate("Profile")}} style={styles.pressable}>
           <View style={styles.iconContainer}>
             <Image source={require('../../assets/icons/profile.png')} style={{width:30, height:30}}/>
           </View>
@@ -52,7 +53,7 @@ const NavBar = ({onHandleExplore, onHandleFavs, onHandleNotifications, onHandleP
           </View>
         </Pressable>
       </View>
-    </>
+    </ImageBackground>
   )
 }
 
@@ -72,5 +73,24 @@ const styles = StyleSheet.create({
     },
     textContainer:{ 
 
-    }
+    },
+    navBarContainer: {
+      flexDirection:'row',
+      width: '100%',
+      borderTopColor:'#caa59e',
+      borderTopWidth:0.3,
+      borderStyle:'dashed',
+      backgroundColor:colors.yellow,
+      justifyContent:'space-evenly',
+      alignItems:'flex-end',
+      shadowColor: "black",
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 1,
+      shadowRadius: 10,
+      elevation: 5,
+      zIndex:4
+    },
 })

@@ -4,10 +4,12 @@ import React, { useEffect, useState } from 'react'
 import favouriteBookings from "../db/favouriteBookings";
 import SearchBooking from '../components/SearchBooking';
 import Card from '../components/Card';
+import Layout from '../Layout/Index';
+
 const width = Dimensions.get("window").width
 const heigth = Dimensions.get('window').height
 
-const Favourites = () => {
+const Favourites = ({navigation}) => {
   const [data, setData] = useState([])  
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [itemSelected, setItemSelected] = useState([])
@@ -39,7 +41,7 @@ const Favourites = () => {
   }
   
   return (
-    <>
+    <Layout >
       {data == "" ? (
         <Text>There is no favourite bookings, find one that you like!</Text>
       ) : (
@@ -53,6 +55,7 @@ const Favourites = () => {
                 firstdescription={item.firstdescription}
                 cardImages={item.cardImages}
                 onHandleModalDelete={onHandleModalDelete}
+                navigation={navigation}
               />
             )}
             keyExtractor={(item) => item.key}
@@ -79,7 +82,7 @@ const Favourites = () => {
           onHandleCancel={onHandleCancel}
         />
       )}
-    </>
+    </Layout>
   );
       }
 

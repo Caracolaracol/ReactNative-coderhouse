@@ -1,15 +1,15 @@
-import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, Image, ImageBackground, TouchableOpacity, Pressable, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
 
 import { LinearGradient } from 'expo-linear-gradient';
 
 import styles from './styles'
 import likeLogo from "../../assets/likebtn.png"
 
-export default function Card({ otherStyles, ubication, firstdescription, cardImages, onHandleModalDelete, id }) {
+export default function Card({ otherStyles, ubication, firstdescription, cardImages, onHandleModalDelete, id, navigation }) {
 
   return (
-    <View style={{ ...styles.container, ...otherStyles }}>
+    <Pressable onPress={() => navigation.navigate('ItemDetail', {id:id})}  style={{ ...styles.container, ...otherStyles}}  >
       <View style={styles.imageContainer}>
         {cardImages != "" ? (
           <ImageBackground source={cardImages} style={styles.imageList}>
@@ -38,7 +38,7 @@ export default function Card({ otherStyles, ubication, firstdescription, cardIma
           ""
         )}
       </View>
-      <View style={styles.itemBody}>
+      <View style={!isCardPressed ? styles.itemBody : pressStyles.itemBody}>
         <View style={styles.itemBodyInfo}>
           <View style={styles.ubicationContainer}>
             <Text style={{ fontSize: 29, fontFamily:'lost-ages' }}>{ubication}</Text>
@@ -54,6 +54,6 @@ export default function Card({ otherStyles, ubication, firstdescription, cardIma
           </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }

@@ -2,12 +2,12 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import Layout from '../Layout/Index'
 
-const Profile = () => {
+const Notifications = () => {
   return (
     <Layout>
-      <Text>Profile</Text>
+      <Text>Notifications</Text>
     </Layout>
   )
 }
 
-export default Profile
+export default Notifications

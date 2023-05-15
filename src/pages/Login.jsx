@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Notfications = () => {
+const Login = () => {
   return (
     <View>
-      <Text>Notfications</Text>
+      <Text>This is the Login page</Text>
     </View>
   )
 }
 
-export default Notfications
+export default Login

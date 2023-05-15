@@ -6,4 +6,5 @@ export default {
 
     // accent colors
     white_a:"#eaeaea",
+    red_a:"#d22405"
 }
