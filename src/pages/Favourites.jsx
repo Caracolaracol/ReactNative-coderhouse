@@ -16,7 +16,6 @@ const Favourites = ({navigation}) => {
   
   useEffect(() => {
       setData(favouriteBookings)
-      console.log(width)
   },[])
   
   const onHandleModalDelete = (id) => {
@@ -51,8 +50,8 @@ const Favourites = ({navigation}) => {
             renderItem={({ item, index }) => (
               <Card
                 id={item.key}
-                ubication={item.ubication}
-                firstdescription={item.firstdescription}
+                bookingUbication={item.ubication}
+                cardDescription={item.firstdescription}
                 cardImages={item.cardImages}
                 onHandleModalDelete={onHandleModalDelete}
                 navigation={navigation}

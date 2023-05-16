@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 
 import { LinearGradient } from 'expo-linear-gradient';
 
+
+
 import styles from './styles'
 import likeLogo from "../../assets/likebtn.png"
 
-export default function Card({ otherStyles, ubication, firstdescription, cardImages, onHandleModalDelete, id, navigation }) {
+export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages, onHandleModalDelete, id, navigation }) {
 
   return (
     <Pressable onPress={() => navigation.navigate('ItemDetail', {id:id})}  style={{ ...styles.container, ...otherStyles}}  >
@@ -38,14 +40,14 @@ export default function Card({ otherStyles, ubication, firstdescription, cardIma
           ""
         )}
       </View>
-      <View style={!isCardPressed ? styles.itemBody : pressStyles.itemBody}>
+      <View style={styles.itemBody}>
         <View style={styles.itemBodyInfo}>
           <View style={styles.ubicationContainer}>
-            <Text style={{ fontSize: 29, fontFamily:'lost-ages' }}>{ubication}</Text>
+            <Text style={{ fontSize: 29, fontFamily:'lost-ages' }}>{bookingUbication}</Text>
           </View>
           <View style={styles.firstdescriptionContainer}>
             <Text style={{ fontSize: 17, fontFamily:'lost-ages', opacity: 0.7 }}>
-              {firstdescription}
+              {cardDescription}
             </Text>
           </View>
           <View style={styles.priceContainer}>
