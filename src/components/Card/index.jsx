@@ -8,10 +8,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles'
 import likeLogo from "../../assets/likebtn.png"
 
-export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages, onHandleModalDelete, id, navigation }) {
+export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages, onHandleModalDelete, id, item, navigation }) {
 
   return (
-    <Pressable onPress={() => navigation.navigate('ItemDetail', {id:id})}  style={{ ...styles.container, ...otherStyles}}  >
+    <Pressable onPress={() => navigation.navigate('ItemDetail', {item:item})}  style={{ ...styles.container, ...otherStyles}}  >
       <View style={styles.imageContainer}>
         {cardImages != "" ? (
           <ImageBackground source={cardImages} style={styles.imageList}>

@@ -2,9 +2,9 @@ let bookingList = [
     {
         id: '001',
         key: 'valaki',
-        booking_ubication: 'Valaki',
+        booking_ubication: 'Valaki, Barovia',
         card_description: 'House near the church',
-        detail_description: '',
+        detail_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at massa non est egestas semper. Vestibulum et orci nulla. Donec ac pharetra mauris. Nulla eget tellus tortor. Nam ac urna fermentum, ultricies dolor in, porta mi. Vivamus consectetur et justo non facilisis. Morbi facilisis pretium velit, ut scelerisque nisi tristique sed. Pellentesque pretium ex eu eros pulvinar, eu eleifend nisi iaculis. Aliquam at eros ut massa suscipit porta sit amet at magna. Nullam aliquet justo leo, nec dapibus nibh egestas aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer aliquet enim vitae est vestibulum commodo in at ante. Donec convallis mattis leo vel condimentum. Maecenas nec lectus nec ex semper egestas ac vitae quam. Nam et vestibulum velit. Morbi massa elit, iaculis lacinia ante a, aliquet pharetra felis. Quisque pharetra vulputate dapibus. Vestibulum vulputate viverra elit, ac euismod risus tempor sed. Donec eros libero, luctus eu mi et, malesuada pharetra nulla. Praesent tempor bibendum massa, at faucibus odio cursus pellentesque. Aenean a congue dui. Donec consequat aliquet felis, ut tincidunt turpis feugiat at. Donec purus lacus, iaculis vitae lacus non, consectetur volutpat odio. Nulla cursus nisi vel egestas faucibus Fusce vel vehicula eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus nibh odio, ac fermentum risus maximus vulputate. Praesent rutrum, dui at eleifend pellentesque, felis dui consectetur turpis, at venenatis tortor est vel purus. Duis dolor enim, malesuada in ante nec, egestas laoreet lectus. Aliquam erat volutpat. Aenean vel velit ac elit gravida tincidunt. Donec felis libero, faucibus vel sapien in, rutrum dignissim eros. Maecenas fermentum ornare erat, sit amet suscipit est ultrices quis. Morbi ornare, magna id posuere tempor, lacus eros viverra dolor, vel scelerisque lectus erat eu dolor. Sed pulvinar elementum malesuada. ',
         host: 'Blinsky',
         cardImages: require('../assets/bookingsimg/blinskyhouse1.jpg'),
         afterBookingData: [{
@@ -140,7 +140,7 @@ let bookingList = [
         card_description: 'Apartment at Central city downtown in Amestris',
         detail_description: '',
         host: 'Benjamin Westcott',
-        cardImages: '',
+        cardImages: require('../assets/bookingsimg/centralcityalchemist.jpg'),
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -159,7 +159,7 @@ let bookingList = [
         card_description: 'Beautiful house for staying while visiting Soul Society',
         detail_description: '',
         host: 'Renjiro Fujiwara',
-        cardImages: "",
+        cardImages: require('../assets/bookingsimg/rukongai1/rukongai2.jpg'),
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -179,7 +179,7 @@ let bookingList = [
         card_description: "Stunning views in Trost, just beware of lurking Titans. Unforgettable stay with a thrilling twist!",
         detail_description: '',
         host: 'Anika Fischer',
-        cardImages: "",
+        cardImages: require('../assets/bookingsimg/trost1/trost1.jpg'),
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],

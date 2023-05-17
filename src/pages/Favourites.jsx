@@ -55,6 +55,7 @@ const Favourites = ({navigation}) => {
                 cardImages={item.cardImages}
                 onHandleModalDelete={onHandleModalDelete}
                 navigation={navigation}
+                item={item}
               />
             )}
             keyExtractor={(item) => item.key}

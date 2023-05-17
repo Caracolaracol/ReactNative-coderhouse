@@ -30,7 +30,6 @@ export function MyStack(){
   )
 }
 
-
 export function MyTabs(){
 
   return(

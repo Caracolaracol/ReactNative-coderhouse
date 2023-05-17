@@ -1,5 +1,5 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
 
 import Layout from '../Layout/Index';
 import Card from '../components/Card';
@@ -8,8 +8,7 @@ import bookingList from '../db/bookingList'
 
 const Explore = ({navigation}) => {
   const [data, setData] = useState([])  
-
-    
+  
   useEffect(() => {
     setData(bookingList)
 },[])
@@ -26,6 +25,7 @@ const Explore = ({navigation}) => {
                 cardDescription={item.card_description}
                 cardImages={item.cardImages}
                 navigation={navigation}
+                item={item}
               />
             )}
             keyExtractor={(item) => item.key}
@@ -33,7 +33,7 @@ const Explore = ({navigation}) => {
             ListHeaderComponent={
               <View>
                 <Text style={styles.favoriteBookingsTitle}>
-                  Bookings
+                 Explore
                 </Text>
               </View>
             }
