@@ -17,7 +17,7 @@ const ItemDetail = ({route}) => {
           <Characteristics host={route.params.item.host} />
           <View style={styles.descriptionContainer}>
             <Text style={{fontFamily:'lost-ages', fontSize:24}}>About this place</Text>
-            <Text>{route.params.item.detail_description} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab labore repellat fugit consequatur deleniti ducimus aperiam, optio omnis enim maiores voluptatibus eos, molestias, alias ex. Assumenda voluptate earum ea eum optio. Cum fugiat facere, repellendus laboriosam ratione nobis tenetur numquam sequi pariatur iusto, dicta tempora perferendis nesciunt, non consequuntur expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, expedita illo quod corrupti laudantium maxime pariatur natus reprehenderit architecto vel a porro inventore voluptate cum. Voluptatum enim veritatis accusamus quos iure quasi cupiditate animi debitis! Odit earum ipsam accusamus nisi mollitia voluptatem. Laudantium beatae exercitationem ipsa quo tempore, consequuntur aliquid voluptatem cupiditate unde est, facilis sint possimus odio officia molestiae quidem iure deleniti inventore reiciendis id eum nobis fugit. Debitis sequi modi fugiat illum. Nihil harum quaerat quisquam quibusdam ea at numquam et, perspiciatis quidem. Fugit, perspiciatis optio velit dolor aut laudantium dolorem asperiores, perferendis quia quidem nulla et eum maiores. Aliquid, quibusdam assumenda? Consequatur nobis at, sed exercitationem iure corporis obcaecati magni quidem porro facilis pariatur autem nisi numquam, magnam sequi? Error doloremque perferendis magnam delectus voluptatum quos, iste magni ipsam dolor, quas sed nam temporibus accusantium nesciunt iusto deserunt hic labore quo sunt assumenda veritatis! Nemo, quis velit.</Text>
+            <Text>{route.params.item.detail_description}</Text>
           </View>
           <View style={styles.hostDataContainer}>
             <Text style={{fontFamily:'lost-ages', fontSize:24}}>Meet your host</Text>
@@ -26,15 +26,16 @@ const ItemDetail = ({route}) => {
           <View style={{width:'100%', aspectRatio:5}}>
           </View>
       </ScrollView>
-      <View style={styles.reserveContainer}>
+      <ImageBackground source={require('../assets/bg2.png')} style={styles.reserveContainer}>
         <View style={{flexDirection:'row', gap:10}}>
-          <Text>Precio</Text>
-          <Text>$20.000</Text>
+          <Text style={{fontFamily:'lost-ages', fontSize:20}}>Price</Text>
+          <Text style={{fontFamily:'WickedGrit', fontSize:18}}>$20.000</Text>
+          <Text style={{fontFamily:'lost-ages', fontSize:20}}>/night</Text>
         </View>
         <Pressable style={{backgroundColor:colors.red_a, padding:10, borderRadius:10}}>
-          <Text>Reserve</Text>
+          <Text style={{fontFamily:'lost-ages', fontSize:20}}>Reserve</Text>
         </Pressable>
-      </View>
+      </ImageBackground>
     </SafeAreaView>
   )
 }
@@ -50,8 +51,16 @@ const styles = StyleSheet.create({
     alignItems:'center',
     backgroundColor:colors.white,
     width:'100%',
-    aspectRatio:6,
-    bottom:0
+    aspectRatio:7,
+    bottom:0,
+    shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 0.95,
+      shadowRadius: 10,
+      elevation: 5,
   },
   titleContainer:{
     borderWidth: 0,
@@ -59,10 +68,12 @@ const styles = StyleSheet.create({
   },
   descriptionContainer:{
     marginTop:20,
+    marginHorizontal:20,
     borderWidth: 0,
   },
   hostDataContainer: {
     marginTop:20,
     borderWidth: 0,
+    marginHorizontal:20,
   }
 })

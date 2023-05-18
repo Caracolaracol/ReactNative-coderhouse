@@ -4,8 +4,8 @@ import colors from '../../theme/colors'
 
 const Characteristics = ({host}) => {
   return (
-      <View>
-          <Text style={{fontFamily:'lost-ages', fontSize:24}}>Room in a house. Host: {host}</Text>
+      <View style={{marginHorizontal:20,}}> 
+          <Text style={{fontFamily:'lost-ages', fontSize:24, marginBottom:10}}>Room in a house. Host: {host}</Text>
           <View style={styles.characteristicsContainer} >
               <View style={styles.card}><Text style={styles.text}>two Beds</Text></View>
               <View style={styles.card}><Text style={styles.text}>Exclusive Bathroom</Text></View>

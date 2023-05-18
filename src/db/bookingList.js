@@ -30,7 +30,15 @@ let bookingList = [
         key: 'minas tirith',
         booking_ubication: 'Minas Tirith',
         card_description: 'Second level of the citadel',
-        detail_description: '',
+        detail_description: "Welcome, traveler! My name is Halbarad, a Citadel Guard of Gondor, and I would be honored to host you in our humble home, together with my son Túrin. Our fortress may not offer the most impressive views or luxurious amenities, but what we lack in grandeur we make up for in heart and hospitality.\
+        \
+        Our house is situated on the first level of the city, so the view from our windows is limited to the street and the front houses. But don\'t let that dissuade you from experiencing the true beauty of Gondor through the eyes of a true defender. Our home may be simple, but it is clean, cozy, and equipped with everything you need to make your stay comfortable and memorable.\
+        \
+        As a Citadel Guard, I have dedicated my life to protecting this great city and its people. And now, I invite you to join us and experience the heart and hospitality of a true defender. Though we may not offer breathtaking views from our windows, the true beauty of Gondor lies in its people and history.\
+        \
+        And if you\'re lucky, you may even get the chance to meet my dear friend, a wise wizard who occasionally graces us with his presence. His stories and advice about Middle-earth will leave you inspired and enriched.\
+        \
+        So why wait? Book your stay at our citadel and experience the heart and hospitality of a Citadel Guard and his son. We promise to make your stay in Gondor a memorable one!",
         host: 'Guardia de Gondor',
         cardImages: require('../assets/bookingsimg/minastirithhouse.jpg'),
         afterBookingData: [{
@@ -49,9 +57,14 @@ let bookingList = [
         key: 'narshe',
         booking_ubication: 'Narshe',
         card_description: 'My place at Narshe Mines',
-        detail_description: '',
+        detail_description: "Hello and welcome to the Mines of Narshe! My name is Terra and I\'m an inhabitant of this mystical place. I live in one of the many caves that make up the mine, and I\'ve always wanted to share my home with other adventurers and travelers.\
+        My cave is cozy and comfortable, with all the amenities you need to make your stay enjoyable. The best part? My friends, the Moogles, are always nearby and ready to assist you with anything you need. They\'re known for their hospitality and kindness, so you\'ll be in good hands!\
+        Though the Mines of Narshe may seem like a daunting place at first, it\'s filled with wonder and excitement for those willing to explore it. From the glittering crystals to the mysterious creatures that inhabit the mine, there\'s always something new to discover.\
+        And if you\'re looking for a more tranquil experience, my cave is the perfect place to relax and unwind. You\'ll be able to disconnect from the hustle and bustle of the outside world and bask in the quiet beauty of the mines.\
+        So what are you waiting for? Come stay with me and experience the wonder and magic of the Mines of Narshe. I promise it will be a stay you won\'t soon forget!\
+        ",
         host: 'Moogle',
-        cardImages: require('../assets/bookingsimg/narshe1.jpg'),
+        cardImages: require('../assets/bookingsimg/narshe1/narshe1.jpg'),
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -70,7 +83,7 @@ let bookingList = [
         card_description: 'Casa del anciano',
         detail_description: '',
         host: 'Descendiente de Vinnie',
-        cardImages: require('../assets/bookingsimg/medinahouse1.png'),
+        cardImages: require('../assets/bookingsimg/medina1/medina1.jpg'),
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
