@@ -1,10 +1,10 @@
 import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 
-import Layout from '../Layout/Index';
-import Card from '../components/Card';
+import Layout from '../../Layout/Index';
+import Card from '../../components/Card';
 
-import bookingList from '../db/bookingList'
+import bookingList from '../../db/bookingList'
 
 const Explore = ({navigation}) => {
   const [data, setData] = useState([])  

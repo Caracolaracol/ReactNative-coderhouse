@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
 import { useFonts } from 'expo-font';
-
+import { registerRootComponent } from 'expo';
 import Navigator from './src/navigation';
 
 export default function App() {
@@ -20,3 +20,4 @@ export default function App() {
   )
 }
 
+registerRootComponent(App);

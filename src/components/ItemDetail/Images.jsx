@@ -10,7 +10,7 @@ const Images = ({cardImages}) => {
     return (
     <View style={styles.imageContainer}>
 
-        <ImageBackground source={cardImages} style={styles.images}>
+        <ImageBackground source={cardImages} >
             <LinearGradient
                 colors={["#00000000", "rgba(0, 0, 0, 0.52)"]}
                 style={{ height: "100%", width: "100%" }}

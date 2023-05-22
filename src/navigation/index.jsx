@@ -10,7 +10,7 @@ import Notfications from '../pages/Notifications';
 import Profile from '../pages/Profile';
 import NavBar from '../components/NavBar';
 import Login from '../pages/Login';
-import ItemDetail from '../pages/ItemDetail';
+import ItemDetail from '../pages/ItemDetail'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();

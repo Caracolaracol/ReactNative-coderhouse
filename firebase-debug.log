@@ -1,0 +1,21 @@
+[debug] [2023-05-22T22:42:04.411Z] ----------------------------------------------------------------------
+[debug] [2023-05-22T22:42:04.412Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2023-05-22T22:42:04.412Z] CLI Version:   12.1.0
+[debug] [2023-05-22T22:42:04.412Z] Platform:      darwin
+[debug] [2023-05-22T22:42:04.412Z] Node Version:  v19.4.0
+[debug] [2023-05-22T22:42:04.412Z] Time:          Mon May 22 2023 18:42:04 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-22T22:42:04.412Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-22T22:42:04.415Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-22T22:42:04.415Z] > authorizing via signed-in user (agus.rojasmolina@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/caracol/Computer Science/Coding Projects/fantasy-booking
+

@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, Image, ImageBackground, TouchableOpacity, StyleSheet, Pressable, SafeAreaView, StatusBar, ScrollView } from 'react-native'
-
-import Images from '../components/ItemDetail/Images'
-import colors from '../theme/colors'
-import Characteristics from '../components/ItemDetail/Characteristics'
+import styles from "./styles";
+import Images from '../../components/ItemDetail/Images'
+import colors from '../../theme/colors'
+import Characteristics from '../../components/ItemDetail/Characteristics'
 
 const ItemDetail = ({route}) => {
 
@@ -20,13 +20,19 @@ const ItemDetail = ({route}) => {
             <Text>{route.params.item.detail_description}</Text>
           </View>
           <View style={styles.hostDataContainer}>
-            <Text style={{fontFamily:'lost-ages', fontSize:24}}>Meet your host</Text>
-            <Text>{route.params.item.host}</Text>
+            <View style={{flex:1}}>
+              <Text style={{fontFamily:'lost-ages', fontSize:24}}>Meet your host</Text>
+              <Text>{route.params.item.host}</Text>
+            </View>
+            <View style={styles.hostImageContainer}>
+              <Image source={route.params.item.host_image} style={styles.hostImage} resizeMode='contain' />
+            </View>
+           
           </View>
           <View style={{width:'100%', aspectRatio:5}}>
           </View>
       </ScrollView>
-      <ImageBackground source={require('../assets/bg2.png')} style={styles.reserveContainer}>
+      <ImageBackground source={require('../../assets/bg2.png')} style={styles.reserveContainer}>
         <View style={{flexDirection:'row', gap:10}}>
           <Text style={{fontFamily:'lost-ages', fontSize:20}}>Price</Text>
           <Text style={{fontFamily:'WickedGrit', fontSize:18}}>$20.000</Text>
@@ -42,38 +48,3 @@ const ItemDetail = ({route}) => {
 
 export default ItemDetail
 
-
-const styles = StyleSheet.create({
-  reserveContainer: {
-    position:'absolute',
-    flexDirection:'row',
-    justifyContent:'space-around',
-    alignItems:'center',
-    backgroundColor:colors.white,
-    width:'100%',
-    aspectRatio:7,
-    bottom:0,
-    shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 0,
-      },
-      shadowOpacity: 0.95,
-      shadowRadius: 10,
-      elevation: 5,
-  },
-  titleContainer:{
-    borderWidth: 0,
-    padding:10
-  },
-  descriptionContainer:{
-    marginTop:20,
-    marginHorizontal:20,
-    borderWidth: 0,
-  },
-  hostDataContainer: {
-    marginTop:20,
-    borderWidth: 0,
-    marginHorizontal:20,
-  }
-})

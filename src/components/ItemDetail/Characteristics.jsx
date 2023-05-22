@@ -30,8 +30,12 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor:colors.yellow,
         paddingHorizontal:'5%',
-        paddingVertical:20,
-        maxWidth:'25%'
+        paddingVertical:17,
+        maxWidth:'25%',
+        borderRadius:6,
+        borderWidth:1,
+        borderColor:colors.white_a,
+        borderStyle:'solid'
     },
     text: {
         fontFamily:'lost-ages'
