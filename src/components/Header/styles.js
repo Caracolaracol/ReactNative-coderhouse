@@ -20,20 +20,24 @@ const styles = StyleSheet.create({
       shadowRadius: 10,
       elevation: 5,
       zIndex:4,
-      paddingTop:20,
-      paddingHorizontal:20
+      paddingTop:30,
+      paddingHorizontal:10
+    },
+    logotitleContainer: {
+      flexDirection:'row',
+      alignSelf:'flex-end', 
+      paddingBottom:2
     },
     titleContainer: {
-      flexDirection:'row',
-      alignSelf:'flex-end',
       fontSize: 48, 
       color: '#493757', 
       fontFamily: 'MORGANA',
-      
+     
     },
     searchContainer:{
       alignSelf:'flex-end',
-      width:'50%' 
+      width:'55%',
+ 
     },
    imageContainer: {
       alignSelf:'flex-end',

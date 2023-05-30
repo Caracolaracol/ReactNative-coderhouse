@@ -5,7 +5,7 @@ import Images from '../../components/ItemDetail/Images'
 import colors from '../../theme/colors'
 import Characteristics from '../../components/ItemDetail/Characteristics'
 
-const ItemDetail = ({route}) => {
+const ItemDetail = ({route, navigation}) => {
 
   return (
     <SafeAreaView styles={styles.container}>
@@ -38,7 +38,7 @@ const ItemDetail = ({route}) => {
           <Text style={{fontFamily:'WickedGrit', fontSize:18}}>$20.000</Text>
           <Text style={{fontFamily:'lost-ages', fontSize:20}}>/night</Text>
         </View>
-        <Pressable style={{backgroundColor:colors.red_a, padding:10, borderRadius:10}}>
+        <Pressable  onPress={() => navigation.navigate('ReserveBook', { item: route.params.item })} style={{backgroundColor:colors.red_a, padding:10, borderRadius:10}}>
           <Text style={{fontFamily:'lost-ages', fontSize:20}}>Reserve</Text>
         </Pressable>
       </ImageBackground>

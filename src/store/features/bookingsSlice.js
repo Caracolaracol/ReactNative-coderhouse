@@ -12,7 +12,7 @@ export const bookingsSlice = createSlice({
   name: 'bookings',
   initialState,
   reducers: {
-    findBooking: (state, action) => {
+    findBooking: (state, action) => { // 
       return {
         ...state,
         data:action.payload

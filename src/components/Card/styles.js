@@ -53,7 +53,9 @@ const styles = StyleSheet.create({
         alignSelf:'flex-end',
         margin:10,
         marginHorizontal:12,
-        opacity:0.9
+        opacity:0.9,
+        backgroundColor:'#7C798068',
+        borderRadius:10
     },
     likedImage: {
         width: 40,
@@ -62,7 +64,9 @@ const styles = StyleSheet.create({
         alignSelf:'flex-end',
         margin:10,
         marginHorizontal:12,
-        opacity:0.7
+        opacity:1,
+        backgroundColor:'#7C798068',
+        borderRadius:10,
     },
     addLikeBtn: {
         width: 40,
@@ -71,6 +75,7 @@ const styles = StyleSheet.create({
         alignSelf:'flex-end',
         margin:10,
         marginHorizontal:12,
+        
     }
 })
 

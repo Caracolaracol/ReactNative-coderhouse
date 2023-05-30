@@ -34,7 +34,7 @@ const Explore = ({navigation}) => {
             data={bookings}
             renderItem={({ item, index }) => (
               <Card
-                id={item.id}
+                id={item.key}
                 bookingUbication={item.booking_ubication}
                 cardDescription={item.card_description}
                 cardImages={item.cardImages}

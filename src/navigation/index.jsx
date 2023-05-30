@@ -11,6 +11,7 @@ import Profile from '../pages/Profile';
 import NavBar from '../components/NavBar';
 import Login from '../pages/Login';
 import ItemDetail from '../pages/ItemDetail'
+import ReserveBook from '../pages/ReserveBook/ReserveBook';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -25,6 +26,7 @@ export function MyStack(){
     }}>
       <Stack.Screen name='HomeScreen' component={MyTabs} />
       <Stack.Screen name='ItemDetail' component={ItemDetail} />
+      <Stack.Screen name='ReserveBook' component={ReserveBook} />
       <Stack.Screen name='logIn' component={Login} />
     </Stack.Navigator>
   )

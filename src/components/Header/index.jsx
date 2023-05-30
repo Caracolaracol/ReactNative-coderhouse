@@ -20,11 +20,11 @@ export default function Header() {
   
   return (
         <ImageBackground source={require('../../assets/bg2.png')} style={styles.headerContainer}>
-          <View style={styles.titleContainer}>
+          <View style={styles.logotitleContainer}>
             <Text style={styles.titleContainer}>torchnd</Text>
             <View style={styles.imageContainer}>
-            <Image source={require('../../assets/iconlogo.png')} style={{ width: 34, height: 34 }} />
-          </View>
+              <Image source={require('../../assets/iconlogo.png')} style={{ width: 34, height: 34 }} />
+            </View>
           </View> 
           
           <View style={styles.searchContainer}>
