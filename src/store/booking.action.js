@@ -1,6 +1,6 @@
 import { URL_API } from "../constants/database";
 
-
+// This is copied from class, unused for now.
 export const confirm_cart = (book, total) => {
     return async dispatch => {
         try {

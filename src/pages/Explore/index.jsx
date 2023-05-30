@@ -14,6 +14,7 @@ const Explore = ({navigation}) => {
   const [data, setData] = useState([])  
   const dispatch = useDispatch()
 
+  // ADD TO FAVOURITES
   const onHandleAdd = (id) => {
     let idFound = data.find((el) => el.id === id)
     dispatch(addFavourite(idFound.id))

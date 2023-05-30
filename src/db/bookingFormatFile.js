@@ -1,3 +1,5 @@
+
+// Tentative format of each Booking
 export let bookingFormatFile = {
     id: '',
     key: '',

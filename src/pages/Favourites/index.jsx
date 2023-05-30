@@ -17,6 +17,8 @@ const Favourites = ({navigation}) => {
     setData(filteredBookings)
   },[favourites, bookings])
 
+
+  // These functions are disabled for now
   const onHandleModalDelete = (id) => {
       let item = data.find(element => element.key == id)
       setIsModalVisible(true)
