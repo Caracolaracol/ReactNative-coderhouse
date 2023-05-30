@@ -1,23 +1,22 @@
-import { View, Text, StyleSheet, Dimensions, FlatList, KeyboardAvoidingView } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-import favouriteBookings from "../../db/favouriteBookings";
-import SearchBooking from '../../components/SearchBooking';
 import Card from '../../components/Card';
 import Layout from '../../Layout/Index';
-
-const width = Dimensions.get("window").width
-const heigth = Dimensions.get('window').height
+import { useSelector } from 'react-redux';
 
 const Favourites = ({navigation}) => {
+  const favourites = useSelector((state) => state.favourites.data)
+  const bookings = useSelector((state) => state.bookings.data)
   const [data, setData] = useState([])  
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [itemSelected, setItemSelected] = useState([])
   
   useEffect(() => {
-      setData(favouriteBookings)
-  },[])
-  
+    const filteredBookings = bookings.filter(element => favourites.includes(element.id))
+    setData(filteredBookings)
+  },[favourites, bookings])
+
   const onHandleModalDelete = (id) => {
       let item = data.find(element => element.key == id)
       setIsModalVisible(true)
@@ -34,11 +33,7 @@ const Favourites = ({navigation}) => {
       setIsModalVisible(false)
   }
 
-  const onHandleSearch = (itemFound) => {
-    console.log(itemFound)
-    setData([itemFound])
-  }
-  
+
   return (
     <Layout >
       {data == "" ? (
@@ -53,7 +48,7 @@ const Favourites = ({navigation}) => {
                 bookingUbication={item.ubication}
                 cardDescription={item.firstdescription}
                 cardImages={item.cardImages}
-                onHandleModalDelete={onHandleModalDelete}
+                
                 navigation={navigation}
                 item={item}
               />
@@ -65,10 +60,7 @@ const Favourites = ({navigation}) => {
                 <Text style={styles.favoriteBookingsTitle}>
                   My Favorite Bookings
                 </Text>
-                <KeyboardAvoidingView  style={{flex:1}}>
-
-                <SearchBooking data={data} onHandleSearch={onHandleSearch}/>
-                </KeyboardAvoidingView>
+                
               </View>
             }
             initialNumToRender={8}

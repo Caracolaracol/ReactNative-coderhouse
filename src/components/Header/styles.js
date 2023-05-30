@@ -3,13 +3,11 @@ import colors from "../../theme/colors";
 
 const styles = StyleSheet.create({
     headerContainer: {
-      flex: 1.5,
+      width:'100%',
       flexDirection:'row',
-      justifyContent:'flex-start',
+      justifyContent:'space-between',
+      alignSelf:'flex-end',
       backgroundColor: colors.yellow,
-      width: '100%',
-      height:'100%',
-      overflow:'hidden',
       borderBottomColor:'#caa59e',
       borderBottomWidth:0.3,
       borderStyle:'dashed',
@@ -21,17 +19,32 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.95,
       shadowRadius: 10,
       elevation: 5,
+      zIndex:4,
+      paddingTop:20,
+      paddingHorizontal:20
     },
-    imageContainer: {
-      margin:0,
-      paddingLeft:2,
-      paddingTop:34
+    titleContainer: {
+      flexDirection:'row',
+      alignSelf:'flex-end',
+      fontSize: 48, 
+      color: '#493757', 
+      fontFamily: 'MORGANA',
+      
     },
+    searchContainer:{
+      alignSelf:'flex-end',
+      width:'50%' 
+    },
+   imageContainer: {
+      alignSelf:'flex-end',
+      padding:8
+    },
+    /*
     titleContainer: {
       margin:0,
       paddingLeft:10,
       paddingTop:20
-    },
+    }, */
   });
 
   export default styles

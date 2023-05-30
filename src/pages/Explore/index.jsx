@@ -1,23 +1,36 @@
-import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
+import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 
 import Layout from '../../Layout/Index';
 import Card from '../../components/Card';
 
 import bookingList from '../../db/bookingList'
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavourite } from '../../store/features/favouritesSlice';
 
 const Explore = ({navigation}) => {
+  const bookings = useSelector((state) => state.bookings.data)
+  const favourites = useSelector((state) => state.favourites.data)
   const [data, setData] = useState([])  
-  
+  const dispatch = useDispatch()
+
+  const onHandleAdd = (id) => {
+    let idFound = data.find((el) => el.id === id)
+    dispatch(addFavourite(idFound.id))
+    console.log(idFound)
+  }
+
   useEffect(() => {
     setData(bookingList)
-},[])
+    console.log(favourites)
+},[favourites])
+
 
 
   return (
     <Layout>
-      {data && <FlatList
-            data={data}
+      {bookings && <SafeAreaView style={{flex: 1}}><FlatList
+            data={bookings}
             renderItem={({ item, index }) => (
               <Card
                 id={item.id}
@@ -26,19 +39,17 @@ const Explore = ({navigation}) => {
                 cardImages={item.cardImages}
                 navigation={navigation}
                 item={item}
+                onHandleAdd={onHandleAdd}
               />
             )}
             keyExtractor={(item) => item.key}
             ListFooterComponent={<View></View>}
             ListHeaderComponent={
               <View>
-                <Text style={styles.favoriteBookingsTitle}>
-                 Explore
-                </Text>
               </View>
             }
             initialNumToRender={8}
-          />
+          /></SafeAreaView>
           }
     </Layout>
   )

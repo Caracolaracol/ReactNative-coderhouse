@@ -55,7 +55,16 @@ const styles = StyleSheet.create({
         marginHorizontal:12,
         opacity:0.9
     },
-    removeLikeBtn: {
+    likedImage: {
+        width: 40,
+        height: 40,
+        resizeMode: 'cover',
+        alignSelf:'flex-end',
+        margin:10,
+        marginHorizontal:12,
+        opacity:0.7
+    },
+    addLikeBtn: {
         width: 40,
         height: 40,
         resizeMode: 'cover',

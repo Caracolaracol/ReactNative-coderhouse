@@ -3,6 +3,11 @@ import { useFonts } from 'expo-font';
 import { registerRootComponent } from 'expo';
 import Navigator from './src/navigation';
 
+// redux
+import store from './src/store';
+import { Provider } from 'react-redux';
+
+
 export default function App() {
   const [fontsLoaded] = useFonts({ 
     "Inter-Bold": require("./src/assets/fonts/Inter-Bold.otf"),
@@ -16,7 +21,9 @@ export default function App() {
   }
 
   return (
-    <Navigator/>
+    <Provider store={store}>
+      <Navigator/>
+    </Provider>
   )
 }
 

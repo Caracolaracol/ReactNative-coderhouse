@@ -2,18 +2,27 @@ import { View, Text, TextInput, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import colors from '../../theme/colors'
 import { Path, Svg } from 'react-native-svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { resetBooking } from '../../store/features/bookingsSlice'
 
 
-const SearchBooking = ({data, onHandleSearch}) => {
+const SearchBooking = ({ onHandleSearch}) => {
+    const bookings = useSelector((state) => state.bookings.data)
     const [value, setValue] = useState("")
+    const dispatch = useDispatch()
 
     const onChangeText = (text) => {
         setValue(text)
     }
+
     const onSubmitText = () => {
         let formatedText = value.toLowerCase()
-        let itemFound = data.find((element) => element.key.includes(formatedText))
-        console.log(itemFound)
+        let itemFound
+        if(formatedText === null) {
+            dispatch(resetBooking()) 
+        } else {
+            itemFound = bookings.find((element) => element.key.includes(formatedText))
+        }
         onHandleSearch(itemFound)
     }
     
@@ -37,7 +46,6 @@ const styles = StyleSheet.create({
         borderRadius:12,
         backgroundColor:colors.white_a,
         opacity:.9,
-        maxWidth:'60%',
         margin:5,
         flexDirection:'row',
         alignItems:'center'
@@ -45,6 +53,6 @@ const styles = StyleSheet.create({
     },
     textInput: {
         paddingHorizontal:10,
-        opacity:0.6
+        opacity:0.7
     }
 })

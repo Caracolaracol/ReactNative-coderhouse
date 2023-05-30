@@ -9,7 +9,6 @@ const Profile = () => {
       <Text>Profile</Text>
       <Pressable onPress={() => FIREBASE_AUTH.signOut()}>
         <View>
-
         <Text>
         Logout
           </Text>

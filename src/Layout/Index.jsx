@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, StyleSheet } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet, KeyboardAvoidingView, ScrollView, SafeAreaView } from 'react-native'
 import React, { useState } from 'react'
 import NavBar from '../components/NavBar'
 import Header from '../components/Header'
@@ -8,13 +8,12 @@ import colors from '../theme/colors'
 const Layout = ({children}) => {
 
   return (
-    <View style={styles.container}>
-        <StatusBar />
+      <View style={styles.container}>
         <Header />
-        <View style={styles.bodyContainer}> 
-            {children}
+        <View style={styles.bodyContainer}>
+          {children}
         </View>
-    </View>
+      </View>
   )
 }
 
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
   
     },
     bodyContainer: {
-      flex:14,
+      flex:1,
       zIndex:-10
     }
   });

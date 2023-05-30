@@ -1,4 +1,4 @@
-let favouriteBookings = [{
+let favouriteBookings = [/* {
     key: 'valaki',
     ubication: 'Valaki',
     firstdescription: 'House near the church',
@@ -46,6 +46,6 @@ let favouriteBookings = [{
     firstdescription: 'Bellsprout tower',
     host: 'Monk of bellsprout tower',
     cardImages: require('../assets/bookingsimg/bellsprouttower1.jpg')
-},
+}, */
 ]
 export default favouriteBookings

@@ -36,7 +36,8 @@ export function MyTabs(){
     <Tab.Navigator 
     tabBar={(props) => <NavBar {...props}/>}
     screenOptions={{
-      headerShown:false
+      headerShown:false,
+      tabBarHideOnKeyboard:true
     }}
     >
       <Tab.Screen name='Explore' component={Explore} />
@@ -49,7 +50,6 @@ export function MyTabs(){
 
 
 export default function Navigator() {
-
 
   return (
     <NavigationContainer>

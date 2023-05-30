@@ -1,17 +1,27 @@
 import { View, Text, Image, ImageBackground, TouchableOpacity, Pressable, StyleSheet } from 'react-native'
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
-
-
-
 import styles from './styles'
 import likeLogo from "../../assets/likebtn.png"
+import likeLogoWhite from "../../assets/likebtnwhite.png"
+import {  useSelector } from 'react-redux';
 
-export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages, onHandleModalDelete, id, item, navigation }) {
+
+export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages,onHandleAdd, id, item, navigation }) {
+  const [isFavourite, setIsFavourite] = useState(false)
+  const favourites = useSelector((state) => state.favourites.data)
+
+  useEffect(() => {
+    let conditionFav = favourites.includes(id) 
+    if (conditionFav) {
+      setIsFavourite(true)
+    } else {
+      setIsFavourite(false)
+    }
+  },[favourites])
 
   return (
-    <Pressable onPress={() => navigation.navigate('ItemDetail', {item:item})}  style={{ ...styles.container, ...otherStyles}}  >
+    <Pressable onPress={() => navigation.navigate('ItemDetail', { item: item })} style={{ ...styles.container, ...otherStyles }}  >
       <View style={styles.imageContainer}>
         {cardImages != "" ? (
           <ImageBackground source={cardImages} style={styles.imageList}>
@@ -23,16 +33,25 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
               locations={[0.8, 2]}
             >
               <View>
-              <TouchableOpacity
-            onPress={() => onHandleModalDelete(id)}
-            style={styles.removeLikeBtn}
-          >
-                <Image 
-                source={likeLogo}
-                style={styles.likeImage}
-                
-                />
-                </TouchableOpacity> 
+                {isFavourite ? <TouchableOpacity 
+                style={styles.addLikeBtn}>
+                  <Image
+                    source={likeLogoWhite}
+                    style={styles.likedImage}
+
+                  />
+                </TouchableOpacity> : <TouchableOpacity
+                  onPress={() => onHandleAdd(id)}
+                  style={styles.addLikeBtn}
+                >
+                  <Image
+                    source={likeLogo}
+                    style={styles.likeImage}
+
+                  />
+                </TouchableOpacity>
+                }
+
               </View>
             </LinearGradient>
           </ImageBackground>
@@ -43,16 +62,16 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
       <View style={styles.itemBody}>
         <View style={styles.itemBodyInfo}>
           <View style={styles.ubicationContainer}>
-            <Text style={{ fontSize: 29, fontFamily:'lost-ages' }}>{bookingUbication}</Text>
+            <Text style={{ fontSize: 29, fontFamily: 'lost-ages' }}>{bookingUbication}</Text>
           </View>
           <View style={styles.firstdescriptionContainer}>
-            <Text style={{ fontSize: 17, fontFamily:'lost-ages', opacity: 0.7 }}>
+            <Text style={{ fontSize: 17, fontFamily: 'lost-ages', opacity: 0.7 }}>
               {cardDescription}
             </Text>
           </View>
           <View style={styles.priceContainer}>
-            <Text style={{fontSize:14, fontFamily:'WickedGrit' }}>$20.000 </Text>
-            <Text style={{fontSize:18, fontFamily:'lost-ages'}}>per night</Text>
+            <Text style={{ fontSize: 14, fontFamily: 'WickedGrit' }}>$20.000 </Text>
+            <Text style={{ fontSize: 18, fontFamily: 'lost-ages' }}>per night</Text>
           </View>
         </View>
       </View>
