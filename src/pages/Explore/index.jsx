@@ -11,6 +11,8 @@ import { addFavourite } from '../../store/features/favouritesSlice';
 const Explore = ({navigation}) => {
   const bookings = useSelector((state) => state.bookings.data)
   const favourites = useSelector((state) => state.favourites.data)
+  const token = useSelector((state) => state.auth.token)
+  const id = useSelector((state) => state.auth.userId)
   const [data, setData] = useState([])  
   const dispatch = useDispatch()
 
@@ -23,6 +25,7 @@ const Explore = ({navigation}) => {
 
   useEffect(() => {
     setData(bookingList)
+    console.log(`token:${token},id:${id}`)
     console.log(favourites)
 },[favourites])
 

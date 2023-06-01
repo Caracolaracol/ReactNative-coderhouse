@@ -12,9 +12,25 @@ import NavBar from '../components/NavBar';
 import Login from '../pages/Login';
 import ItemDetail from '../pages/ItemDetail'
 import ReserveBook from '../pages/ReserveBook/ReserveBook';
+import { useSelector } from 'react-redux';
 
 const Stack = createNativeStackNavigator()
+const Authstack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
+let user 
+
+export function MyAuthStack(){
+  
+  return (
+    <Authstack.Navigator
+    initialRouteName='login'
+    screenOptions={{
+      headerShown:false,
+    }}>
+      <Authstack.Screen name='login' component={Login} />
+    </Authstack.Navigator>
+  )
+}
 
 export function MyStack(){
   
@@ -27,7 +43,6 @@ export function MyStack(){
       <Stack.Screen name='HomeScreen' component={MyTabs} />
       <Stack.Screen name='ItemDetail' component={ItemDetail} />
       <Stack.Screen name='ReserveBook' component={ReserveBook} />
-      <Stack.Screen name='logIn' component={Login} />
     </Stack.Navigator>
   )
 }
@@ -52,10 +67,11 @@ export function MyTabs(){
 
 
 export default function Navigator() {
+  const userId = useSelector(state => state.auth.userId)
 
   return (
     <NavigationContainer>
-      <MyStack/>
+      { userId ? <MyStack/> : <MyAuthStack />}
     </NavigationContainer>
   )
 }

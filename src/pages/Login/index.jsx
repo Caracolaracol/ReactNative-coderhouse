@@ -1,48 +1,66 @@
-import { View, Text, TextInput, Button, KeyboardAvoidingView } from 'react-native'
-import React, { useState } from 'react'
-import { FIREBASE_AUTH } from '../../services/firebaseConfig'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { View, Text, TextInput, Button, KeyboardAvoidingView, StyleSheet, Pressable } from 'react-native'
+import React, {  useState } from 'react'
+
+import { useDispatch } from 'react-redux'
+import { URL_AUTH_SIGNUP } from '../../constants/database'
+import { signUp } from '../../store/features/AuthSlice'
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState('agasasagbrina@gmail.com')
+  const [password, setPassword] = useState('13vf6s27')
   const [loading, setLoading] = useState(false)
 
-  const auth = FIREBASE_AUTH
-
+  
   const signIn = async () => {
-    setLoading(true)
-    try {
-      const response = await signInWithEmailAndPassword(auth, email,password)
-    } catch (error) {
-      
-    } finally {
-      setLoading(false)
-    }
+
   } 
 
-  const signUp = async () =>{
-    setLoading(true)
-    try{
-      const response = await createUserWithEmailAndPassword(auth, email,password)
-    } catch (error) {
+  const signUpHandler = async () => {
+    try {
+      const response = await fetch(URL_AUTH_SIGNUP, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          returnSecureToken: true
+        })
+      })
+      const data = await response.json()
 
+      dispatch(signUp(data))
+    } catch (error) {
+      console.log(error)
     } finally {
-      setLoading(false)
+      console.log('fin')
     }
   }
 
   return (
-    <View>
-      <KeyboardAvoidingView behavior='padding'>
+      <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <Text>This is the Login page</Text>
-        <TextInput value={email} placeholder={email} autoCapitalize='none'></TextInput>
-        <TextInput secureTextEntry={true} value={password} placeholder={password} autoCapitalize='none'></TextInput>
+        <TextInput placeholder='email' autoCapitalize='none'></TextInput>
+        <TextInput secureTextEntry={true} placeholder='password' autoCapitalize='none'></TextInput>
         <Button title='login' onPress={signIn}/>
-        <Button title='create acount' onPress={signUp}/> 
+        <Pressable onPress={signUpHandler} style={{backgroundColor:'red'}}>
+          <Text>
+          create acount
+          </Text>
+        </Pressable>
       </KeyboardAvoidingView>
-    </View>
   )
 }
 
 export default Login
+
+const styles = StyleSheet.create({ 
+  container:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  }
+
+})
