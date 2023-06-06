@@ -1,6 +1,6 @@
 import React, {  useEffect, useState } from 'react'
 import { View, Text, TextInput, KeyboardAvoidingView, StyleSheet, Pressable, Image, Platform } from 'react-native'
-import {  signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 
 import colors from '../../theme/colors'
@@ -9,29 +9,29 @@ import { URL_AUTH_SIGNUP } from '../../constants/database'
 import { signIn, signUp} from '../../store/features/authSlice'
 import { DB_TORCHND, FIREBASE_AUTH } from '../../services/firebaseConfig'
 import { ref, set } from 'firebase/database'
+import ModalValidation from './ModalValidation'
 
+const validateEmail = (email) => {
+  // Regular expression pattern for basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validatePassword = (password) => {
+  const passwordRegex = /^.{6,}$/;
+  return passwordRegex.test(password);
+}
 
 const Login = () => {
   const dispatch = useDispatch()
   const [user, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [validationText, setValidationText] = useState('')
   const [isLogin, setIsLogin] = useState(true)
   
-  
-  const googleHandler = async () => {
-    const googleProvider = new GoogleAuthProvider();
-    signInWithPopup(FIREBASE_AUTH, googleProvider).then((user) => {
-      const userData = user
-      const userId = user.uid
-      user.getIdToken().then((token) => {
-        dispatch(signIn({userId, token}))
-      })
-    })
-  };
-
-  const writeUserData = (userId, email) => {
+  const writeUserData = (userId, email) => { // add user to database
     set(ref(DB_TORCHND, 'users/' + userId), {
       userId:userId,
       email:email,
@@ -46,9 +46,11 @@ const Login = () => {
   }
 
   const signInHandler = async () => {
+    // login
     /* const auth = getAuth() */
     if (!validateEmail(email)) {
-      Alert.alert('Invalid Email', 'Please enter a valid email address');
+      setValidationText('Invalid Email. Please enter a valid email address');
+      
       return;
     } else {
       signInWithEmailAndPassword(FIREBASE_AUTH, email, password)
@@ -70,7 +72,12 @@ const Login = () => {
   const signUpHandler = async () => {
     // create account
     if (!validateEmail(email)) {
-      Alert.alert('Invalid Email', 'Please enter a valid email address');
+      setValidationText('Invalid Email. Please enter a valid email address');
+      setIsModalVisible(true)
+      return;
+    } else if (!validatePassword(password)) {
+      setValidationText('Invalid Password. Please enter a password with at least 6 characters');
+      setIsModalVisible(true)
       return;
     } else {
       try {
@@ -96,11 +103,9 @@ const Login = () => {
     }
   }
 
-  const validateEmail = (email) => {
-    // Regular expression pattern for basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  const onHandleCancel = () => {
+    setIsModalVisible(false)
+  }
 
   useEffect(() => {
     onAuthStateChanged(FIREBASE_AUTH, currentUser => {
@@ -130,7 +135,7 @@ const Login = () => {
                 Create account
               </Text>
             </Pressable>
-            <Pressable style={styles.signUpGoogleBtn} onPress={googleHandler}>
+            <Pressable style={styles.signUpGoogleBtn}>
               <Text style={{fontFamily:'lost-ages', fontSize:20, color:colors.violet_dark}}>
                 SignUp With Google
               </Text>
@@ -152,6 +157,7 @@ const Login = () => {
                 <Text style={{ fontFamily: 'lost-ages', fontSize: 16, color: colors.violet_dark, marginTop: 10 }}>Go back</Text>
               </Pressable>
             </View>
+            { isModalVisible && <ModalValidation textValidation={validationText} onHandleCancel={onHandleCancel}/>}
           </View>
         }
       </KeyboardAvoidingView>

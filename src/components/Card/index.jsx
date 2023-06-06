@@ -4,11 +4,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles'
 import likeLogo from "../../assets/likebtn.png"
 import likeLogoWhite from "../../assets/likebtnwhite.png"
-import {  useSelector } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 
 
 export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages,onHandleAdd, id, item, navigation }) {
   const [isFavourite, setIsFavourite] = useState(false)
+  const dispatch = useDispatch()
   const favourites = useSelector((state) => state.favourites.data)
 
   useEffect(() => {

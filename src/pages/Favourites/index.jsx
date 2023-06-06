@@ -46,7 +46,8 @@ const Favourites = ({navigation}) => {
             data={data}
             renderItem={({ item, index }) => (
               <Card
-                id={item.key}
+                key={item.key}
+                id={item.id}
                 bookingUbication={item.booking_ubication}
                 cardDescription={item.card_description}
                 cardImages={item.cardImages}

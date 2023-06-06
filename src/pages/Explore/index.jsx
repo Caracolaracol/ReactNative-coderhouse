@@ -6,13 +6,15 @@ import Card from '../../components/Card';
 
 import bookingList from '../../db/bookingList'
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavourite } from '../../store/features/favouritesSlice';
+import { addFavourite, getFavourites } from '../../store/features/favouritesSlice';
+import { DB_TORCHND } from '../../services/firebaseConfig';
+import { child, onValue, push, ref, set, update } from 'firebase/database';
 
 const Explore = ({navigation}) => {
   const bookings = useSelector((state) => state.bookings.data)
   const favourites = useSelector((state) => state.favourites.data)
   const token = useSelector((state) => state.auth.token)
-  const id = useSelector((state) => state.auth.userId)
+  const iduser = useSelector((state) => state.auth.userId)
   const [data, setData] = useState([])  
   const dispatch = useDispatch()
 
@@ -20,14 +22,25 @@ const Explore = ({navigation}) => {
   const onHandleAdd = (id) => {
     let idFound = data.find((el) => el.id === id)
     dispatch(addFavourite(idFound.id))
-    console.log(idFound)
+    
+    // update favourites to the database
+    update(ref(DB_TORCHND, 'users/' + iduser), {
+      favourites:[...favourites, idFound.id]
+    })
   }
 
   useEffect(() => {
     setData(bookingList)
-    console.log(`token:${token},id:${id}`)
+    
+    //fetching favourites data
+    const favsRef = ref(DB_TORCHND, 'users/' + iduser + '/favourites');
+    onValue(favsRef, (snapshot) => {
+      const data = snapshot.val();
+      getFavourites(data);
+    });
+    console.log(`token:${token},id:${iduser}`)
     console.log(favourites)
-},[favourites])
+  }, [favourites])
 
 
 
