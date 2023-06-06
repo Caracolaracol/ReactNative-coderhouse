@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import bookingList from '../../../src/db/bookingList'
-import { URL_API } from '../../constants/database'
 
 const initialState = {
     data: bookingList,
@@ -27,7 +26,6 @@ export const bookingsSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { findBooking, resetBooking  } = bookingsSlice.actions
 export const selectBookings = (state) => state.bookings.data
 export default bookingsSlice.reducer

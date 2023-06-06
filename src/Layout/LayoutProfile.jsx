@@ -2,12 +2,12 @@ import { View,StyleSheet,} from 'react-native'
 import React from 'react'
 import Header from '../components/Header'
 import colors from '../theme/colors'
+import { StatusBar } from 'expo-status-bar'
 
-const Layout = ({children}) => {
+const LayoutProfile = ({children}) => {
 
   return (
       <View style={styles.container}>
-        <Header />
         <View style={styles.bodyContainer}>
           {children}
         </View>
@@ -15,7 +15,7 @@ const Layout = ({children}) => {
   )
 }
 
-export default Layout
+export default LayoutProfile
 
 const styles = StyleSheet.create({
     container: {

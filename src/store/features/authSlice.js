@@ -1,12 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-import bookingList from '../../db/bookingList'
-import { URL_AUTH_SIGNUP } from '../../constants/database'
 
 const initialState = {
     token: null,
     userId: null,
+    user: null
 }
-
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -43,12 +41,22 @@ export const authSlice = createSlice({
                 console.log(error)
             }
         } */
+    },
+    signIn: (state, action) => {
+        console.log(`payload: ${action.payload}`)
+        return {
+            ...state, 
+            userId: action.payload.userId,
+            token: action.payload.token,
+
+        }
     }
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { signUp  } = authSlice.actions
+
+export const { signUp, signIn } = authSlice.actions
 export const selectAuth = (state) => state.auth.token
 export const selectId = (state) => state.auth.userId
+export const selectUserData = (state) => state.auth.user
 export default authSlice.reducer

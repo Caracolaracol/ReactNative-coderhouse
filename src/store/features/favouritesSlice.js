@@ -22,7 +22,7 @@ export const favouritesSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
+
 /* export const {  } = bookingsSlice.actions */
 export const {addFavourite, removeFavourite} = favouritesSlice.actions
 export const selectFavourites = (state) => state.favourites.data

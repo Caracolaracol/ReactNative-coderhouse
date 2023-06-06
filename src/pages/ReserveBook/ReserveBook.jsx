@@ -1,13 +1,9 @@
-import { View, Text, SafeAreaView, ScrollView, ImageBackground, Pressable, Image, Button } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, Pressable, Image, Button } from 'react-native'
 import React from 'react'
-import Images from '../../components/ItemDetail/Images'
 import styles from './styles'
-import Characteristics from '../../components/ItemDetail/Characteristics'
-import colors from '../../theme/colors'
-import { StatusBar } from 'expo-status-bar'
 
-const ReserveBook = ({navigation, route}) => {
-    console.log(route)
+const ReserveBook = ({route}) => {
+
     return (
         <SafeAreaView>
             <ScrollView styles={styles.detailDataContainer}>

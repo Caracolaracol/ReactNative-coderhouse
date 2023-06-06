@@ -17,7 +17,6 @@ import { useSelector } from 'react-redux';
 const Stack = createNativeStackNavigator()
 const Authstack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
-let user 
 
 export function MyAuthStack(){
   
@@ -68,10 +67,10 @@ export function MyTabs(){
 
 export default function Navigator() {
   const userId = useSelector(state => state.auth.userId)
-
+  const token = useSelector(state => state.auth.token) 
   return (
     <NavigationContainer>
-      { userId ? <MyStack/> : <MyAuthStack />}
+      { (userId && token) ? <MyStack/> : <MyAuthStack />}
     </NavigationContainer>
   )
 }

@@ -23,8 +23,6 @@ const styles = StyleSheet.create({
     titleContainer:{
       borderWidth: 0,
       padding:10,
-      
-      
     },
     descriptionContainer:{
       marginTop:20,
