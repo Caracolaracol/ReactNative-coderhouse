@@ -9,13 +9,11 @@ import { signOut } from '../../store/features/authSlice'
 
 const Profile = () => {
   const userId = useSelector(state => state.auth.userId)
-  const userData = useSelector(state => state.auth.user)
   const dispatch = useDispatch()
 
 
   const signOutHandler = () => {
     FIREBASE_AUTH.signOut(FIREBASE_AUTH).then(() => {
-      console.log('hola')
       dispatch(signOut())
     })
   }

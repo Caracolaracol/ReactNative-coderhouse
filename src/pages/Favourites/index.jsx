@@ -3,18 +3,27 @@ import React, { useEffect, useState } from 'react'
 
 import Card from '../../components/Card';
 import Layout from '../../Layout/Index';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFavourite } from '../../store/features/favouritesSlice';
+import { ref, update } from 'firebase/database';
+import { DB_TORCHND } from '../../services/firebaseConfig';
 
 const Favourites = ({navigation}) => {
   const favourites = useSelector((state) => state.favourites.data)
   const bookings = useSelector((state) => state.bookings.data)
   const [data, setData] = useState([])  
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const iduser = useSelector((state) => state.auth.userId)
   const [itemSelected, setItemSelected] = useState([])
+  const dispatch = useDispatch()
   
   useEffect(() => {
-    const filteredBookings = bookings.filter(element => favourites.includes(element.id))
-    setData(filteredBookings)
+    if (favourites == undefined) {
+      setData([])
+    } else {
+      const filteredBookings = bookings.filter(element => favourites.includes(element.id))
+      setData(filteredBookings)
+    }
   },[favourites, bookings])
 
 
@@ -29,6 +38,20 @@ const Favourites = ({navigation}) => {
       let newItemList = data.filter(element => element.key != item.key)
       setData(newItemList)
       setIsModalVisible(false)
+  }
+
+  const onHandleRemove = (id) => {
+    dispatch(removeFavourite({id}))
+
+    if(favourites == undefined) {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[]
+      })
+    } else {
+      update(ref(DB_TORCHND, 'users/' + iduser),{
+        favourites:[...favourites]
+      })
+    }
   }
 
   const onHandleCancel = () => {
@@ -51,7 +74,7 @@ const Favourites = ({navigation}) => {
                 bookingUbication={item.booking_ubication}
                 cardDescription={item.card_description}
                 cardImages={item.cardImages}
-                
+                onHandleRemove={onHandleRemove}
                 navigation={navigation}
                 item={item}
               />

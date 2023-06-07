@@ -6,7 +6,7 @@ import Card from '../../components/Card';
 
 import bookingList from '../../db/bookingList'
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavourite, getFavourites } from '../../store/features/favouritesSlice';
+import { addFavourite, getFavourites, removeFavourite, setFavourites } from '../../store/features/favouritesSlice';
 import { DB_TORCHND } from '../../services/firebaseConfig';
 import {  onValue, push, ref, update } from 'firebase/database';
 
@@ -22,28 +22,56 @@ const Explore = ({navigation}) => {
   // ADD TO FAVOURITES
   const onHandleAdd = (id) => {
     let idFound = data.find((el) => el.id === id)
-    dispatch(addFavourite(idFound.id))
+    console.log(`idFound: ${idFound.id}`)
+    let idfoundData = idFound.id
+    dispatch(addFavourite({idfoundData}))
     
     // update favourites to the database
-    update(ref(DB_TORCHND, 'users/' + iduser), {
-      favourites:[...favourites, idFound.id]
+    if(favourites == undefined) {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[idFound.id]
+      })
+    } else {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[...favourites, idFound.id]
+      })
+    }
+  }
+
+  const onHandleRemove = (id) => {
+    dispatch(removeFavourite({id}))
+
+    if(favourites == undefined) {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[]
+      })
+    } else {
+      update(ref(DB_TORCHND, 'users/' + iduser),{
+      favourites:[...favourites]
     })
+  }
   }
 
   useEffect(() => {
-    setData(bookingList)
-
-
-
     //fetching favourites data
-    const favsRef = ref(DB_TORCHND, 'users/' + iduser + '/favourites');
-    onValue(favsRef, (snapshot) => {
-      const data = snapshot.val();
-      getFavourites(data);
-    });
-    console.log(`token:${token},id:${iduser}`)
-    console.log(`favourites ${favourites}`)
-  }, [favourites])
+    const fetchFavsData = () => {
+      const favsRef = ref(DB_TORCHND, 'users/' + iduser + '/favourites');
+      onValue(favsRef, (snapshot) => {
+        const data = snapshot.val();
+        console.log(`favourites: ${data}`)
+        if(data == null) {
+          console.log('no favourites')
+          dispatch(setFavourites())
+        } else {
+          dispatch(getFavourites(data))
+        }
+      });
+      console.log(`fetching token:${token},id:${iduser}, favourites:${favourites}`)
+    }
+
+    fetchFavsData()
+    setData(bookingList)
+  }, [])
 
 
   return (
@@ -60,6 +88,7 @@ const Explore = ({navigation}) => {
                 navigation={navigation}
                 item={item}
                 onHandleAdd={onHandleAdd}
+                onHandleRemove={onHandleRemove}
               />
             )}
             keyExtractor={(item) => item.key}

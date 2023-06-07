@@ -7,17 +7,22 @@ import likeLogoWhite from "../../assets/likebtnwhite.png"
 import {  useDispatch, useSelector } from 'react-redux';
 
 
-export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages,onHandleAdd, id, item, navigation }) {
+export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages,onHandleAdd, onHandleRemove,id, item, navigation }) {
   const [isFavourite, setIsFavourite] = useState(false)
-  const dispatch = useDispatch()
   const favourites = useSelector((state) => state.favourites.data)
 
   useEffect(() => {
-    let conditionFav = favourites.includes(id) 
-    if (conditionFav) {
-      setIsFavourite(true)
+    console.log(`id ${id}`)
+    if (favourites == undefined){
+      console.log(`favs undefined: ${favourites} `)
     } else {
-      setIsFavourite(false)
+
+      let conditionFav = favourites.includes(id) 
+      if (conditionFav) {
+        setIsFavourite(true)
+      } else {
+        setIsFavourite(false)
+      }
     }
   },[favourites])
 
@@ -35,7 +40,8 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
             >
               <View>
                 {isFavourite ? <TouchableOpacity 
-                style={styles.addLikeBtn}>
+                style={styles.addLikeBtn}
+                onPress={() => onHandleRemove(id)}>
                   <Image
                     source={likeLogoWhite}
                     style={styles.likedImage}

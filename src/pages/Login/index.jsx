@@ -1,30 +1,20 @@
 import React, {  useEffect, useState } from 'react'
-import { View, Text, TextInput, KeyboardAvoidingView, StyleSheet, Pressable, Image, Platform } from 'react-native'
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
-import { useDispatch } from 'react-redux'
+import { View, Text, TextInput, KeyboardAvoidingView, Pressable, Image, Platform } from 'react-native'
 
-import colors from '../../theme/colors'
-
-import { URL_AUTH_SIGNUP } from '../../constants/database'
-import { signIn, signUp} from '../../store/features/authSlice'
-import { DB_TORCHND, FIREBASE_AUTH } from '../../services/firebaseConfig'
+import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth'
 import { ref, set } from 'firebase/database'
+import { DB_TORCHND, FIREBASE_AUTH } from '../../services/firebaseConfig'
+
+import { useDispatch } from 'react-redux'
+import { signIn } from '../../store/features/authSlice'
+
 import ModalValidation from './ModalValidation'
-
-const validateEmail = (email) => {
-  // Regular expression pattern for basic email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-};
-
-const validatePassword = (password) => {
-  const passwordRegex = /^.{6,}$/;
-  return passwordRegex.test(password);
-}
+import { validateEmail, validatePassword } from './Validations'
+import styles from './styles'
+import colors from '../../theme/colors'
 
 const Login = () => {
   const dispatch = useDispatch()
-  const [user, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -47,7 +37,6 @@ const Login = () => {
 
   const signInHandler = async () => {
     // login
-    /* const auth = getAuth() */
     if (!validateEmail(email)) {
       setValidationText('Invalid Email. Please enter a valid email address');
       
@@ -80,26 +69,23 @@ const Login = () => {
       setIsModalVisible(true)
       return;
     } else {
-      try {
-        const response = await fetch(URL_AUTH_SIGNUP, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            email,
-            password,
-            returnSecureToken: true
-          })
+      createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        const userId = user.uid
+        const tokenId = userCredential.user.getIdToken().then((token) => {
+          dispatch(signIn({userId, token}))
+          writeUserData(userId, email)
         })
-        const data = await response.json()
-        const userId = data.localId
-        dispatch(signUp(data))
-        writeUserData(userId, email)
-      } catch (error) {
-        console.log(error)
-      } finally {
-      }
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage)
+        // ..
+      });
     }
   }
 
@@ -109,7 +95,7 @@ const Login = () => {
 
   useEffect(() => {
     onAuthStateChanged(FIREBASE_AUTH, currentUser => {
-      setUser(currentUser)
+      console.log(`user changed: ${currentUser}`)
     })
   },[])
 
@@ -165,75 +151,3 @@ const Login = () => {
 }
 
 export default Login
-
-const styles = StyleSheet.create({ 
-  container:{
-    flex:1,
-    flexDirection:'column',
-    justifyContent:'space-around',
-    alignItems:'center'
-  },
-  title: {
-    flex:1,
-    flexDirection:'row',
-    alignItems:'flex-end',
-  },
-  body: {
-    flex:2,
-    alignItems:'center'
-  },
-  inputContainer:{
-    width:'100%',
-    marginBottom:20
-  }, 
-  input: {
-    backgroundColor:colors.yellow,
-    color:colors.violet_dark,
-    aspectRatio:7,
-    margin:10,
-    padding:4,
-    borderRadius:10,
-    fontFamily:'lost-ages',
-    fontSize:17,
-    borderBottomWidth:.4,
-    borderColor:colors.red
-  },
-  authContainer:{
-    width:'100%',
-    flex:1,
-    alignItems:'center',
-    gap:10
-  },
-  loginBtn: {
-    aspectRatio:5,
-    alignItems:'center',
-    backgroundColor:colors.violet,
-    padding:10,
-    borderRadius:10,
-  },
-  signUpBtn:{
-    marginTop:80,
-    aspectRatio:5,
-    alignItems:'center',
-    backgroundColor:colors.orange_a,
-    opacity:.6,
-    padding:10,
-    borderRadius:10,
-  },
-  signUpGoogleBtn: {
-    marginTop:10,
-    aspectRatio:6,
-    alignItems:'center',
-    backgroundColor:colors.orange,
-    opacity:.6,
-    padding:10,
-    borderRadius:10,
-  },
-
-
-  body2: {
-    flex:2,
-    alignItems:'center'
-  },
-
-})
