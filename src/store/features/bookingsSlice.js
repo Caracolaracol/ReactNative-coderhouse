@@ -22,10 +22,16 @@ export const bookingsSlice = createSlice({
         ...state,
         data:bookingList
       }
+    },
+    getBookingList: (state, action) => {
+      return {
+        ...state,
+        data:action.payload
+      }
     }
   },
 })
 
-export const { findBooking, resetBooking  } = bookingsSlice.actions
+export const { findBooking, resetBooking, getBookingList  } = bookingsSlice.actions
 export const selectBookings = (state) => state.bookings.data
 export default bookingsSlice.reducer

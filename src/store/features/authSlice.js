@@ -50,12 +50,18 @@ export const authSlice = createSlice({
             token: action.payload.token,
 
         }
+    },
+    signOut: (state, action) => {
+        return {
+            initialState
+        }
     }
+
   },
 })
 
 
-export const { signUp, signIn } = authSlice.actions
+export const { signUp, signIn, signOut } = authSlice.actions
 export const selectAuth = (state) => state.auth.token
 export const selectId = (state) => state.auth.userId
 export const selectUserData = (state) => state.auth.user

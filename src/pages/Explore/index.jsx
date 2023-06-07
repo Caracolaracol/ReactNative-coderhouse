@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import Layout from '../../Layout/Index';
@@ -8,7 +8,8 @@ import bookingList from '../../db/bookingList'
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavourite, getFavourites } from '../../store/features/favouritesSlice';
 import { DB_TORCHND } from '../../services/firebaseConfig';
-import { child, onValue, push, ref, set, update } from 'firebase/database';
+import {  onValue, push, ref, update } from 'firebase/database';
+
 
 const Explore = ({navigation}) => {
   const bookings = useSelector((state) => state.bookings.data)
@@ -31,7 +32,9 @@ const Explore = ({navigation}) => {
 
   useEffect(() => {
     setData(bookingList)
-    
+
+
+
     //fetching favourites data
     const favsRef = ref(DB_TORCHND, 'users/' + iduser + '/favourites');
     onValue(favsRef, (snapshot) => {
@@ -39,9 +42,8 @@ const Explore = ({navigation}) => {
       getFavourites(data);
     });
     console.log(`token:${token},id:${iduser}`)
-    console.log(favourites)
+    console.log(`favourites ${favourites}`)
   }, [favourites])
-
 
 
   return (
@@ -63,8 +65,7 @@ const Explore = ({navigation}) => {
             keyExtractor={(item) => item.key}
             ListFooterComponent={<View></View>}
             ListHeaderComponent={
-              <View>
-              </View>
+              <View></View>
             }
             initialNumToRender={8}
           /></SafeAreaView>
