@@ -2,20 +2,24 @@ import React from 'react'
 import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react-native'
 
 import colors from '../../theme/colors'
+import { useIsFocused, useNavigationState, useRoute } from '@react-navigation/native'
 
-const NavBar = ({navigation}) => {
+const NavBar = ({navigation, state}) => {
 
+  const styleColors = (number) => {
+    return state.index == number ?  {...styles.titleSection, color: colors.red_a} : {...styles.titleSection, color:colors.violet_dark}
+  }
 
   return (
     <ImageBackground source={require('../../assets/bg2.png')} style={styles.navBarContainer}>
       <View style={styles.btnContainer}>
         <Pressable onPress={() => navigation.navigate('Explore')} style={styles.pressable}>
           <View style={styles.iconContainer}>
-            <Image source={require('../../assets/icons/explore.png')} style={{width:30, height:30}}/>
+            <Image source={require('../../assets/icons/explorelogo.png')} style={{width:30, height:30}}/>
           </View>
           <View style={styles.textContainer}>
 
-          <Text style={{ fontFamily: 'lost-ages', fontSize: 16, color: '#493757'}}>explore</Text>
+          <Text style={styleColors(0)}>explore</Text>
           </View>
         </Pressable>
 
@@ -27,7 +31,7 @@ const NavBar = ({navigation}) => {
           </View>
           <View style={styles.textContainer}>
 
-          <Text style={{ fontFamily: 'lost-ages', fontSize: 16, color: '#493757'}}>favourites</Text>
+          <Text style={styleColors(1)}>favourites</Text>
           </View>
         </Pressable>
       </View>
@@ -38,7 +42,7 @@ const NavBar = ({navigation}) => {
           </View>
           <View style={styles.textContainer}>
 
-          <Text style={{ fontFamily: 'lost-ages', fontSize: 16, color: '#493757'}}>notifications</Text>
+          <Text style={styleColors(2)}>notifications</Text>
           </View>
         </Pressable>
 
@@ -49,7 +53,7 @@ const NavBar = ({navigation}) => {
             <Image source={require('../../assets/icons/profile.png')} style={{width:30, height:30}}/>
           </View>
           <View style={styles.textContainer}>
-            <Text style={{ fontFamily: 'lost-ages', fontSize: 16, color: '#493757'}}>profile</Text>
+            <Text style={styleColors(3)}>profile</Text>
           </View>
         </Pressable>
       </View>
@@ -62,7 +66,7 @@ export default NavBar
 const styles = StyleSheet.create({
     btnContainer: {
         marginBottom:6,
-  
+        marginTop:2
     },
     pressable: {
       flexDirection:'column',
@@ -93,4 +97,9 @@ const styles = StyleSheet.create({
       elevation: 5,
       zIndex:4
     },
+
+    titleSection: {
+      fontFamily: 'lost-ages', 
+      fontSize: 16,
+    }
 })

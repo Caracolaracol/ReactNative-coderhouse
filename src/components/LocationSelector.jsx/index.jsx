@@ -37,7 +37,7 @@ const LocationSelector = ({onLocation}) => {
     }
 
     return (
-        <View style={{marginBottom:20}}>
+        <View style={{marginBottom:20, height:300}}>
             <MapPreview location={pickedLocation}>
                 {isLocating ? <Text>Procesando Ubicación...</Text> : <Text style={{fontFamily:'lost-ages', fontSize:18}}> Seleccióna la ubicación:</Text> }
             </MapPreview>

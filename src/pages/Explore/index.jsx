@@ -76,7 +76,7 @@ const Explore = ({navigation}) => {
 
   return (
     <Layout>
-      {bookings && <SafeAreaView style={{flex: 1}}><FlatList
+      {(bookings && favourites) && <SafeAreaView style={{flex: 1}}><FlatList
             data={bookings}
             renderItem={({ item, index }) => (
               <Card

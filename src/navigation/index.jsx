@@ -46,7 +46,8 @@ export function MyStack(){
   )
 }
 
-export function MyTabs(){
+export function MyTabs({route}){
+  console.log(route)
 
   return(
     <Tab.Navigator 
@@ -56,10 +57,10 @@ export function MyTabs(){
       tabBarHideOnKeyboard:true
     }}
     >
-      <Tab.Screen name='Explore' component={Explore} />
-      <Tab.Screen name='Favourites' component={Favourites} />
-      <Tab.Screen name='Notifications' component={Notfications} />
-      <Tab.Screen name='Profile' component={Profile} />
+      <Tab.Screen name='Explore' component={Explore} options={{title:'Explore'}} initialParams={{ name: 'Explore' }}/>
+      <Tab.Screen name='Favourites' component={Favourites} options={{title:'Favourites'}} initialParams={{ name: 'Favourites' }}/>
+      <Tab.Screen name='Notifications' component={Notfications} options={{title:'Notifications'}} initialParams={{ name: 'Notifications' }}/>
+      <Tab.Screen name='Profile' component={Profile} options={{title:'Profile'}} initialParams={{ name: 'Profile' }}/>
     </Tab.Navigator>
       )
 }

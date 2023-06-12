@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     addBookingContainer:{
         width: '100%',
         marginVertical:10, 
+
         backgroundColor:colors.yellow,
         paddingHorizontal:10,
     },

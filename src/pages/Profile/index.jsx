@@ -75,7 +75,7 @@ const Profile = () => {
 
 
       <View style={styles.addBookingContainer}>
-      <Text style={styles.title}>Log Out</Text>
+        <Text style={styles.title}>Log Out</Text>
         <Pressable style={{ backgroundColor: colors.orange, aspectRatio: 7, marginHorizontal: 30, borderRadius: 10, alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }} onPress={signOutHandler}>
           <Text style={{ fontFamily: 'lost-ages', fontSize: 24, textAlign: 'center' }}>
             Logout
