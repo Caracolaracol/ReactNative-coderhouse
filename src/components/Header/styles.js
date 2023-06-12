@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
       shadowRadius: 10,
       elevation: 5,
       zIndex:4,
-      paddingTop:30,
+      paddingTop:27,
       paddingHorizontal:10
     },
     logotitleContainer: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
       paddingBottom:2
     },
     titleContainer: {
-      fontSize: 48, 
+      fontSize: 50, 
       color: '#493757', 
       fontFamily: 'MORGANA',
      
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
    imageContainer: {
       alignSelf:'flex-end',
-      padding:8
+      padding:5
     },
     /*
     titleContainer: {

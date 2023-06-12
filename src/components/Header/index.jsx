@@ -23,7 +23,7 @@ export default function Header() {
           <View style={styles.logotitleContainer}>
             <Text style={styles.titleContainer}>torchnd</Text>
             <View style={styles.imageContainer}>
-              <Image source={require('../../assets/iconlogo.png')} style={{ width: 34, height: 34 }} />
+              <Image source={require('../../assets/logotorchnd.png')} style={{ width: 42, height: 42 }} />
             </View>
           </View> 
           

@@ -1,4 +1,4 @@
-import { View,StyleSheet,} from 'react-native'
+import { View,StyleSheet, ScrollView,} from 'react-native'
 import React from 'react'
 import Header from '../components/Header'
 import colors from '../theme/colors'
@@ -8,9 +8,9 @@ const LayoutProfile = ({children}) => {
 
   return (
       <View style={styles.container}>
-        <View style={styles.bodyContainer}>
+        <ScrollView style={styles.bodyContainer}>
           {children}
-        </View>
+        </ScrollView>
       </View>
   )
 }
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     bodyContainer: {
       flex:1,
-      zIndex:-10
+      zIndex:-10,
     }
   });
   

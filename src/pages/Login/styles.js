@@ -28,8 +28,8 @@ export const styles = StyleSheet.create({
       margin:10,
       padding:4,
       borderRadius:10,
-      fontFamily:'lost-ages',
-      fontSize:17,
+      fontFamily:'Inter-Bold',
+      fontSize:14,
       borderBottomWidth:.4,
       borderColor:colors.red
     },

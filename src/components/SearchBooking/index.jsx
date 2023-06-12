@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         marginVertical:10,
         flexDirection:'row',
         alignItems:'center',
-        height:40,
+        height:30,
         borderBottomColor:'#caa59e',
       borderBottomWidth:0.3,
       borderStyle:'dashed',
