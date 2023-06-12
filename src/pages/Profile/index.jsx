@@ -1,16 +1,20 @@
-import { View, Text, Pressable,TextInput } from 'react-native'
 import React, { useState } from 'react'
+import { View, Text, Pressable,TextInput } from 'react-native'
+
 import * as FileSystem from 'expo-file-system'
+
 import { FIREBASE_AUTH } from '../../services/firebaseConfig'
+
 import { useDispatch, useSelector} from 'react-redux'
+import { signOut } from '../../store/features/authSlice'
+import { addPlace } from '../../store/features/placesSlice'
+
 import LayoutProfile from '../../Layout/LayoutProfile'
 import colors from '../../theme/colors'
-import { signOut } from '../../store/features/authSlice'
 import ImageSelector from '../../components/ImageSelector/Index'
 import LocationSelector from '../../components/LocationSelector.jsx'
-import { addPlace } from '../../store/features/placesSlice'
-import styles from './styles'
 
+import styles from './styles'
 
 const Profile = () => {
   const userId = useSelector(state => state.auth.userId)
@@ -22,7 +26,7 @@ const Profile = () => {
 
   const titleHandler = (text) => {setTitle(text)}
 
-  const saveHandler = async () => {
+  const saveHandler = async () => { // SAVING BOOKING
     const fileName = image.split("/").pop()
     const Path = FileSystem.documentDirectory + fileName
     try {
@@ -37,7 +41,7 @@ const Profile = () => {
     dispatch(addPlace({title, image: Path}))
   }
 
-  const signOutHandler = () => {
+  const signOutHandler = () => { // SIGNOUT APP
     FIREBASE_AUTH.signOut(FIREBASE_AUTH).then(() => {
       dispatch(signOut())
     })

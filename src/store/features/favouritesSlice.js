@@ -1,7 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import favouriteBookings from '../../db/favouriteBookings'
-
-
 
 const initialState = {
     data: []
