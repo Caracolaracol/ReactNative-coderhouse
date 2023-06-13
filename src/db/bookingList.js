@@ -7,7 +7,7 @@ let bookingList = [
         detail_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at massa non est egestas semper. Vestibulum et orci nulla. Donec ac pharetra mauris. Nulla eget tellus tortor. Nam ac urna fermentum, ultricies dolor in, porta mi. Vivamus consectetur et justo non facilisis. Morbi facilisis pretium velit, ut scelerisque nisi tristique sed. Pellentesque pretium ex eu eros pulvinar, eu eleifend nisi iaculis. Aliquam at eros ut massa suscipit porta sit amet at magna. Nullam aliquet justo leo, nec dapibus nibh egestas aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer aliquet enim vitae est vestibulum commodo in at ante. Donec convallis mattis leo vel condimentum. Maecenas nec lectus nec ex semper egestas ac vitae quam. Nam et vestibulum velit. Morbi massa elit, iaculis lacinia ante a, aliquet pharetra felis. Quisque pharetra vulputate dapibus. Vestibulum vulputate viverra elit, ac euismod risus tempor sed. Donec eros libero, luctus eu mi et, malesuada pharetra nulla. Praesent tempor bibendum massa, at faucibus odio cursus pellentesque. Aenean a congue dui. Donec consequat aliquet felis, ut tincidunt turpis feugiat at. Donec purus lacus, iaculis vitae lacus non, consectetur volutpat odio. Nulla cursus nisi vel egestas faucibus Fusce vel vehicula eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus nibh odio, ac fermentum risus maximus vulputate. Praesent rutrum, dui at eleifend pellentesque, felis dui consectetur turpis, at venenatis tortor est vel purus. Duis dolor enim, malesuada in ante nec, egestas laoreet lectus. Aliquam erat volutpat. Aenean vel velit ac elit gravida tincidunt. Donec felis libero, faucibus vel sapien in, rutrum dignissim eros. Maecenas fermentum ornare erat, sit amet suscipit est ultrices quis. Morbi ornare, magna id posuere tempor, lacus eros viverra dolor, vel scelerisque lectus erat eu dolor. Sed pulvinar elementum malesuada. ',
         host: 'Blinsky',
         host_image: require('../assets/bookingsimg/blinksy_1/host/blinsky.png'),
-        cardImages: require('../assets/bookingsimg/blinksy_1/place/outside.jpeg'),
+        cardImages: require('../assets/bookingsimg/blinksy_1/place/1.jpeg'),
         characteristics:[{
             beds:'two beds',
             bathroom:'exclusive bathroom',
@@ -41,7 +41,7 @@ let bookingList = [
         \
         So why wait? Book your stay at our citadel and experience the heart and hospitality of a Citadel Guard and his son. We promise to make your stay in Gondor a memorable one!",
         host: 'Guardia de Gondor',
-        cardImages: require('../assets/bookingsimg/minastirith_1/place/outside.jpeg'),
+        cardImages: require('../assets/bookingsimg/minastirith_1/place/1.jpeg'),
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -65,7 +65,7 @@ let bookingList = [
         So what are you waiting for? Come stay with me and experience the wonder and magic of the Mines of Narshe. I promise it will be a stay you won\'t soon forget!\
         ",
         host: 'Moogle',
-        cardImages: require('../assets/bookingsimg/narshe1/narshe1.jpg'),
+        cardImages: require('../assets/bookingsimg/narshe1/place/1.jpg'),
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],

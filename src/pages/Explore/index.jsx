@@ -19,6 +19,27 @@ const Explore = ({navigation}) => {
   const [data, setData] = useState([])  
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    //fetching favourites data
+    const fetchFavsData = () => {
+      const favsRef = ref(DB_TORCHND, 'users/' + iduser + '/favourites');
+      onValue(favsRef, (snapshot) => {
+        const data = snapshot.val();
+        console.log(`favourites from explore page: ${data}`)
+        if(data == null) {
+          console.log('no favourites')
+          dispatch(setFavourites())
+        } else {
+          dispatch(getFavourites(data))
+        }
+      });
+      console.log(`fetching token:${token},id:${iduser}, favourites:${favourites}`)
+    }
+
+    fetchFavsData()
+    setData(bookingList)
+  }, [])
+  
   // ADD TO FAVOURITES
   const onHandleAdd = (id) => {
     let idFound = data.find((el) => el.id === id)
@@ -52,31 +73,11 @@ const Explore = ({navigation}) => {
   }
   }
 
-  useEffect(() => {
-    //fetching favourites data
-    const fetchFavsData = () => {
-      const favsRef = ref(DB_TORCHND, 'users/' + iduser + '/favourites');
-      onValue(favsRef, (snapshot) => {
-        const data = snapshot.val();
-        console.log(`favourites: ${data}`)
-        if(data == null) {
-          console.log('no favourites')
-          dispatch(setFavourites())
-        } else {
-          dispatch(getFavourites(data))
-        }
-      });
-      console.log(`fetching token:${token},id:${iduser}, favourites:${favourites}`)
-    }
-
-    fetchFavsData()
-    setData(bookingList)
-  }, [])
 
 
   return (
     <Layout>
-      {(bookings && favourites) && <SafeAreaView style={{flex: 1}}><FlatList
+      {(bookings) && <SafeAreaView style={{flex: 1}}><FlatList
             data={bookings}
             renderItem={({ item, index }) => (
               <Card

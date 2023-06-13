@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { ref, update } from 'firebase/database';
+import { DB_TORCHND } from '../../services/firebaseConfig';
 
 const initialState = {
     data: []
@@ -25,13 +27,12 @@ export const favouritesSlice = createSlice({
       return { ...state, data: updateFavs };
     },
 
-    removeFavourite: (state, action ) => {
-
+    removeFavourite: (state, action) => {
       const cleanFav = [...state.data].filter(
         item => item !== action.payload.id
       );
-      return { ...state, data: cleanFav};
-      },
+      return { ...state, data: cleanFav };
+    },
 
     setFavourites: (state, action) => {
       return {

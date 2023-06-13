@@ -11,51 +11,30 @@ import { DB_TORCHND } from '../../services/firebaseConfig';
 const Favourites = ({navigation}) => {
   const favourites = useSelector((state) => state.favourites.data)
   const bookings = useSelector((state) => state.bookings.data)
-  const [data, setData] = useState([])  
-  const [isModalVisible, setIsModalVisible] = useState(false)
   const iduser = useSelector((state) => state.auth.userId)
-  const [itemSelected, setItemSelected] = useState([])
   const dispatch = useDispatch()
-  
+  const [data, setData] = useState([])  
+
   useEffect(() => {
     if (favourites == undefined) {
       setData([])
-    } else {
-      const filteredBookings = bookings.filter(element => favourites.includes(element.id))
-      setData(filteredBookings)
-    }
-  },[favourites, bookings])
-
-
-  // These functions are disabled for now
-  const onHandleModalDelete = (id) => {
-      let item = data.find(element => element.key == id)
-      setIsModalVisible(true)
-      setItemSelected(item)
-  }
-
-  const onHandleDelete = (item) => {
-      let newItemList = data.filter(element => element.key != item.key)
-      setData(newItemList)
-      setIsModalVisible(false)
-  }
-
-  const onHandleRemove = (id) => {
-    dispatch(removeFavourite({id}))
-
-    if(favourites == undefined) {
       update(ref(DB_TORCHND, 'users/' + iduser), {
         favourites:[]
       })
     } else {
+      const filteredBookings = bookings.filter(element => favourites.includes(element.id))
+      setData(filteredBookings)
       update(ref(DB_TORCHND, 'users/' + iduser),{
         favourites:[...favourites]
       })
     }
-  }
 
-  const onHandleCancel = () => {
-      setIsModalVisible(false)
+    console.log(`favourites useff: ${favourites}`)
+  },[favourites, bookings])
+
+
+  const onHandleRemove = (id) => {
+    dispatch(removeFavourite({id}))
   }
 
 
@@ -64,7 +43,6 @@ const Favourites = ({navigation}) => {
       {data == "" ? (
         <Text>There is no favourite bookings, find one that you like!</Text>
       ) : (
-        
           <FlatList
             data={data}
             renderItem={({ item, index }) => (
@@ -86,19 +64,11 @@ const Favourites = ({navigation}) => {
                 <Text style={styles.favoriteBookingsTitle}>
                   My Favorite Bookings
                 </Text>
-                
               </View>
             }
             initialNumToRender={8}
           />
         
-      )}
-      {isModalVisible && (
-        <ModalDelete
-          onHandleDelete={onHandleDelete}
-          itemSelected={itemSelected}
-          onHandleCancel={onHandleCancel}
-        />
       )}
     </Layout>
   );
@@ -107,10 +77,10 @@ const Favourites = ({navigation}) => {
 export default Favourites
 
 const styles = StyleSheet.create({
-  favoriteBookingsTitle:{
-      fontSize:17,
-      paddingTop:10,
-      textAlign:'center'
+  favoriteBookingsTitle: {
+    fontSize: 17,
+    paddingTop: 10,
+    textAlign: 'center'
   },
 
 

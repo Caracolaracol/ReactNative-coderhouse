@@ -1,10 +1,13 @@
-import { View, Text, Image, ImageBackground, TouchableOpacity, Pressable, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { View, Text, Image, ImageBackground, TouchableOpacity, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
+
+import {  useSelector } from 'react-redux';
+
 import styles from './styles'
+
 import likeLogo from "../../assets/likebtn.png"
 import likeLogoWhite from "../../assets/likebtnwhite.png"
-import {  useDispatch, useSelector } from 'react-redux';
 
 
 export default function Card({ otherStyles, bookingUbication, cardDescription, cardImages,onHandleAdd, onHandleRemove,id, item, navigation }) {
@@ -12,11 +15,8 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
   const favourites = useSelector((state) => state.favourites.data)
 
   useEffect(() => {
-    console.log(`id ${id}`)
     if (favourites == undefined){
-      console.log(`favs undefined: ${favourites} `)
     } else {
-
       let conditionFav = favourites.includes(id) 
       if (conditionFav) {
         setIsFavourite(true)
@@ -39,13 +39,12 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
               locations={[0.8, 2]}
             >
               <View>
-                {isFavourite ? <TouchableOpacity 
-                style={styles.addLikeBtn}
-                onPress={() => onHandleRemove(id)}>
+                {isFavourite ? <TouchableOpacity
+                  style={styles.addLikeBtn}
+                  onPress={() => onHandleRemove(id)}>
                   <Image
                     source={likeLogoWhite}
                     style={styles.likedImage}
-
                   />
                 </TouchableOpacity> : <TouchableOpacity
                   onPress={() => onHandleAdd(id)}
