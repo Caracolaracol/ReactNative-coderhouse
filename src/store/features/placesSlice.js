@@ -13,13 +13,20 @@ export const placesSlice = createSlice({
     initialState,
     reducers: {
         addPlace: (state, action) => {
-            const newPlace = new Place(Date.now(), action.payload.title, action.payload.image)
+            const newPlace = new Place(
+                Date.now(),
+                action.payload.title,
+                action.payload.image,
+                action.payload.address,
+                action.payload.lat,
+                action.payload.lng
+            )
             return {
                 ...state,
                 places: state.places.concat(newPlace)
             }
         }
-    },  
+    },
 })
 
 

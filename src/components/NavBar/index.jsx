@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react-native'
 
 import colors from '../../theme/colors'
-import { useIsFocused, useNavigationState, useRoute } from '@react-navigation/native'
 
 const NavBar = ({navigation, state}) => {
 

@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "fantasy-booking",
-    "slug": "fantasy-booking",
-    "version": "1.0.0",
+    "name": "torchnd-app",
+    "slug": "torchnd-app",
+    "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logotorchnd.png",
+    "platforms": ["ios", "android"],
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",

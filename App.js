@@ -6,7 +6,14 @@ import Navigator from './src/navigation';
 // redux
 import store from './src/store';
 import { Provider } from 'react-redux';
+import { init } from './src/db';
 
+init()
+  .then(()=> console.log("Base de datos iniciada"))
+  .catch(err=> {
+    console.log("Base de datos no creada")
+    console.log(err.message)
+  })
 
 export default function App() {
   const [fontsLoaded] = useFonts({ 
