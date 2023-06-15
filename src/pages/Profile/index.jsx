@@ -31,9 +31,6 @@ const Profile = () => {
   const [hasSavedBooking, setHasSavedBooking] = useState(false)
   const [myBookingData, setMyBookingData] = useState()
 
-  const [locating, setLocating] = useState(true)
-
-  const [savedToDB, setSavedToDB] = useState(false)
   useEffect(()=> {
     const fetchBooking = async () => { //hace el fetch de datos de la db de SQLite.
       try {
@@ -49,7 +46,7 @@ const Profile = () => {
       }
     }
     fetchBooking()
-  },[dispatch, savedToDB])
+  },[dispatch])
 
   const titleHandler = (text) => {setTitle(text)}
 
@@ -98,7 +95,7 @@ const Profile = () => {
               <View>
                 <Text style={styles.addTitle}>Add a picture of your place</Text>
                 <ImageSelector onImage={setImage} setHasProfilePic={setHasProfilePic} />
-                <LocationSelector onLocation={setLocation} setHasLocation={setHasLocation} setLocating={setLocating}/>
+                <LocationSelector onLocation={setLocation} setHasLocation={setHasLocation} />
                 <Pressable style={(hasProfilePic && hasLocation) ? styles.btnSaveBooking : { ...styles.btnSaveBooking, backgroundColor: colors.white_a }} onPress={saveHandler} disabled={(hasProfilePic && hasLocation) ? false : true}>
                   <Text style={{ textAlign: 'center', fontFamily: 'lost-ages', fontSize: 22 }}>Save your booking</Text>
                 </Pressable>

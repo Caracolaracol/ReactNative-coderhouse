@@ -5,7 +5,7 @@ import colors from "../../theme/colors"
 import * as Location from 'expo-location'
 import MapPreview from "../MapPreview"
 
-const LocationSelector = ({onLocation, setHasLocation, setLocating}) => {
+const LocationSelector = ({onLocation, setHasLocation, }) => {
     const navigation = useNavigation()
     const [pickedLocation, setPickedLocation] = useState()
     const [isLocating, setIsLocating] = useState(false)
@@ -21,7 +21,7 @@ const LocationSelector = ({onLocation, setHasLocation, setLocating}) => {
     }
     const handleGetLocation = async () => {
         setIsLocating(true)
-        setLocating(true)
+      
         const isLocationOk = await veryPermissions()
         if(!isLocationOk) return
 
@@ -36,7 +36,7 @@ const LocationSelector = ({onLocation, setHasLocation, setLocating}) => {
             lng:location.coords.longitude
         })
         setHasLocation(true)
-        setLocating(false)
+      
     }
 
     return (
