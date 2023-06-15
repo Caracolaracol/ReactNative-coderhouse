@@ -12,12 +12,12 @@ export const placesSlice = createSlice({
     name: 'places',
     initialState,
     reducers: {
-        addPlace: (state, action) => {
+        addPlace: async (state, action) => {
+            console.log(`lng: ${typeof(action.payload.lng)} lat:${typeof(action.payload.lng)} image: ${typeof(action.payload.image)} title:${typeof(action.payload.title)}`)
             const newPlace = new Place(
                 Date.now(),
                 action.payload.title,
                 action.payload.image,
-                action.payload.address,
                 action.payload.lat,
                 action.payload.lng
             )
@@ -25,7 +25,7 @@ export const placesSlice = createSlice({
                 ...state,
                 places: state.places.concat(newPlace)
             }
-        }
+        },
     },
 })
 

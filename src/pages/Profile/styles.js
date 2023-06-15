@@ -22,6 +22,38 @@ const styles = StyleSheet.create({
         backgroundColor:colors.yellow,
         paddingHorizontal:10,
     },
+
+
+    mapPreview: {
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    mapImage: {
+        width:'100%',
+        height:200,
+    },
+
+
+    container:{
+        marginBottom:50
+    },
+    preview: {
+        width:'100%',
+        height:200,
+        marginBottom:10,
+        justifyContent:'center',
+        alignItems:'center',
+        borderWidth:1,
+        borderColor:colors.orange_a
+    },
+    image: {
+        width: "100%",
+        height: "100%",
+      },
+
+
+
+
     inputTitleContainer:{
         flexDirection:'row',
         alignItems:'center',
