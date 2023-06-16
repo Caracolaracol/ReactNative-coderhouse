@@ -16,18 +16,20 @@ import LocationSelector from '../../components/LocationSelector.jsx'
 
 import styles from './styles'
 import { fetchAddress, insertAddress } from '../../db'
-import Map from '../../constants/Map'
 import MyBooking from './MyBooking'
 
 const Profile = () => {
   const userId = useSelector(state => state.auth.userId)
-  const place = useSelector(state => state.places.places)
   const dispatch = useDispatch()
+
   const [title, setTitle] = useState("")
+
   const [image, setImage] = useState()
-  const [location, setLocation] = useState()
   const [hasProfilePic, setHasProfilePic] = useState(false)
+
+  const [location, setLocation] = useState({})
   const [hasLocation, setHasLocation] = useState(false)
+
   const [hasSavedBooking, setHasSavedBooking] = useState(false)
   const [myBookingData, setMyBookingData] = useState()
 
@@ -38,7 +40,7 @@ const Profile = () => {
         if (result.rows.length != 0) {
           setHasSavedBooking(true)
           setMyBookingData(result.rows._array)
-            /* dispatch(addPlace({title:result.rows._array[0].title, image: result.rows._array[0].image, lat:result.rows._array[0].lat, lng:result.rows._array[0].lng})) */
+          dispatch(addPlace(result.rows._array))
         }
       } catch (error){
         console.log(`error message:${error.message}`)
@@ -57,10 +59,14 @@ const Profile = () => {
       FileSystem.moveAsync({
         from: image,
         to: Path
-      }).then(() => {
-        /* locating ? dispatch(addPlace({title:title,image:Path,lat:lat, lng:lng})) : '' */
-        insertAddress(title, Path, location.lat, location.lng )
       })
+      const {lat, lng} = location
+      const result = await insertAddress(title, Path, location.lat, location.lng )
+      dispatch(addPlace({id:result.insertId, title,image:Path,coords: {lat:location.lat,lng:location.lng}}))
+      setHasLocation(false)
+      setHasProfilePic(false)
+      console.log('your booking has been added')
+      setHasSavedBooking(true)
     } catch(error) {
       console.log(error.message)
       throw error

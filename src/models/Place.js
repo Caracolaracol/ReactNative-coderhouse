@@ -5,7 +5,6 @@ class Place {
         this.image = image
         this.lat = lat
         this.lng =lng
-
     }
 }
 

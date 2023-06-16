@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite'
 
-const db = SQLite.openDatabase("myBookingTest.db")
+const db = SQLite.openDatabase("myBookingTest17.db")
 
 export const init = () => { // CREANDO LA TABLA
     const promise = new Promise((resolve, reject) => { 
@@ -30,6 +30,7 @@ export const insertAddress = (title, image, lat, lng) => { // INSERTANDO INFO A 
             (_, err) => reject(err))
         })
     })
+    return promise
 }
 
 export const fetchAddress = () => { // CONSULTANDO LOS DATOS DE LA TABLA

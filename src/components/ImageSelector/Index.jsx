@@ -17,7 +17,6 @@ const ImageSelector = (props) => {
         return true
     }
 
-
     const handlerTakeImage = async () => {
         const hasPermission = await verifyPermissions()
         if (!hasPermission) return
@@ -32,8 +31,6 @@ const ImageSelector = (props) => {
         props.onImage(image.assets[0].uri)
         props.setHasProfilePic(true)
     }
-
-
 
     return (
         <View style={styles.container}>
