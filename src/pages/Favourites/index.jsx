@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeFavourite } from '../../store/features/favouritesSlice';
 import { ref, update } from 'firebase/database';
 import { DB_TORCHND } from '../../services/firebaseConfig';
+import FavouritesCard from '../../components/Card/FavouritesCard';
 
 const Favourites = ({navigation}) => {
   const favourites = useSelector((state) => state.favourites.data)
@@ -46,7 +47,7 @@ const Favourites = ({navigation}) => {
           <FlatList
             data={data}
             renderItem={({ item, index }) => (
-              <Card
+              <FavouritesCard
                 key={item.key}
                 id={item.id}
                 bookingUbication={item.booking_ubication}

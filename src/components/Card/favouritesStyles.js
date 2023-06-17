@@ -1,29 +1,24 @@
 import { StyleSheet } from "react-native";
 
-
-const styles = StyleSheet.create({
+const favouritesStyles = StyleSheet.create({
     container:{
         flex:1,
-        flexDirection:'column',
+        flexDirection:'row',
         maxWidth:'100%',
         padding:0,
         margin:10,
         marginHorizontal:20,
+        gap:5
     },
     imageContainer:{
         flex:1,
-        borderRadius:10,
-    },
-    imageContainer2:{
-        flex:1,
     },
     itemBody: {
-        flex:1,
+        flex:1.8,
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
         maxWidth:'100%',
-        paddingLeft:2
     },
     itemBodyInfo: {
         flex:2
@@ -51,42 +46,36 @@ const styles = StyleSheet.create({
        overflow: 'hidden'
     },
     likeImage:{
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         resizeMode: 'cover',
         alignSelf:'flex-end',
-        margin:10,
-        marginHorizontal:12,
+        margin:0,
+        marginHorizontal:2,
         opacity:0.9,
         backgroundColor:'#7C798068',
         borderRadius:10
     },
     likedImage: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         resizeMode: 'cover',
         alignSelf:'flex-end',
-        margin:10,
-        marginHorizontal:12,
+        margin:0,
+        marginHorizontal:2,
         opacity:1,
         backgroundColor:'#7C798068',
         borderRadius:10,
     },
     addLikeBtn: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         resizeMode: 'cover',
         alignSelf:'flex-end',
         margin:10,
         marginHorizontal:12,
         
-    },
-
-    wrapperslide: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
     }
 })
 
-export default styles
+export default favouritesStyles

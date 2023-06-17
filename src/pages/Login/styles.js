@@ -42,7 +42,6 @@ export const styles = StyleSheet.create({
     loginBtn: {
       aspectRatio:5,
       alignItems:'center',
-      backgroundColor:colors.violet,
       padding:10,
       borderRadius:10,
     },
@@ -50,7 +49,6 @@ export const styles = StyleSheet.create({
       marginTop:80,
       aspectRatio:5,
       alignItems:'center',
-      backgroundColor:colors.orange_a,
       opacity:.6,
       padding:10,
       borderRadius:10,

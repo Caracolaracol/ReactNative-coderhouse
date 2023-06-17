@@ -113,10 +113,10 @@ const Login = () => {
             <TextInput style={styles.input} secureTextEntry={true} placeholder='password' autoCapitalize='none' defaultValue={password} onChangeText={(text) => setPassword(text)}></TextInput>
           </View>
           <View style={styles.authContainer}>
-            <Pressable style={styles.loginBtn} onPress={signInHandler}>
+            <Pressable style={({pressed}) => [{backgroundColor: pressed ? colors.violet_dark:colors.violet},styles.loginBtn]} onPress={signInHandler}>
               <Text style={{fontFamily:'lost-ages', fontSize:24, color:colors.white}}>Login</Text>
             </Pressable>
-            <Pressable style={styles.signUpBtn} onPress={() => setIsLogin(false)}>
+            <Pressable style={({pressed}) => [{backgroundColor:pressed ? colors.orange: colors.orange_a,},styles.signUpBtn]} onPress={() => setIsLogin(false)}>
               <Text style={{fontFamily:'lost-ages', fontSize:20, color:colors.violet_dark}}>
                 Create account
               </Text>
@@ -136,7 +136,7 @@ const Login = () => {
               <TextInput style={styles.input} secureTextEntry={true} placeholder='password' autoCapitalize='none' defaultValue={password} onChangeText={(text) => setPassword(text)}></TextInput>
             </View>
             <View style={styles.authContainer}>
-              <Pressable style={styles.loginBtn} onPress={signUpHandler}>
+              <Pressable style={({pressed}) => [{backgroundColor: pressed ? colors.violet_dark:colors.violet},styles.loginBtn]} onPress={signUpHandler}>
                 <Text style={{ fontFamily: 'lost-ages', fontSize: 24, color: colors.white }}>SignUp</Text>
               </Pressable>
               <Pressable onPress={() => setIsLogin(true)}>

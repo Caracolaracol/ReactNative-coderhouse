@@ -6,8 +6,29 @@ let bookingList = [
         card_description: 'House near the church',
         detail_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at massa non est egestas semper. Vestibulum et orci nulla. Donec ac pharetra mauris. Nulla eget tellus tortor. Nam ac urna fermentum, ultricies dolor in, porta mi. Vivamus consectetur et justo non facilisis. Morbi facilisis pretium velit, ut scelerisque nisi tristique sed. Pellentesque pretium ex eu eros pulvinar, eu eleifend nisi iaculis. Aliquam at eros ut massa suscipit porta sit amet at magna. Nullam aliquet justo leo, nec dapibus nibh egestas aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer aliquet enim vitae est vestibulum commodo in at ante. Donec convallis mattis leo vel condimentum. Maecenas nec lectus nec ex semper egestas ac vitae quam. Nam et vestibulum velit. Morbi massa elit, iaculis lacinia ante a, aliquet pharetra felis. Quisque pharetra vulputate dapibus. Vestibulum vulputate viverra elit, ac euismod risus tempor sed. Donec eros libero, luctus eu mi et, malesuada pharetra nulla. Praesent tempor bibendum massa, at faucibus odio cursus pellentesque. Aenean a congue dui. Donec consequat aliquet felis, ut tincidunt turpis feugiat at. Donec purus lacus, iaculis vitae lacus non, consectetur volutpat odio. Nulla cursus nisi vel egestas faucibus Fusce vel vehicula eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus nibh odio, ac fermentum risus maximus vulputate. Praesent rutrum, dui at eleifend pellentesque, felis dui consectetur turpis, at venenatis tortor est vel purus. Duis dolor enim, malesuada in ante nec, egestas laoreet lectus. Aliquam erat volutpat. Aenean vel velit ac elit gravida tincidunt. Donec felis libero, faucibus vel sapien in, rutrum dignissim eros. Maecenas fermentum ornare erat, sit amet suscipit est ultrices quis. Morbi ornare, magna id posuere tempor, lacus eros viverra dolor, vel scelerisque lectus erat eu dolor. Sed pulvinar elementum malesuada. ',
         host: 'Blinsky',
-        host_image: require('../assets/bookingsimg/blinksy_1/host/blinsky.png'),
-        cardImages: require('../assets/bookingsimg/blinksy_1/place/1.jpeg'),
+        host_image: require('../assets/bookingsimg/01-valaki_1/host/blinsky.png'),
+        cardImages: [
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F01-valaki_1%2Fplace%2F1.jpeg?alt=media&token=edbfd897-ce85-4225-90e7-098d6e8b3580',
+                idImg:"0"
+            }, 
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F01-valaki_1%2Fplace%2F2.jpeg?alt=media&token=eff9b9a4-19b6-4507-825d-6ee681844bd3',
+                idImg:"1"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F01-valaki_1%2Fplace%2F3.jpeg?alt=media&token=534bc0b6-90e2-411e-975e-c976dd574fa7',
+                idImg:"2"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F01-valaki_1%2Fplace%2F4.jpeg?alt=media&token=8feac4cf-4f3e-46a1-94a0-c42266f132c4',
+                idImg:"3"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F01-valaki_1%2Fplace%2F5.jpeg?alt=media&token=cb39cdd4-2656-4099-bcfd-08afc00327d9',
+                idImg:"4"
+            }
+            ],
         characteristics:[{
             beds:'two beds',
             bathroom:'exclusive bathroom',
@@ -41,7 +62,21 @@ let bookingList = [
         \
         So why wait? Book your stay at our citadel and experience the heart and hospitality of a Citadel Guard and his son. We promise to make your stay in Gondor a memorable one!",
         host: 'Guardia de Gondor',
-        cardImages: require('../assets/bookingsimg/minastirith_1/place/1.jpeg'),
+        cardImages: [
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F07-minastirith_1%2Fplace%2F1.jpeg?alt=media&token=c5190579-0bae-432b-ad1d-3e31d0e25fb1',
+                idImg:"5"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F07-minastirith_1%2Fplace%2FDefault_room_full_of_weapons_and_a_bed_inside_a_little_House_i_1.jpeg?alt=media&token=be72c56e-de4b-4dec-a8d4-842e29cda25f',
+                idImg:"6"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F07-minastirith_1%2Fplace%2FDefault_room_full_of_weapons_inside_a_little_House_inside_the_1.jpeg?alt=media&token=74b10eed-be77-4060-b988-63db862aefa1',
+                idImg:"7"
+
+            }
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -65,7 +100,24 @@ let bookingList = [
         So what are you waiting for? Come stay with me and experience the wonder and magic of the Mines of Narshe. I promise it will be a stay you won\'t soon forget!\
         ",
         host: 'Moogle',
-        cardImages: require('../assets/bookingsimg/narshe1/place/1.jpg'),
+        cardImages: [
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F08-narshe_1%2Fplace%2F1.jpg?alt=media&token=803e8c26-1d9e-43f5-ad95-a1ed84c23a60',
+                idImg:"8"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F08-narshe_1%2Fplace%2Fnarshe2.jpg?alt=media&token=3512bc44-f67e-44f8-ba86-1b1227a8c4ab',
+                idImg:"9"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F08-narshe_1%2Fplace%2Fnarshe3.jpg?alt=media&token=2db75eff-c06c-4cb4-b627-50073da6e160',
+                idImg:"10"
+
+            }
+            
+            
+    
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -84,7 +136,12 @@ let bookingList = [
         card_description: 'Casa del anciano',
         detail_description: '',
         host: 'Descendiente de Vinnie',
-        cardImages: require('../assets/bookingsimg/medina1/medina1.jpg'),
+        cardImages:[
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F06-medina_1%2Fplace%2Fmedina1.jpg?alt=media&token=c5763540-a2aa-49af-90f2-d19fbc887c94',
+                idImg:"11"
+            }
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -103,7 +160,13 @@ let bookingList = [
         card_description: 'little House at the fishermen shacks',
         detail_description: '',
         host: 'Old Woman',
-        cardImages: require('../assets/bookingsimg/fishermenshackshouse1.jpg'),
+        cardImages: [
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F05-revachol_1%2Fplace%2Ffishermenshackshouse1.jpg?alt=media&token=5d9d6c20-1c8d-47ed-9017-02adeb4dedfa',
+                idImg:"12"
+            }
+            
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -122,7 +185,19 @@ let bookingList = [
         card_description: 'Underneath fukai',
         detail_description: '',
         host: 'Nausicaä',
-        cardImages: require('../assets/bookingsimg/belowfukai1.jpg'),
+        cardImages:[
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F03-fukai_1%2Fplace%2F1.jpeg?alt=media&token=f645c0a8-f1f9-45ef-8d74-44e0c4f692c2',
+                idImg:"13"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F03-fukai_1%2Fplace%2FDefault_fukai_sea_of_decay_of_nausica_movie_Forest_dead_trees_0.jpeg?alt=media&token=b13c263d-2d0c-461e-9ad8-add68418ef9a',
+                idImg:"14"
+            }
+            
+            
+
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -141,7 +216,18 @@ let bookingList = [
         card_description: 'Bellsprout tower',
         detail_description: '',
         host: 'Monk of bellsprout tower',
-        cardImages: require('../assets/bookingsimg/bellsprouttower1.jpg'),
+        cardImages: [
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F02-bellsprouttower_1%2Fplace%2F1.jpeg?alt=media&token=b4767dc2-58aa-40ce-846f-f2da51d14958',
+                idImg:"15"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F02-bellsprouttower_1%2Fplace%2Fbellsprouttower1.jpg?alt=media&token=1a719b93-6c11-40e1-848a-590524e268cb',
+                idImg:"16"
+            }
+            
+            
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -160,7 +246,24 @@ let bookingList = [
         card_description: 'Apartment at Central city downtown in Amestris',
         detail_description: '',
         host: 'Benjamin Westcott',
-        cardImages: require('../assets/bookingsimg/centralcityalchemist.jpg'),
+        cardImages: [
+                        {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F04-centralcity_1%2Fplace%2F1.jpg?alt=media&token=e0fff577-109d-4c49-baa1-abaf42db475c',
+                idImg:"17"
+            }, 
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F04-centralcity_1%2Fplace%2Fcentralcityalchemist2.jpg?alt=media&token=2e1f245c-2cda-4bb5-9e3e-24617fd063e4',
+                idImg:"18"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F04-centralcity_1%2Fplace%2Fcentralcityalchemist3.jpg?alt=media&token=cd448eb7-560d-4573-ac0e-3870f0bbf183',
+                idImg:"19"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F04-centralcity_1%2Fplace%2Fcentralcityalchemist4.jpg?alt=media&token=e3ae0068-562d-45ba-a741-73bc6567d36e',
+                idImg:"20"
+            },
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -179,7 +282,18 @@ let bookingList = [
         card_description: 'Beautiful house for staying while visiting Soul Society',
         detail_description: '',
         host: 'Renjiro Fujiwara',
-        cardImages: require('../assets/bookingsimg/rukongai1/rukongai2.jpg'),
+        cardImages: [
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F09-rukongai_1%2Fplace%2Frukongai1.jpg?alt=media&token=cbc873e7-e352-4180-9c4a-df77f6959049',
+                idImg:"21"
+            }, 
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F09-rukongai_1%2Fplace%2Frukongai2.jpg?alt=media&token=ac6d5c30-0529-4206-87dc-39f4a7835883',
+                idImg:"22"
+            },
+            
+            
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
@@ -199,7 +313,23 @@ let bookingList = [
         card_description: "Stunning views in Trost, just beware of lurking Titans. Unforgettable stay with a thrilling twist!",
         detail_description: '',
         host: 'Anika Fischer',
-        cardImages: require('../assets/bookingsimg/trost1/trost1.jpg'),
+        cardImages: [
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F10-trost_1%2Fplace%2Ftrost1.jpg?alt=media&token=fffde380-d1ec-4864-824f-37d4d57e76ac',
+                idImg:"23"
+            }, 
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F10-trost_1%2Fplace%2Ftrost2.jpg?alt=media&token=2280e0db-70f5-4720-a065-873b0dca685b',
+                idImg:"24"
+            },
+            {
+                url:'https://firebasestorage.googleapis.com/v0/b/torchnd-f03db.appspot.com/o/Booking%20Images%2F10-trost_1%2Fplace%2Ftrost3.jpg?alt=media&token=fa28717b-180b-4f6b-ab74-2c086fd15f28',
+                idImg:"25"
+            },
+            
+            
+            
+        ],
         afterBookingData: [{
             first_notification: '',
             morning_notifications: ['', ''],
