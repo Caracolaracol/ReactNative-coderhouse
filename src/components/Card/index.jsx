@@ -10,7 +10,7 @@ import likeLogo from "../../assets/likebtn.png"
 import likeLogoWhite from "../../assets/likebtnwhite.png"
 import Swiper from 'react-native-swiper';
 import SwiperFlatList from 'react-native-swiper-flatlist';
-
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 const width= Dimensions.get('window').width
 const anchoContenedor = width * 0.9
 
@@ -96,7 +96,27 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
   return (
     <Pressable onPress={() => navigation.navigate('ItemDetail', { item: item })} unstable_pressDelay={100} style={{ ...styles.container, ...otherStyles }}  >
       <View style={styles.imageContainer}>
+        <View style={{ position: 'absolute', zIndex: 99, top:0, right:0 }}>
+          {isFavourite ? <TouchableOpacity
+            style={styles.addLikeBtn}
+            onPress={() => onHandleRemove(id)}>
+            <Image
+              source={likeLogoWhite}
+              style={styles.likedImage}
+            />
+          </TouchableOpacity> : <TouchableOpacity
+            onPress={() => onHandleAdd(id)}
+            style={styles.addLikeBtn}
+          >
+            <Image
+              source={likeLogo}
+              style={styles.likeImage}
 
+            />
+          </TouchableOpacity>
+          }
+
+        </View>
         {
           images &&
           <>
@@ -104,7 +124,7 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
             horizontal
             showsHorizontalScrollIndicator={false}
             
-            
+            nestedScrollEnabled={true}
             decelerationRate={'fast'}
             pagingEnabled={true}
             scrollEventThrottle={16}
@@ -124,12 +144,21 @@ export default function Card({ otherStyles, bookingUbication, cardDescription, c
             }}
             renderItem={({ item }) => {
               if (!item.url) return <View style={{ width: 0 }} />
-              
+
               return (
                 <>
-                <View style={{ width: anchoContenedor, justifyContent: 'center', alignItems: 'center' }}>
-                  <Image source={{ uri: item.url }} style={{ width: '100%', aspectRatio: 1, resizeMode: 'cover', borderRadius: 10 }} />
-                </View>
+                  <View style={{ width: anchoContenedor, justifyContent: 'center', alignItems: 'center' }}>
+                    <Image source={{ uri: item.url }} style={{ width: '100%', aspectRatio: 1, resizeMode: 'cover', borderRadius: 10 }} />
+                    <LinearGradient
+                      colors={["#00000000", "rgba(0, 0, 0, 0.52)"]}
+                      style={{ height: "100%", width: "100%", position:'absolute' }}
+                      start={{ x: 0.5, y: 0.1 }}
+                      end={{ x: 0.5, y: 1 }}
+                      locations={[0.8, 2]}
+                    >
+                      
+                    </LinearGradient>
+                  </View>
                 </>
               )
             }} />

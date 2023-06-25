@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card';
 import Layout from '../../Layout/Index';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFavourite } from '../../store/features/favouritesSlice';
+import { addFavourite, removeFavourite } from '../../store/features/favouritesSlice';
 import { ref, update } from 'firebase/database';
 import { DB_TORCHND } from '../../services/firebaseConfig';
 import FavouritesCard from '../../components/Card/FavouritesCard';
@@ -34,6 +34,24 @@ const Favourites = ({navigation}) => {
   },[favourites, bookings])
 
 
+  const onHandleAdd = (id) => {
+    let idFound = data.find((el) => el.id === id)
+    console.log(`idFound: ${idFound.id}`)
+    let idfoundData = idFound.id
+    dispatch(addFavourite({idfoundData}))
+    
+    // update favourites to the database
+    if(favourites == undefined) {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[idFound.id]
+      })
+    } else {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[...favourites, idFound.id]
+      })
+    }
+  }
+
   const onHandleRemove = (id) => {
     dispatch(removeFavourite({id}))
   }
@@ -54,6 +72,7 @@ const Favourites = ({navigation}) => {
                 cardDescription={item.card_description}
                 cardImages={item.cardImages}
                 onHandleRemove={onHandleRemove}
+                onHandleAdd={onHandleAdd}
                 navigation={navigation}
                 item={item}
               />

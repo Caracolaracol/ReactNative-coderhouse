@@ -15,7 +15,7 @@ const ReserveBook = ({route}) => {
 
                 <View style={styles.container}>
                     <View style={styles.innerTextImage}>
-                        <Image source={route.params.item.cardImages} style={styles.bookImage}
+                        <Image source={{uri: route.params.item.cardImages[0].url}} style={styles.bookImage}
                         />
                         <View style={styles.imagetextContainer}>
                             <Text style={styles.textImage}>{route.params.item.card_description}</Text>

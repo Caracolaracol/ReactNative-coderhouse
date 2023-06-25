@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import Place from '../../models/Place'
-
-
 const initialState = {
     places: []
 }
@@ -30,6 +27,6 @@ export const placesSlice = createSlice({
 
 
 /* export const {  } = bookingsSlice.actions */
-export const {addPlace, loadPlace} = placesSlice.actions
+export const {addPlace} = placesSlice.actions
 export const selectPlaces = (state) => state.places.places
 export default placesSlice.reducer

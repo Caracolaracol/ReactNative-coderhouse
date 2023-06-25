@@ -4,7 +4,15 @@ let bookingList = [
         key: 'valaki',
         booking_ubication: 'Valaki, Barovia',
         card_description: 'House near the church',
-        detail_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at massa non est egestas semper. Vestibulum et orci nulla. Donec ac pharetra mauris. Nulla eget tellus tortor. Nam ac urna fermentum, ultricies dolor in, porta mi. Vivamus consectetur et justo non facilisis. Morbi facilisis pretium velit, ut scelerisque nisi tristique sed. Pellentesque pretium ex eu eros pulvinar, eu eleifend nisi iaculis. Aliquam at eros ut massa suscipit porta sit amet at magna. Nullam aliquet justo leo, nec dapibus nibh egestas aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer aliquet enim vitae est vestibulum commodo in at ante. Donec convallis mattis leo vel condimentum. Maecenas nec lectus nec ex semper egestas ac vitae quam. Nam et vestibulum velit. Morbi massa elit, iaculis lacinia ante a, aliquet pharetra felis. Quisque pharetra vulputate dapibus. Vestibulum vulputate viverra elit, ac euismod risus tempor sed. Donec eros libero, luctus eu mi et, malesuada pharetra nulla. Praesent tempor bibendum massa, at faucibus odio cursus pellentesque. Aenean a congue dui. Donec consequat aliquet felis, ut tincidunt turpis feugiat at. Donec purus lacus, iaculis vitae lacus non, consectetur volutpat odio. Nulla cursus nisi vel egestas faucibus Fusce vel vehicula eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus nibh odio, ac fermentum risus maximus vulputate. Praesent rutrum, dui at eleifend pellentesque, felis dui consectetur turpis, at venenatis tortor est vel purus. Duis dolor enim, malesuada in ante nec, egestas laoreet lectus. Aliquam erat volutpat. Aenean vel velit ac elit gravida tincidunt. Donec felis libero, faucibus vel sapien in, rutrum dignissim eros. Maecenas fermentum ornare erat, sit amet suscipit est ultrices quis. Morbi ornare, magna id posuere tempor, lacus eros viverra dolor, vel scelerisque lectus erat eu dolor. Sed pulvinar elementum malesuada. ',
+        detail_description: `Welcome, my friends! I am Blinsky, the greatest toymaker in all of Barovia. I am delighted to invite you to my home where you can see my wonderful creations and enjoy a comfortable stay.
+
+        My home is filled with the fruits of my labor - toys and other charming curiosities that I have crafted with great care and skill. While some may find them strange, I can assure you that they are not macabre or disturbing in any way. They are simply unique and delightful works of art that will bring a smile to your face.
+        
+        As my guests, you will be treated to the finest hospitality that I can offer. Whether you need a cozy bed to rest in, a warm meal to fill your belly, or just a friendly face to talk to, I will be here to provide for your every need.
+        
+        Of course, I must warn you that Barovia is a dangerous place, full of shadows and other threats. But never fear, for my trusty creations will keep you safe from harm. You will never forget your stay in my home, and I can promise you that it will be an experience like no other.
+        
+        So come and join me in my little corner of Barovia. I promise that you will not be disappointed.`,
         host: 'Blinsky',
         host_image: require('../assets/bookingsimg/01-valaki_1/host/blinsky.png'),
         cardImages: [
@@ -46,21 +54,22 @@ let bookingList = [
             midnight_notifcations: ['', ''],
             early_morning: ['', ''],
         }],
+        price_per_night:''
     },
     {
         id: '002',
         key: 'minas tirith',
         booking_ubication: 'Minas Tirith',
         card_description: 'Second level of the citadel',
-        detail_description: "Welcome, traveler! My name is Halbarad, a Citadel Guard of Gondor, and I would be honored to host you in our humble home, together with my son Túrin. Our fortress may not offer the most impressive views or luxurious amenities, but what we lack in grandeur we make up for in heart and hospitality.\
-        \
-        Our house is situated on the first level of the city, so the view from our windows is limited to the street and the front houses. But don\'t let that dissuade you from experiencing the true beauty of Gondor through the eyes of a true defender. Our home may be simple, but it is clean, cozy, and equipped with everything you need to make your stay comfortable and memorable.\
-        \
-        As a Citadel Guard, I have dedicated my life to protecting this great city and its people. And now, I invite you to join us and experience the heart and hospitality of a true defender. Though we may not offer breathtaking views from our windows, the true beauty of Gondor lies in its people and history.\
-        \
-        And if you\'re lucky, you may even get the chance to meet my dear friend, a wise wizard who occasionally graces us with his presence. His stories and advice about Middle-earth will leave you inspired and enriched.\
-        \
-        So why wait? Book your stay at our citadel and experience the heart and hospitality of a Citadel Guard and his son. We promise to make your stay in Gondor a memorable one!",
+        detail_description: `Welcome, traveler! My name is Halbarad, a Citadel Guard of Gondor, and I would be honored to host you in our humble home, together with my son Túrin. Our fortress may not offer the most impressive views or luxurious amenities, but what we lack in grandeur we make up for in heart and hospitality.
+
+        Our house is situated on the first level of the city, so the view from our windows is limited to the street and the front houses. But don't let that dissuade you from experiencing the true beauty of Gondor through the eyes of a true defender. Our home may be simple, but it is clean, cozy, and equipped with everything you need to make your stay comfortable and memorable.
+        
+        As a Citadel Guard, I have dedicated my life to protecting this great city and its people. And now, I invite you to join us and experience the heart and hospitality of a true defender. Though we may not offer breathtaking views from our windows, the true beauty of Gondor lies in its people and history.
+        
+        And if you're lucky, you may even get the chance to meet my dear friend, a wise wizard who occasionally graces us with his presence. His stories and advice about Middle-earth will leave you inspired and enriched.
+        
+        So why wait? Book your stay at our citadel and experience the heart and hospitality of a Citadel Guard and his son. We promise to make your stay in Gondor a memorable one!`,
         host: 'Guardia de Gondor',
         cardImages: [
             {
@@ -93,12 +102,15 @@ let bookingList = [
         key: 'narshe',
         booking_ubication: 'Narshe',
         card_description: 'My place at Narshe Mines',
-        detail_description: "Hello and welcome to the Mines of Narshe! My name is Terra and I\'m an inhabitant of this mystical place. I live in one of the many caves that make up the mine, and I\'ve always wanted to share my home with other adventurers and travelers.\
-        My cave is cozy and comfortable, with all the amenities you need to make your stay enjoyable. The best part? My friends, the Moogles, are always nearby and ready to assist you with anything you need. They\'re known for their hospitality and kindness, so you\'ll be in good hands!\
-        Though the Mines of Narshe may seem like a daunting place at first, it\'s filled with wonder and excitement for those willing to explore it. From the glittering crystals to the mysterious creatures that inhabit the mine, there\'s always something new to discover.\
-        And if you\'re looking for a more tranquil experience, my cave is the perfect place to relax and unwind. You\'ll be able to disconnect from the hustle and bustle of the outside world and bask in the quiet beauty of the mines.\
-        So what are you waiting for? Come stay with me and experience the wonder and magic of the Mines of Narshe. I promise it will be a stay you won\'t soon forget!\
-        ",
+        detail_description: `Hello and welcome to the Mines of Narshe! My name is Terra and I'm an inhabitant of this mystical place. I live in one of the many caves that make up the mine, and I've always wanted to share my home with other adventurers and travelers.
+
+        My cave is cozy and comfortable, with all the amenities you need to make your stay enjoyable. The best part? My friends, the Moogles, are always nearby and ready to assist you with anything you need. They're known for their hospitality and kindness, so you'll be in good hands!
+        
+        Though the Mines of Narshe may seem like a daunting place at first, it's filled with wonder and excitement for those willing to explore it. From the glittering crystals to the mysterious creatures that inhabit the mine, there's always something new to discover.
+        
+        And if you're looking for a more tranquil experience, my cave is the perfect place to relax and unwind. You'll be able to disconnect from the hustle and bustle of the outside world and bask in the quiet beauty of the mines.
+        
+        So what are you waiting for? Come stay with me and experience the wonder and magic of the Mines of Narshe. I promise it will be a stay you won't soon forget!`,
         host: 'Moogle',
         cardImages: [
             {
@@ -134,7 +146,7 @@ let bookingList = [
         key: 'medina village',
         booking_ubication: 'Medina Village',
         card_description: 'Casa del anciano',
-        detail_description: '',
+        detail_description: `Step into my humble abode in the tranquil town of Medina, where secrets reside and history whispers through the walls. Witness the curious dynamics within, where an imp, seemingly bound by duty, adds a touch of mischief to the ambiance. As shadows dance and tales unfold, you may wonder about the nature of their relationship. Explore the local wonders, engage in ancient traditions, and unravel the enigmatic bond that ties host and imp. Behind closed doors, an unexpected tale awaits, where kindness masks a mysterious allure.`,
         host: 'Descendiente de Vinnie',
         cardImages:[
             {
@@ -158,7 +170,12 @@ let bookingList = [
         key: 'revachol',
         booking_ubication: 'Martinaise, Revachol',
         card_description: 'little House at the fishermen shacks',
-        detail_description: '',
+        detail_description: `Welcome to the heart of Martinaise, where the gentle lapping of waves accompanies a humble abode. Meet our beloved host, an elderly woman who weaves tales as she washes clothes by the shore. Amidst the dilapidated shacks and weary souls, discover a community bound by resilience and shared stories. Embrace the spirit of camaraderie as you encounter wandering souls, weathered by life's hardships yet finding solace in fleeting moments. Immerse yourself in the raw authenticity of Martinaise, where humanity's struggles mingle with the salty sea breeze. 
+
+        Venture beyond the fisherman shacks and you'll stumble upon an abandoned church, its timeworn walls whispering forgotten hymns. A haunting beauty lingers within its desolate halls, a relic of faith that now stands as a silent witness to the passage of time. As you tread upon the worn cobblestones, take notice of the ancient craters that scar the earth, remnants of a battle fought long ago. The echoes of history resonate through these pockmarked landscapes, reminding us of the sacrifices made in a bygone era. Amidst the solemn surroundings, find solace in the enduring resilience of Martinaise's inhabitants, who weathered the storms of both conflict and time with unwavering spirit.
+
+        While the specter of bygone battles and remnants of a tumultuous past surround Martinaise, fear not, for your stay here promises respite and tranquility. Though shadows may loom and the weight of history hangs in the air, it is in this humble district that you'll find a haven of solace and peace. While the echoes of struggle are ever-present, we assure you that your time here will be filled with pleasant encounters, heartwarming conversations, and the chance to immerse yourself in the simple joys of life. Let the gentle lapping of waves and the laughter of newfound friends wash away any apprehension, as you embrace the hope for a truly rejuvenating experience in Martinaise's embrace.
+        `,
         host: 'Old Woman',
         cardImages: [
             {
@@ -183,7 +200,9 @@ let bookingList = [
         key: 'fukai',
         booking_ubication: 'Sea of decay',
         card_description: 'Underneath fukai',
-        detail_description: '',
+        detail_description: `Descend into a world shrouded in ethereal hues of blues and yellows, where sunlight is a distant memory, yet the ambient glow fills every corner. Amidst the towering trunks that reach for the heavens, explore a landscape devoid of conventional foliage, replaced instead by the majestic presence of colossal trunks that paint the horizon. As you traverse the soft expanse of gray and yellow sand beneath your feet, let the distant symphony of waterfalls serenade your senses, adding a melodic touch to the serene atmosphere. Immerse yourself in the tranquil embrace of Fukai, where the absence of light reveals a beauty all its own, and the whispers of the forest beckon you to discover the secrets it holds.
+        
+        Within this enigmatic realm of Fukai, I welcome you to my humble dwelling, where simplicity reigns and the essence of survival takes center stage. As you venture deeper into the forest's embrace, you'll find that my abode offers the bare necessities. Bedrolls await weary travelers, providing respite amidst the vast expanse of nature's embrace. Gather around the comforting warmth of bonfires, casting their gentle glow upon the mysterious surroundings. In this secluded haven, the concept of a traditional bathroom fades away, replaced instead by the symbiotic relationship with nature that Fukai embodies. And when hunger calls, the offerings are humble: the subtle crunch of insects, sustaining us in this symbiotic dance with the forest. Embrace the simplicity of this existence, where the harmony of Fukai becomes a testament to our resilience and our deep connection to the living world.`,
         host: 'Nausicaä',
         cardImages:[
             {
@@ -214,7 +233,7 @@ let bookingList = [
         key: 'torre bellsprout',
         booking_ubication: 'Violet City',
         card_description: 'Bellsprout tower',
-        detail_description: '',
+        detail_description: `Step into the sacred Bellsprout Tower, a haven of tranquility nestled within Violet City's embrace in the Johto region. Here, amidst the whispering leaves and the gentle rustle of Bellsprouts, a wise monk awaits, ready to guide you on a serene journey of self-discovery. As you ascend the tower's ancient steps, the meditative atmosphere envelops you, offering respite from the outside world. Engage in peaceful contemplation and learn the art of inner harmony from the seasoned monks, masters of meditation. While the ancient monks may not impart martial arts wisdom, their teachings carry the wisdom of generations, fostering a deeper connection to oneself and the world around you. Amidst the playful company of Bellsprouts and the occasional ethereal presence of Gastly, let the serenity of the Bellsprout Tower wash over you, allowing your spirit to soar in a realm of tranquility and self-reflection.a`,
         host: 'Monk of bellsprout tower',
         cardImages: [
             {
@@ -244,7 +263,12 @@ let bookingList = [
         key: '008',
         booking_ubication: 'Central City',
         card_description: 'Apartment at Central city downtown in Amestris',
-        detail_description: '',
+        detail_description: `Welcome to the bustling heart of Central City, the vibrant capital of Amestris. Nestled amidst the grandeur and intrigue of this remarkable metropolis, lies an apartment where an alchemist's spirit dwells. Step into a world where alchemy and innovation intertwine, where secrets are whispered amidst the gleaming spires. Your host, an accomplished alchemist in service to the state, invites you to discover the wonders of their craft. From transmutation circles to alchemical wonders, immerse yourself in a realm where science and mysticism coalesce. As you explore the bustling streets and delve into the mysteries of Central City, allow the host's expertise to unfold, offering glimpses into the realm of alchemical possibility. Embrace the allure of this extraordinary domain, where the echoes of ancient wisdom dance amidst the ever-evolving tapestry of human ambition.
+        
+        Within the confines of the alchemist's apartment in Central City, a unique opportunity awaits. Your host, a skilled practitioner of the arcane art of alchemy, extends a gracious invitation to delve into the depths of this ancient craft. Discover a treasure trove of knowledge as you peruse their extensive collection of alchemical texts and manuscripts, offering glimpses into the intricacies of transmutation and the secrets of the philosopher's stone. Embark on an enlightening journey of learning and exploration, guided by the host's expertise and passion for the subject. Through hands-on demonstrations and insightful discussions, you'll have the chance to unlock the mysteries of alchemy, unraveling the intricate threads that bind matter and energy. Expand your understanding and let the alchemist's teachings ignite the spark of curiosity within you. Whether you're a novice seeking an introduction to the art or an experienced alchemist looking to refine your skills, this unique opportunity promises an unforgettable journey into the captivating realm of alchemy.
+
+        As a cherished guest of the alchemist's abode in Central City, a solemn request accompanies your stay. In recognition of the sacred knowledge and secrets that permeate these walls, you will be asked to honor a vow of secrecy. Upon reserving a room, you will be kindly requested to sign a document, pledging that the insights, conversations, and discoveries shared within this dwelling shall remain solely within the confines of your own mind. This sacred pact serves to safeguard the delicate balance between knowledge and the preservation of alchemical lore. Embrace this trust bestowed upon you, cherishing the wisdom you acquire during your stay, knowing that its power lies in its safekeeping. With this commitment, you become an honored guardian of the alchemist's legacy, ensuring that the enigmatic arts of alchemy remain shrouded in the sanctity of this extraordinary space.
+        `,
         host: 'Benjamin Westcott',
         cardImages: [
                         {
@@ -280,7 +304,7 @@ let bookingList = [
         key: '009',
         booking_ubication: 'Rukongai',
         card_description: 'Beautiful house for staying while visiting Soul Society',
-        detail_description: '',
+        detail_description: `Step into the ethereal realm of Soul Society, where the boundary between the living and the afterlife blurs. Here, amidst the vibrant tapestry of Rukongai, lies the humble abode of a Shinigami, a guardian of souls and purveyor of balance. Enter a sanctuary where the resonance of countless swords reverberates, their gleaming forms adorning the walls in an exquisite display of craftsmanship. Embrace the graceful elegance of traditional Japanese aesthetics, as the house whispers tales of honor and duty in every nook and cranny. Within this haven, the Shinigami host invites you to immerse yourself in the enigmatic realm of Soul Society. Discover the delicate balance between life and death, witness the interplay of spiritual energies, and gain insight into the sacred duties of a Shinigami. As you traverse the threshold of this sacred space, prepare to be captivated by the mystique and timeless beauty that unfolds, a testament to the profound journey that awaits those who seek solace within the realm of the departed.`,
         host: 'Renjiro Fujiwara',
         cardImages: [
             {
@@ -311,7 +335,9 @@ let bookingList = [
         key: '010',
         booking_ubication: 'Trost',
         card_description: "Stunning views in Trost, just beware of lurking Titans. Unforgettable stay with a thrilling twist!",
-        detail_description: '',
+        detail_description: `Welcome to the resilient city of Trost, nestled within the towering walls that shield humanity from the relentless threat of Titans. Amidst this fortress of courage and determination, a gracious host awaits in a Germanic-style house, offering solace and respite from the ever-present danger that lurks beyond the walls. Step into a haven where the spirit of resilience permeates every corner, where the enduring spirit of humanity is nurtured amidst the chaos. Immerse yourself in the warmth of a rustic Germanic dwelling, with its timbered architecture and cozy charm, providing a comforting embrace in the face of adversity. As you venture through the city's streets, bear witness to the remnants of a battle fought long ago, where craters mark the scars of past struggles against the Titans. While the shadows of the Titans loom, find solace in the camaraderie of Trost's inhabitants, united in their shared determination to protect what remains. Your host welcomes you to experience the bittersweet harmony of this humble district, where the possibility of encountering the fallen serves as a reminder to cherish the precious moments of respite and togetherness that await you within the walls.
+
+        Please note that while residing within the fortified walls of Trost, there remains a remote possibility of encountering Titans, as the threat persists beyond the city's defenses. In the event of such an occurrence, we regretfully inform you that the host cannot assume responsibility for the outcome, and no refunds will be provided. We encourage all visitors to exercise caution and adhere to the safety protocols set forth by the Garrison. While the city of Trost stands as a beacon of resilience, it is essential to remain vigilant and prioritize personal safety during your stay. Rest assured, however, that the host will make every effort to provide a secure and comfortable environment within the confines of their Germanic-style home. Let the spirit of bravery guide you as you embark on this extraordinary journey, where the echoes of humanity's indomitable spirit resonate amidst the ever-present specter of the Titans.`,
         host: 'Anika Fischer',
         cardImages: [
             {

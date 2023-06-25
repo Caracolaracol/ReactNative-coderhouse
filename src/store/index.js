@@ -11,11 +11,4 @@ export default configureStore({
     auth: authSlice,
     places:placesSlice
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: ['places/addPlace'],
-        ignoredPaths: ['places.places'],
-      },
-    }),
 })

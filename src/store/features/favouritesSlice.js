@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ref, update } from 'firebase/database';
-import { DB_TORCHND } from '../../services/firebaseConfig';
 
 const initialState = {
     data: []

@@ -38,7 +38,8 @@
     "react-native-swiper": "^1.6.0",
     "react-native-swiper-flatlist": "^3.2.3",
     "react-redux": "^8.0.5",
-    "redux": "^4.2.1"
+    "redux": "^4.2.1",
+    "react-native-gesture-handler": "~2.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

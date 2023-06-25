@@ -1,16 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, Image, ImageBackground, TouchableOpacity, StyleSheet, Pressable, SafeAreaView, StatusBar, ScrollView } from 'react-native'
 import styles from "./styles";
 import Images from '../../components/ItemDetail/Images'
 import colors from '../../theme/colors'
 import Characteristics from '../../components/ItemDetail/Characteristics'
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavourite, removeFavourite } from '../../store/features/favouritesSlice';
+import { ref, update } from 'firebase/database';
+import { DB_TORCHND } from '../../services/firebaseConfig';
 
 const ItemDetail = ({route, navigation}) => {
+  const favourites = useSelector((state) => state.favourites.data)
+  const [isFavourite, setIsFavourite] = useState(false)
+  const iduser = useSelector((state) => state.auth.userId)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (favourites == undefined){
+    } else {
+      let conditionFav = favourites.includes(route.params.item.id) 
+      if (conditionFav) {
+        setIsFavourite(true)
+      } else {
+        setIsFavourite(false)
+      }
+    }
+  },[favourites])
+
+  const onHandleRemove = (id) => {
+    dispatch(removeFavourite({id}))
+  }
+
+  const onHandleAdd = (id) => {
+    dispatch(addFavourite({id}))
+    // update favourites to the database
+    if(favourites == undefined) {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[id]
+      })
+    } else {
+      update(ref(DB_TORCHND, 'users/' + iduser), {
+        favourites:[...favourites, id]
+      })
+    }
+  }
 
   return (
     <SafeAreaView styles={styles.container}>
       <ScrollView styles={styles.detailDataContainer}>
-          <Images cardImages={route.params.item.cardImages}/>
+          <Images cardImages={route.params.item.cardImages} onHandleRemove={onHandleRemove} id={route.params.item.id} isFavourite={isFavourite} onHandleAdd={onHandleAdd}/>
           <View style={styles.titleContainer}>
             <Text style={{fontFamily:'lost-ages', fontSize:32}}>{route.params.item.card_description}</Text>
           </View>

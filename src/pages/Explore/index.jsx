@@ -1,4 +1,4 @@
-import { FlatList, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import Layout from '../../Layout/Index';
@@ -77,28 +77,32 @@ const Explore = ({navigation}) => {
 
   return (
     <Layout>
-      {(bookings) && <SafeAreaView style={{flex: 1}}><FlatList
+      {(bookings) && <SafeAreaView style={{flex: 1}}>
+       
+
+        <FlatList
             data={bookings}
+            disableScrollViewPanResponder
+            nestedScrollEnabled
             renderItem={({ item, index }) => (
               <Card
-                key={item.key}
-                id={item.id}
-                bookingUbication={item.booking_ubication}
-                cardDescription={item.card_description}
-                cardImages={item.cardImages}
-                navigation={navigation}
-                item={item}
-                onHandleAdd={onHandleAdd}
-                onHandleRemove={onHandleRemove}
+              key={item.key}
+              id={item.id}
+              bookingUbication={item.booking_ubication}
+              cardDescription={item.card_description}
+              cardImages={item.cardImages}
+              navigation={navigation}
+              item={item}
+              onHandleAdd={onHandleAdd}
+              onHandleRemove={onHandleRemove}
               />
-            )}
-            keyExtractor={(item) => item.key}
-            ListFooterComponent={<View></View>}
-            ListHeaderComponent={
-              <View></View>
-            }
-            initialNumToRender={8}
-          /></SafeAreaView>
+              )}
+              keyExtractor={(item) => item.key}
+
+              initialNumToRender={8}
+              />
+         
+          </SafeAreaView>
           }
     </Layout>
   )
