@@ -4,7 +4,6 @@ import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react
 import colors from '../../theme/colors'
 
 const NavBar = ({navigation, state}) => {
-
   const styleColors = (number) => {
     return state.index == number ?  {...styles.titleSection, color: colors.red_a} : {...styles.titleSection, color:colors.violet_dark}
   }

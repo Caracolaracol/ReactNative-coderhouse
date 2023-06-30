@@ -3,7 +3,7 @@ import { View, Text, Pressable,TextInput, Image } from 'react-native'
 
 import * as FileSystem from 'expo-file-system'
 
-import { FIREBASE_AUTH } from '../../services/firebaseConfig'
+import { DB_TORCHND, FIREBASE_AUTH } from '../../services/firebaseConfig'
 
 import { useDispatch, useSelector} from 'react-redux'
 import { signOut } from '../../store/features/authSlice'
@@ -17,9 +17,11 @@ import LocationSelector from '../../components/LocationSelector.jsx'
 import styles from './styles'
 import { fetchAddress, insertAddress } from '../../db'
 import MyBooking from './MyBooking'
+import { onValue, ref } from 'firebase/database'
 
 const Profile = () => {
   const userId = useSelector(state => state.auth.userId)
+  
   const dispatch = useDispatch()
 
   const [title, setTitle] = useState("")
@@ -32,6 +34,7 @@ const Profile = () => {
 
   const [hasSavedBooking, setHasSavedBooking] = useState(false)
   const [myBookingData, setMyBookingData] = useState()
+  const [gold, setGold] = useState(null)
 
   useEffect(()=> {
     const fetchBooking = async () => { //hace el fetch de datos de la db de SQLite.
@@ -48,6 +51,13 @@ const Profile = () => {
       }
     }
     fetchBooking()
+
+    // Getting the User's Gold from Firebase Database
+    const goldCountRef = ref(DB_TORCHND, 'users/' + userId + '/gold');
+    onValue(goldCountRef, (snapshot) => {
+        const data = snapshot.val();
+        setGold(data);
+    });
   },[dispatch])
 
   const titleHandler = (text) => {setTitle(text)}
@@ -85,6 +95,7 @@ const Profile = () => {
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Profile</Text>
         <Text>Your user Id is: {userId}</Text>
+        <Text>Your gold: ${gold}</Text>
       </View>
 
       <View style={styles.addBookingContainer}>

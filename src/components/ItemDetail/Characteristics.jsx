@@ -6,8 +6,8 @@ import workarea from '../../assets/icons/workarea.png'
 import sharedareas from '../../assets/icons/sharedareas.png'
 import bathroom from '../../assets/icons/bathroom.png'
 
+const Characteristics = () => {
 
-const Characteristics = ({host}) => {
     return (
         <View style={{ marginHorizontal: 20, }}>
             <View style={styles.characteristicsContainer} >

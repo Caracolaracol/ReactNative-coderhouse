@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Image, ImageBackground, Text, View } from "react-native"
 
 import styles from "./styles";
 import SearchBooking from "../SearchBooking";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { findBooking } from "../../store/features/bookingsSlice";
 
 
 export default function Header() {
-  const [data, setData] = useState()
   const dispatch = useDispatch()
   
-
   const onHandleSearch = (itemFound) => {
+    //RUSTIC SEARCH HANDLER FOR SEARCH AN ITEM.
     dispatch(findBooking([itemFound]))
- 
   }
-  
   
   return (
         <ImageBackground source={require('../../assets/bg2.png')} style={styles.headerContainer}>

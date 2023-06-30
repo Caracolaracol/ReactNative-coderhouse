@@ -11,8 +11,9 @@ import Profile from '../pages/Profile';
 import NavBar from '../components/NavBar';
 import Login from '../pages/Login';
 import ItemDetail from '../pages/ItemDetail'
-import ReserveBook from '../pages/ReserveBook/ReserveBook';
+
 import { useSelector } from 'react-redux';
+import ReserveBook from '../pages/ReserveBook';
 
 const Stack = createNativeStackNavigator()
 const Authstack = createNativeStackNavigator()

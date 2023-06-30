@@ -11,4 +11,8 @@ export default configureStore({
     auth: authSlice,
     places:placesSlice
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    immutableCheck: false,
+    serializableCheck: false,
+  })
 })

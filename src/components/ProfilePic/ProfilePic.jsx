@@ -3,17 +3,9 @@ import React, { useEffect } from 'react'
 import colors from '../../theme/colors'
 import { useSelector } from 'react-redux'
 
-const ProfilePic = ({onProfilePic}) => {
+const ProfilePic = () => {
     const places = useSelector(state => state.places.places)
 
-/*     useEffect(() =>{
-        console.log(places[0].Image)
-        if (places[0].Image !== undefined) {
-            onProfilePic(true)
-            console.log(places[0].Image)
-        }
-    },[places])
-   */
     return (
       <View style={styles.container}>
             <Text>{places[0].title}</Text>

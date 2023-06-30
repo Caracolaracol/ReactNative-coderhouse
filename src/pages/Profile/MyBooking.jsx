@@ -14,7 +14,6 @@ const MyBooking = () => {
             const result = await fetchAddress()
             if (result.rows.length != 0) {
               setMyBookingData(result.rows._array)
-              console.log(`result: ${result.rows.length}`)
               const mapPreviewUrl =`https://maps.googleapis.com/maps/api/staticmap?center=${result.rows._array[0].lat},${result.rows._array[0].lng}&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${result.rows._array[0].lat},${result.rows._array[0].lng}&key=${Map.API_KEY}`
                 setMap(mapPreviewUrl)
             }

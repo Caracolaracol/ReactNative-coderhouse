@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

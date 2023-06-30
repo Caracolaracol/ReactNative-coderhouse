@@ -29,14 +29,11 @@ const Favourites = ({navigation}) => {
         favourites:[...favourites]
       })
     }
-
-    console.log(`favourites useff: ${favourites}`)
   },[favourites, bookings])
 
 
   const onHandleAdd = (id) => {
     let idFound = data.find((el) => el.id === id)
-    console.log(`idFound: ${idFound.id}`)
     let idfoundData = idFound.id
     dispatch(addFavourite({idfoundData}))
     

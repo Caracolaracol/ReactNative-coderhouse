@@ -1,8 +1,6 @@
 import { View,StyleSheet, ScrollView,} from 'react-native'
 import React from 'react'
-import Header from '../components/Header'
 import colors from '../theme/colors'
-import { StatusBar } from 'expo-status-bar'
 
 const LayoutProfile = ({children}) => {
 

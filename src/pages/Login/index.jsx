@@ -25,7 +25,9 @@ const Login = () => {
     set(ref(DB_TORCHND, 'users/' + userId), {
       userId:userId,
       email:email,
-      favourites:[]
+      favourites:[],
+      gold:40,
+      inventory:[]
     })
     .then(() => {
       console.log("data saved succesfully")

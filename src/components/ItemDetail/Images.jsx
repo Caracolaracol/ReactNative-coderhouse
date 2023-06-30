@@ -2,7 +2,6 @@ import { View, StyleSheet, TouchableOpacity, Image, FlatList, Dimensions } from 
 import React, { useEffect, useRef, useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 
-
 import likeLogo from '../../assets/likebtn.png'
 import likeLogoWhite from "../../assets/likebtnwhite.png"
 const viewConfigRef = {viewAreaCoveragePercentThreshold: 95}
@@ -52,9 +51,7 @@ const Images = ({cardImages, onHandleRemove, isFavourite, id, onHandleAdd}) => {
             </View>
             {
                 images && (
-
                     <>
-
                         <FlatList
                             horizontal
                             showsHorizontalScrollIndicator={false}

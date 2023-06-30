@@ -15,6 +15,7 @@ export default function FavouritesCard({ otherStyles, bookingUbication, cardDesc
   const favourites = useSelector((state) => state.favourites.data)
 
   useEffect(() => {
+    // DETECT IF THE BOOKING IS FAVORITED BY THE USER IN ORDER TO ADD THE "ADD" BTN OR "REMOVE" BTN FROM FAVOURITES
     if (favourites == undefined){
     } else {
       let conditionFav = favourites.includes(id) 
@@ -76,7 +77,7 @@ export default function FavouritesCard({ otherStyles, bookingUbication, cardDesc
             </Text>
           </View>
           <View style={favouritesStyles.priceContainer}>
-            <Text style={{ fontSize: 14, fontFamily: 'WickedGrit' }}>$20.000 </Text>
+            <Text style={{ fontSize: 14, fontFamily: 'WickedGrit' }}>${item.price_per_night} </Text>
             <Text style={{ fontSize: 18, fontFamily: 'lost-ages' }}>per night</Text>
           </View>
         </View>

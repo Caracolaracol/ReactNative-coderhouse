@@ -1,4 +1,4 @@
-import { FlatList, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, SafeAreaView, StyleSheet, } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import Layout from '../../Layout/Index';
@@ -8,7 +8,7 @@ import bookingList from '../../db/bookingList'
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavourite, getFavourites, removeFavourite, setFavourites } from '../../store/features/favouritesSlice';
 import { DB_TORCHND } from '../../services/firebaseConfig';
-import {  onValue, push, ref, update } from 'firebase/database';
+import {  onValue, ref, update } from 'firebase/database';
 
 
 const Explore = ({navigation}) => {
@@ -25,15 +25,12 @@ const Explore = ({navigation}) => {
       const favsRef = ref(DB_TORCHND, 'users/' + iduser + '/favourites');
       onValue(favsRef, (snapshot) => {
         const data = snapshot.val();
-        console.log(`favourites from explore page: ${data}`)
         if(data == null) {
-          console.log('no favourites')
           dispatch(setFavourites())
         } else {
           dispatch(getFavourites(data))
         }
       });
-      console.log(`fetching token:${token},id:${iduser}, favourites:${favourites}`)
     }
 
     fetchFavsData()
@@ -78,8 +75,6 @@ const Explore = ({navigation}) => {
   return (
     <Layout>
       {(bookings) && <SafeAreaView style={{flex: 1}}>
-       
-
         <FlatList
             data={bookings}
             disableScrollViewPanResponder

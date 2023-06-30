@@ -11,21 +11,26 @@ import { DB_TORCHND } from '../../services/firebaseConfig';
 
 const ItemDetail = ({route, navigation}) => {
   const favourites = useSelector((state) => state.favourites.data)
+  const bookings = useSelector((state) => state.bookings.data)
+  const [bookingData, setBookingData] = useState(null)
   const [isFavourite, setIsFavourite] = useState(false)
   const iduser = useSelector((state) => state.auth.userId)
   const dispatch = useDispatch()
 
   useEffect(() => {
+    // loading booking selected
+    const bookingFound = bookings.find(el => el.id == route.params.id)
+    setBookingData(bookingFound)
     if (favourites == undefined){
     } else {
-      let conditionFav = favourites.includes(route.params.item.id) 
+      let conditionFav = favourites.includes(bookingData.id) 
       if (conditionFav) {
         setIsFavourite(true)
       } else {
         setIsFavourite(false)
       }
     }
-  },[favourites])
+  },[favourites, bookingData])
 
   const onHandleRemove = (id) => {
     dispatch(removeFavourite({id}))
@@ -46,24 +51,27 @@ const ItemDetail = ({route, navigation}) => {
   }
 
   return (
+    <>
+      {bookingData &&
     <SafeAreaView styles={styles.container}>
+      
       <ScrollView styles={styles.detailDataContainer}>
-          <Images cardImages={route.params.item.cardImages} onHandleRemove={onHandleRemove} id={route.params.item.id} isFavourite={isFavourite} onHandleAdd={onHandleAdd}/>
+          <Images cardImages={bookingData.cardImages} onHandleRemove={onHandleRemove} id={bookingData.id} isFavourite={isFavourite} onHandleAdd={onHandleAdd}/>
           <View style={styles.titleContainer}>
-            <Text style={{fontFamily:'lost-ages', fontSize:32}}>{route.params.item.card_description}</Text>
+            <Text style={{fontFamily:'lost-ages', fontSize:32}}>{bookingData.card_description}</Text>
           </View>
-          <Characteristics host={route.params.item.host} />
+          <Characteristics host={bookingData.host} />
           <View style={styles.descriptionContainer}>
             <Text style={{fontFamily:'lost-ages', fontSize:24}}>About this place</Text>
-            <Text>{route.params.item.detail_description}</Text>
+            <Text style={{fontFamily:'lost-ages', fontSize:16, letterSpacing:1.6, lineHeight:20}}>{bookingData.detail_description}</Text>
           </View>
           <View style={styles.hostDataContainer}>
             <View style={{flex:1}}>
               <Text style={{fontFamily:'lost-ages', fontSize:24}}>Meet your host</Text>
-              <Text>{route.params.item.host}</Text>
+              <Text style={{fontFamily:'lost-ages', fontSize:18}}>{bookingData.host}</Text>
             </View>
             <View style={styles.hostImageContainer}>
-              <Image source={route.params.item.host_image} style={styles.hostImage} resizeMode='contain' />
+              <Image source={bookingData.host_image} style={styles.hostImage} resizeMode='contain' />
             </View>
            
           </View>
@@ -71,16 +79,18 @@ const ItemDetail = ({route, navigation}) => {
           </View>
       </ScrollView>
       <ImageBackground source={require('../../assets/bg2.png')} style={styles.reserveContainer}>
-        <View style={{flexDirection:'row', gap:10}}>
+        <View style={{flexDirection:'row', gap:7}}>
           <Text style={{fontFamily:'lost-ages', fontSize:20}}>Price</Text>
-          <Text style={{fontFamily:'WickedGrit', fontSize:18}}>$20.000</Text>
+          <Text style={{fontFamily:'WickedGrit', fontSize:18}}>${bookingData.price_per_night}</Text>
           <Text style={{fontFamily:'lost-ages', fontSize:20}}>/night</Text>
         </View>
-        <Pressable  onPress={() => navigation.navigate('ReserveBook', { item: route.params.item })} style={{backgroundColor:colors.red_a, padding:10, borderRadius:10}}>
+        <Pressable  onPress={() => navigation.navigate('ReserveBook', { item: bookingData, id:route.params.id })} style={{backgroundColor:colors.red_a, padding:10, borderRadius:10}}>
           <Text style={{fontFamily:'lost-ages', fontSize:20}}>Reserve</Text>
         </Pressable>
       </ImageBackground>
-    </SafeAreaView>
+      </SafeAreaView>
+    }
+    </>
   )
 }
 

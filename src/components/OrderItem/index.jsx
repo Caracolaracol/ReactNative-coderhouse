@@ -7,7 +7,6 @@ const formatDay = date => {
     return newDate.toLocaleDateString()
 }
 
-
 const OrderItem = ({item, onDelete}) => {
   return (
       <View>
