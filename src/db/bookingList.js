@@ -205,7 +205,7 @@ let bookingList = [
         price_per_night:0
     }, {
         id: '006',
-        key: 'fukai',
+        key: 'fukai sea of decay',
         booking_ubication: 'Sea of decay',
         card_description: 'Underneath fukai',
         detail_description: `Descend into a world shrouded in ethereal hues of blues and yellows, where sunlight is a distant memory, yet the ambient glow fills every corner. Amidst the towering trunks that reach for the heavens, explore a landscape devoid of conventional foliage, replaced instead by the majestic presence of colossal trunks that paint the horizon. As you traverse the soft expanse of gray and yellow sand beneath your feet, let the distant symphony of waterfalls serenade your senses, adding a melodic touch to the serene atmosphere. Immerse yourself in the tranquil embrace of Fukai, where the absence of light reveals a beauty all its own, and the whispers of the forest beckon you to discover the secrets it holds.
@@ -240,7 +240,7 @@ let bookingList = [
         price_per_night:4
     }, {
         id: '007',
-        key: 'torre bellsprout',
+        key: 'torre bellsprout violet city',
         booking_ubication: 'Violet City',
         card_description: 'Bellsprout tower',
         detail_description: `Step into the sacred Bellsprout Tower, a haven of tranquility nestled within Violet City's embrace in the Johto region. Here, amidst the whispering leaves and the gentle rustle of Bellsprouts, a wise monk awaits, ready to guide you on a serene journey of self-discovery. As you ascend the tower's ancient steps, the meditative atmosphere envelops you, offering respite from the outside world. Engage in peaceful contemplation and learn the art of inner harmony from the seasoned monks, masters of meditation. While the ancient monks may not impart martial arts wisdom, their teachings carry the wisdom of generations, fostering a deeper connection to oneself and the world around you. Amidst the playful company of Bellsprouts and the occasional ethereal presence of Gastly, let the serenity of the Bellsprout Tower wash over you, allowing your spirit to soar in a realm of tranquility and self-reflection`,
@@ -272,7 +272,7 @@ let bookingList = [
         price_per_night:25
     }, {
         id: '008',
-        key: '008',
+        key: 'central city',
         booking_ubication: 'Central City',
         card_description: 'Apartment at Central city downtown in Amestris',
         detail_description: `Welcome to the bustling heart of Central City, the vibrant capital of Amestris. Nestled amidst the grandeur and intrigue of this remarkable metropolis, lies an apartment where an alchemist's spirit dwells. Step into a world where alchemy and innovation intertwine, where secrets are whispered amidst the gleaming spires. Your host, an accomplished alchemist in service to the state, invites you to discover the wonders of their craft. From transmutation circles to alchemical wonders, immerse yourself in a realm where science and mysticism coalesce. As you explore the bustling streets and delve into the mysteries of Central City, allow the host's expertise to unfold, offering glimpses into the realm of alchemical possibility. Embrace the allure of this extraordinary domain, where the echoes of ancient wisdom dance amidst the ever-evolving tapestry of human ambition.
@@ -315,7 +315,7 @@ let bookingList = [
         price_per_night:50
     }, {
         id: '009',
-        key: '009',
+        key: 'rukongai',
         booking_ubication: 'Rukongai',
         card_description: 'Beautiful house for staying while visiting Soul Society',
         detail_description: `Step into the ethereal realm of Soul Society, where the boundary between the living and the afterlife blurs. Here, amidst the vibrant tapestry of Rukongai, lies the humble abode of a Shinigami, a guardian of souls and purveyor of balance. Enter a sanctuary where the resonance of countless swords reverberates, their gleaming forms adorning the walls in an exquisite display of craftsmanship. Embrace the graceful elegance of traditional Japanese aesthetics, as the house whispers tales of honor and duty in every nook and cranny. Within this haven, the Shinigami host invites you to immerse yourself in the enigmatic realm of Soul Society. Discover the delicate balance between life and death, witness the interplay of spiritual energies, and gain insight into the sacred duties of a Shinigami. As you traverse the threshold of this sacred space, prepare to be captivated by the mystique and timeless beauty that unfolds, a testament to the profound journey that awaits those who seek solace within the realm of the departed.`,
@@ -348,7 +348,7 @@ let bookingList = [
     },
     {
         id: '010',
-        key: '010',
+        key: 'trost',
         booking_ubication: 'Trost',
         card_description: "Stunning views in Trost, just beware of lurking Titans. Unforgettable stay with a thrilling twist!",
         detail_description: `Welcome to the resilient city of Trost, nestled within the towering walls that shield humanity from the relentless threat of Titans. Amidst this fortress of courage and determination, a gracious host awaits in a Germanic-style house, offering solace and respite from the ever-present danger that lurks beyond the walls. Step into a haven where the spirit of resilience permeates every corner, where the enduring spirit of humanity is nurtured amidst the chaos. Immerse yourself in the warmth of a rustic Germanic dwelling, with its timbered architecture and cozy charm, providing a comforting embrace in the face of adversity. As you venture through the city's streets, bear witness to the remnants of a battle fought long ago, where craters mark the scars of past struggles against the Titans. While the shadows of the Titans loom, find solace in the camaraderie of Trost's inhabitants, united in their shared determination to protect what remains. Your host welcomes you to experience the bittersweet harmony of this humble district, where the possibility of encountering the fallen serves as a reminder to cherish the precious moments of respite and togetherness that await you within the walls.

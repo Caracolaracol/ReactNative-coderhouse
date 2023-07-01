@@ -12,7 +12,7 @@ export default function Header() {
   
   const onHandleSearch = (itemFound) => {
     //RUSTIC SEARCH HANDLER FOR SEARCH AN ITEM.
-    dispatch(findBooking([itemFound]))
+    dispatch(findBooking(itemFound))
   }
   
   return (

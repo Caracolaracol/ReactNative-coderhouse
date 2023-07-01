@@ -1,5 +1,5 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import colors from '../../theme/colors'
 import { Path, Svg } from 'react-native-svg'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,20 +12,26 @@ const SearchBooking = ({ onHandleSearch}) => {
     const dispatch = useDispatch()
 
     const onChangeText = (text) => {
+        // realtime search booking, it works in favourites and explore tabs.
         setValue(text)
+        let formatedText = value.toLowerCase()
+        if(formatedText === null || formatedText == '') {
+            dispatch(resetBooking()) 
+        } else {
+            itemFound = bookings.filter((element) => element.key.includes(formatedText))
+            itemFound && onHandleSearch(itemFound)
+        }
     }
 
     const onSubmitText = () => {
-        // Simple código para buscar un booking
-        let formatedText = value.toLowerCase()
-        let itemFound
-        if(formatedText === null) {
-            dispatch(resetBooking()) 
-        } else {
-            itemFound = bookings.find((element) => element.key.includes(formatedText))
-        }
-        onHandleSearch(itemFound)
+
     }
+
+    useEffect(() => {
+        if (value == '') {
+            dispatch(resetBooking())
+        }
+    },[dispatch, value])
     
     return (
         <View style={styles.searchContainer}>
