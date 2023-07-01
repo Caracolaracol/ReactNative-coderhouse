@@ -11,6 +11,7 @@ TORCHND is a booking app but with fictional locations. You can reserve bookings 
 - notifications 
 - add your own booking
 - booking details
+- AI generated text & images
 
 ## Developed with:
 
