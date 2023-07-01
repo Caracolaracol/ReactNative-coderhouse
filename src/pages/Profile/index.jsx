@@ -62,7 +62,7 @@ const Profile = () => {
 
   const titleHandler = (text) => {setTitle(text)}
 
-  const saveHandler = async () => { // SAVING BOOKING
+  const saveHandler = async () => { // SAVING BOOKING (SQLite & Redux)
     const fileName = image.split("/").pop()
     const Path = FileSystem.documentDirectory + fileName
     try {

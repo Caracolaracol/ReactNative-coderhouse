@@ -5,7 +5,10 @@ import OrderItem from '../../components/OrderItem'
 import { ORDERS } from '../../db/orders'
 
 
-// SCREEN NOT ENABLED
+// THIS CODE IS NOT USED
+// THIS SCREEN IS NOT ENABLED
+// THIS SCREEN IS NOT ENABLED
+
 const BookScreen = () => {
     const renderBookItem = ({item})=> (
         <OrderItem item={item} onDelete={handleDeleteBook} />

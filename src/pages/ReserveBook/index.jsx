@@ -30,12 +30,15 @@ const ReserveBook = ({route, navigation: {navigate}}) => {
       };
     
       const handleConfirm = (datePicked) => {
+        // pick date for the booking
         setDate(datePicked.toDateString())
         hideDatePicker();
       };
 
     const handleReserve = () =>{
-        if (selectedPayment == "inventory") {
+
+        // Reserve booking button, check if you have enough money.
+        if (selectedPayment == "inventory") { // the inventory system is not implemented for now.
             Alert.alert("You dont have items in your inventory")
             return
         }

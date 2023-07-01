@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-import Card from '../../components/Card';
 import Layout from '../../Layout/Index';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavourite, removeFavourite } from '../../store/features/favouritesSlice';
@@ -17,6 +16,7 @@ const Favourites = ({navigation}) => {
   const [data, setData] = useState([])  
 
   useEffect(() => {
+    // check and update the favourites list
     if (favourites == undefined) {
       setData([])
       update(ref(DB_TORCHND, 'users/' + iduser), {
@@ -37,7 +37,7 @@ const Favourites = ({navigation}) => {
     let idfoundData = idFound.id
     dispatch(addFavourite({idfoundData}))
     
-    // update favourites to the database
+    // update(add) favourites to the database
     if(favourites == undefined) {
       update(ref(DB_TORCHND, 'users/' + iduser), {
         favourites:[idFound.id]

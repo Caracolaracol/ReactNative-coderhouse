@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
       elevation: 5,
       zIndex:4,
       paddingTop:27,
-      paddingHorizontal:10
     },
     logotitleContainer: {
       flexDirection:'row',
       alignSelf:'flex-end', 
-      paddingBottom:2
+      paddingBottom:2,
+      paddingLeft:10
     },
     titleContainer: {
       fontSize: 50, 
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     searchContainer:{
       alignSelf:'flex-end',
       width:'55%',
- 
+      paddingRight:10
     },
    imageContainer: {
       alignSelf:'flex-end',

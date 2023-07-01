@@ -48,8 +48,6 @@ export function MyStack(){
 }
 
 export function MyTabs({route}){
-  console.log(route)
-
   return(
     <Tab.Navigator 
     tabBar={(props) => <NavBar {...props}/>}

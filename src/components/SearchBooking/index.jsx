@@ -16,6 +16,7 @@ const SearchBooking = ({ onHandleSearch}) => {
     }
 
     const onSubmitText = () => {
+        // Simple código para buscar un booking
         let formatedText = value.toLowerCase()
         let itemFound
         if(formatedText === null) {

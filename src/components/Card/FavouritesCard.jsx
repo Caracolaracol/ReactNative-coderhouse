@@ -28,7 +28,7 @@ export default function FavouritesCard({ otherStyles, bookingUbication, cardDesc
   },[favourites])
 
   return (
-    <Pressable onPress={() => navigation.navigate('ItemDetail', { item: item })} style={{ ...favouritesStyles.container, ...otherStyles }}  >
+    <Pressable onPress={() => navigation.navigate('ItemDetail', { id:id})} style={{ ...favouritesStyles.container, ...otherStyles }}  >
       <View style={favouritesStyles.imageContainer}>
         {cardImages != "" ? (
           <ImageBackground source={{uri:cardImages[0].url}} style={favouritesStyles.imageList}>

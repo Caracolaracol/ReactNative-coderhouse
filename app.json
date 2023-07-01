@@ -2,7 +2,7 @@
   "expo": {
     "name": "torchnd-app",
     "slug": "torchnd-app",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "orientation": "portrait",
     "icon": "./assets/logotorchnd.png",
     "platforms": [
@@ -24,7 +24,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logotorchnd.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.caracolaracol.torchndapp"

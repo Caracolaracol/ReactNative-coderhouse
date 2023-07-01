@@ -23,14 +23,14 @@ const ItemDetail = ({route, navigation}) => {
     setBookingData(bookingFound)
     if (favourites == undefined){
     } else {
-      let conditionFav = favourites.includes(bookingData.id) 
+      let conditionFav = favourites.includes(route.params.id) 
       if (conditionFav) {
         setIsFavourite(true)
       } else {
         setIsFavourite(false)
       }
     }
-  },[favourites, bookingData])
+  },[favourites, bookingData, bookings])
 
   const onHandleRemove = (id) => {
     dispatch(removeFavourite({id}))

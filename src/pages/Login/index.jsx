@@ -1,5 +1,5 @@
 import React, {  useEffect, useState } from 'react'
-import { View, Text, TextInput, KeyboardAvoidingView, Pressable, Image, Platform } from 'react-native'
+import { View, Text, TextInput, KeyboardAvoidingView, Pressable, Image, Platform, Alert } from 'react-native'
 
 import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth'
 import { ref, set } from 'firebase/database'
@@ -21,7 +21,8 @@ const Login = () => {
   const [validationText, setValidationText] = useState('')
   const [isLogin, setIsLogin] = useState(true)
   
-  const writeUserData = (userId, email) => { // add user to database
+  const writeUserData = (userId, email) => { 
+    // add user to firebase database
     set(ref(DB_TORCHND, 'users/' + userId), {
       userId:userId,
       email:email,
@@ -56,6 +57,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        Alert.alert('Wrong email or password, try again')
       }) 
     }
   } 

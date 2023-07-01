@@ -16,7 +16,7 @@ export default function Header() {
   }
   
   return (
-        <ImageBackground source={require('../../assets/bg2.png')} style={styles.headerContainer}>
+        <ImageBackground source={require('../../assets/bg2.png')} style={styles.headerContainer} resizeMode="cover">
           <View style={styles.logotitleContainer}>
             <Text style={styles.titleContainer}>torchnd</Text>
             <View style={styles.imageContainer}>
